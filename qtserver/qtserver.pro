@@ -12,8 +12,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = qtserver
 TEMPLATE = app
 QTPLUGIN = QSQLMYSQL
-INCLUDEPATH += "C:\Qt\5.14.1\mingw73_32\bin\lib"
-INCLUDEPATH += "C:\Program Files\MySQL\MySQL Server8.0\lib"
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -46,33 +45,33 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../libek/
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../libek/
-else:unix: LIBS += -L$$PWD/../libek/
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../libek/
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../libek/
+#else:unix: LIBS += -L$$PWD/../libek/
 
-INCLUDEPATH += $$PWD/../libek
-DEPENDPATH += $$PWD/../libek
+#INCLUDEPATH += $$PWD/../libek
+#DEPENDPATH += $$PWD/../libek
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
-else:unix: LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
+#else:unix: LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
 
-INCLUDEPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib'
-DEPENDPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib'
+#INCLUDEPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib'
+#DEPENDPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib'
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
-else:unix: LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
+#else:unix: LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
 
-INCLUDEPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib'
-DEPENDPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib'
+#INCLUDEPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib'
+#DEPENDPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib'
 
-DISTFILES += \
-    ../../../../Program Files/MySQL/MySQL Server8.0/lib/libmysql.dll
+#DISTFILES += \
+#    ../../../../Program Files/MySQL/MySQL Server8.0/lib/libmysql.dll
 
-#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/' -llibmysql
-#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/' -llibmysqld
-#else:unix: LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/' -llibmysql
+##win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/' -llibmysql
+##else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/' -llibmysqld
+##else:unix: LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/' -llibmysql
 
-INCLUDEPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/include'
-DEPENDPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/include'
+#INCLUDEPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/include'
+#DEPENDPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/include'
