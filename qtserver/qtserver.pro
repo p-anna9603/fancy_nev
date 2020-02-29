@@ -27,11 +27,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        databaseconnection.cpp \
         dialog.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        databaseconnection.h \
         dialog.h \
         mainwindow.h
 

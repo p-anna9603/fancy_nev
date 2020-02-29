@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //ezt kell minden új windowban a konstruktorba belerakni, meg a headerben lévőt:
+    database= DatabaseConnection();
 }
 
 MainWindow::~MainWindow()
@@ -15,37 +17,27 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("remotemysql.com");
-    db.setUserName("GaZL22lGP6");
-    db.setPassword("X5QBXJILeg");
-    db.setDatabaseName("GaZL22lGP6");
-    if(db.open())
+    if(database.getDb().open())
     {
         QMessageBox::information(this,"Connection", "Database connected successfully");
     }
-    else {
+    else
+    {
         QMessageBox::information(this, "Not Connected", "Database not connected");
     }
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL", "MyConnect");
-    db.setHostName("remotemysql.com");
-    db.setUserName("GaZL22lGP6");
-    db.setPassword("X5QBXJILeg");
-    db.setDatabaseName("GaZL22lGP6");
-
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
 
-    if(db.open())
+    if(database.getDb().open())
     {
 //        QMessageBox::information(this,"Connection", "Database connected successfully");
 
         QSqlQuery query(QSqlDatabase::database("MyConnect"));
-        query.prepare(QString("SELECT * FROM Users WHERE Felhasználónév = :username AND Jelszó = :password"));
+        query.prepare(QString("SELECT * FROM users WHERE username = :username AND password = :password"));
 
            query.bindValue(":username", username);
            query.bindValue(":password", password);
@@ -57,8 +49,8 @@ void MainWindow::on_pushButton_2_clicked()
         }else{
             while(query.next())
             {
-                QString usernameFromDB = query.value(2).toString();
-                QString passwordFromDB = query.value(3).toString();
+                QString usernameFromDB = query.value(0).toString();
+                QString passwordFromDB = query.value(1).toString();
 
                 if(usernameFromDB == username && passwordFromDB == password)
                 {

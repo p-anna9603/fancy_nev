@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QSqlDriverPlugin>
 #include "dialog.h"
+#include "databaseconnection.h"
 
 
 
@@ -29,6 +30,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    //meg ez kell:
+    DatabaseConnection database;
 };
 
 #endif // MAINWINDOW_H
