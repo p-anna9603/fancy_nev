@@ -52,7 +52,7 @@ else:unix: LIBS += -L$$PWD/../libek/
 
 INCLUDEPATH += $$PWD/../libek
 DEPENDPATH += $$PWD/../libek
-
+#ANNA fasdlkjflkdsahfélkadjsélh
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
 else:unix: LIBS += -L$$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/lib/'
