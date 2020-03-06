@@ -8,6 +8,7 @@
 #include <QSqlDriverPlugin>
 #include "dialog.h"
 #include "databaseconnection.h"
+#include "adminfelulet.h"
 
 
 
@@ -28,10 +29,12 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_adminFormButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     //meg ez kell:
-    DatabaseConnection database;
+    DatabaseConnection* database;
 };
 
 #endif // MAINWINDOW_H

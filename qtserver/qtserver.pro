@@ -27,17 +27,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        adminfelulet.cpp \
         databaseconnection.cpp \
         dialog.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        adminfelulet.h \
         databaseconnection.h \
         dialog.h \
         mainwindow.h
 
 FORMS += \
+        adminfelulet.ui \
         dialog.ui \
         mainwindow.ui
 
@@ -77,3 +80,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 #INCLUDEPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/include'
 #DEPENDPATH += $$PWD/'../../../../Program Files/MySQL/MySQL Server8.0/include'
+
+RESOURCES += \
+    resource.qrc

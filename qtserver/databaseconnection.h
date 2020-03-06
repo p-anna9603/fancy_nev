@@ -14,7 +14,6 @@ class DatabaseConnection
     QSqlDatabase db;
 public:
     DatabaseConnection();
-
     QSqlDatabase getDb() const;
 };
 

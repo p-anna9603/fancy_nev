@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     //ezt kell minden új windowban a konstruktorba belerakni, meg a headerben lévőt:
-    database= DatabaseConnection();
+    database= new DatabaseConnection();
 }
 
 MainWindow::~MainWindow()
@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    if(database.getDb().open())
+    if(database->getDb().open())
     {
         QMessageBox::information(this,"Connection", "Database connected successfully");
     }
@@ -25,6 +25,7 @@ void MainWindow::on_pushButton_clicked()
     {
         QMessageBox::information(this, "Not Connected", "Database not connected");
     }
+
 }
 
 void MainWindow::on_pushButton_2_clicked()
@@ -32,21 +33,19 @@ void MainWindow::on_pushButton_2_clicked()
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
 
-    if(database.getDb().open())
+    if(database->getDb().open())
     {
-//        QMessageBox::information(this,"Connection", "Database connected successfully");
-
         QSqlQuery query(QSqlDatabase::database("MyConnect"));
         query.prepare(QString("SELECT * FROM users WHERE username = :username AND password = :password"));
-
-           query.bindValue(":username", username);
-           query.bindValue(":password", password);
-
+        query.bindValue(":username", username);
+        query.bindValue(":password", password);
         if(!query.exec())
         {
             QMessageBox::information(this, "Failed", "Query Failed to execute");
 
-        }else{
+        }
+        else
+        {
             while(query.next())
             {
                 QString usernameFromDB = query.value(0).toString();
@@ -67,7 +66,15 @@ void MainWindow::on_pushButton_2_clicked()
             }
         }
     }
-    else {
+    else
+    {
         QMessageBox::information(this, "Not Connected", "Database not connected");
     }
+}
+
+void MainWindow::on_adminFormButton_clicked()
+{
+    adminFelulet *testAdmin=new adminFelulet;
+    testAdmin->show();
+    this->hide();
 }
