@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>140</x>
       <y>40</y>
       <width>111</width>
       <height>31</height>
@@ -84,6 +84,19 @@
     </property>
     <property name="text">
      <string>Jelszó</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="adminFormButton">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>130</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>adminFelület</string>
     </property>
    </widget>
   </widget>
