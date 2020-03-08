@@ -37,7 +37,7 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
     if(database->getDb().open())
     {
         QSqlQuery query(QSqlDatabase::database("MyConnect"));
-        query.prepare(QString("SELECT * FROM users WHERE username = :username AND password = :password"));
+        query.prepare(QString("SELECT * FROM Users WHERE username = :username AND password = :password"));
         query.bindValue(":username", username);
         query.bindValue(":password", password);
         if(!query.exec())
@@ -54,11 +54,20 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
 
                 if(usernameFromDB == username && passwordFromDB == password)
                 {
-                    QMessageBox::information(this, "Success", "Login Success");
-
+                    //idegbajt kapok mégegyszer előugrik ez a szar
+                    //QMessageBox::information(this, "Success", "Login Success");
+                    if ((username=="adminKlaudia" || username=="adminVera" || username=="adminAnna") && password=="admin")   //admin---->AdminFelület
+                    {
+                        adminFelulet *testAdmin=new adminFelulet(this,username);
+                        testAdmin->show();
+                        this->hide();
+                    }
+                    else    //Sima User-->játékAblak
+                    {
                     Dialog dialog;
                     dialog.setModal(true);
                     dialog.exec();
+                    }
                 }
                 else
                 {
@@ -73,9 +82,3 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
     }
 }
 
-void MainWindow::on_adminFormButton_clicked()
-{
-    adminFelulet *testAdmin=new adminFelulet;
-    testAdmin->show();
-    this->hide();
-}

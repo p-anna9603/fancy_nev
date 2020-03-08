@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/resource">
         <file>img/quizzyLogoTransparent.png</file>
+        <file>img/loginTrans.png</file>
     </qresource>
 </RCC>

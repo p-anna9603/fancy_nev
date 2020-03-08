@@ -30,6 +30,7 @@ SOURCES += \
         adminfelulet.cpp \
         databaseconnection.cpp \
         dialog.cpp \
+        kerdeshozzaadasa.cpp \
         main.cpp \
         mainwindow.cpp
 
@@ -37,11 +38,13 @@ HEADERS += \
         adminfelulet.h \
         databaseconnection.h \
         dialog.h \
+        kerdeshozzaadasa.h \
         mainwindow.h
 
 FORMS += \
         adminfelulet.ui \
         dialog.ui \
+        kerdeshozzaadasa.ui \
         mainwindow.ui
 
 # Default rules for deployment.
