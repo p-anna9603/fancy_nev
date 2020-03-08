@@ -7,11 +7,12 @@ QSqlDatabase DatabaseConnection::getDb() const
 
 DatabaseConnection::DatabaseConnection()
 {
+    //http://www.phpmyadmin.co/index.php    <-Server
     db=QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("remotemysql.com");
-    db.setUserName("W59wkiPNGD");
-    db.setPassword("2JRgxq398t");
-    db.setDatabaseName("W59wkiPNGD");
+    db.setHostName("sql2.freesqldatabase.com");
+    db.setUserName("sql2326670");      // <-Username
+    db.setPassword("bG5%uY1!");         //<-Password
+    db.setDatabaseName("sql2326670");
     if(db.open())
     {
        qDebug()<<"Connection, Database connected successfully";
@@ -19,5 +20,6 @@ DatabaseConnection::DatabaseConnection()
     else
     {
         qDebug()<<"Not Connected, Database not connected";
+        qDebug()<<db.lastError();
     }
 }

@@ -13,9 +13,10 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete database;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_clicked()    //db_Connection Button
 {
     if(database->getDb().open())
     {
@@ -28,7 +29,7 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_pushButton_2_clicked()  //Login Button
 {
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
