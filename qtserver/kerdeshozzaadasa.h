@@ -1,6 +1,7 @@
 #ifndef KERDESHOZZAADASA_H
 #define KERDESHOZZAADASA_H
 
+#include "databaseconnection.h"
 #include <QWidget>
 
 namespace Ui {
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::kerdesHozzaadasa *ui;
+    DatabaseConnection *db;
 };
 
 #endif // KERDESHOZZAADASA_H

@@ -6,6 +6,7 @@ kerdesHozzaadasa::kerdesHozzaadasa(QWidget *parent) :
     ui(new Ui::kerdesHozzaadasa)
 {
     ui->setupUi(this);
+    db= new DatabaseConnection();
 }
 
 kerdesHozzaadasa::~kerdesHozzaadasa()

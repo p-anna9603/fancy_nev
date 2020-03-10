@@ -61,6 +61,8 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
                         adminFelulet *testAdmin=new adminFelulet(this,username);
                         testAdmin->show();
                         this->hide();
+                        //ui->usernameLogin->setText("");
+                        //ui->passwordLogin->setText("");
                     }
                     else    //Sima User-->játékAblak
                     {

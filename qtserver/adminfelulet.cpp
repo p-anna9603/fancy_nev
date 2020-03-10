@@ -26,6 +26,6 @@ void adminFelulet::on_buttonVissza_clicked()
 
 void adminFelulet::on_buttonKerdesHozzaad_clicked()
 {
-    ui->kerdesWidget->setStyleSheet("background-color:white;");
+    //ui->kerdesWidget->setStyleSheet("background-color:white;");
     ui->kerdesWidget->show();
 }
