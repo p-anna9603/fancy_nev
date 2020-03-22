@@ -2,5 +2,27 @@
     <qresource prefix="/resource">
         <file>img/quizzyLogoTransparent.png</file>
         <file>img/loginTrans.png</file>
+        <file>img/kicsi_login.png</file>
+        <file>img/kicsi_login_szurke.png</file>
+        <file>img/back_3.jpg</file>
+        <file>img/backg_1.jpg</file>
+        <file>img/backg_2.jpeg</file>
+        <file>img/bckg_10.jpg</file>
+        <file>img/bckg_4.jpg</file>
+        <file>img/bckg_5.jpg</file>
+        <file>img/bckg_6.jpg</file>
+        <file>img/bckg_7.jpg</file>
+        <file>img/bckg_8.jpg</file>
+        <file>img/bckg_9.jpg</file>
+        <file>img/kicsi_login2.html</file>
+        <file>img/kicsi_login2.png</file>
+        <file>img/login.png</file>
+        <file>img/quizzyLogo.png</file>
+        <file>img/loginTrans2.png</file>
+        <file>img/loginTrans3.png</file>
+        <file>img/lock_icon.png</file>
+        <file>img/kicsi_user_login.png</file>
     </qresource>
+    <qresource prefix="/Myfile"/>
+    <qresource prefix="/bacground"/>
 </RCC>

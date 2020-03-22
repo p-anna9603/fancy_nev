@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>957</width>
-    <height>633</height>
+    <width>920</width>
+    <height>678</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>2000</width>
+    <height>2000</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Login</string>
@@ -17,180 +29,298 @@
    <iconset resource="resource.qrc">
     <normaloff>:/resource/img/quizzyLogoTransparent.png</normaloff>:/resource/img/quizzyLogoTransparent.png</iconset>
   </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
-    <string notr="true">QWidget#centralWidget{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(173, 83, 137, 255), stop:1 rgba(60, 16, 83, 255));}</string>
+    <string notr="true">/*QWidget#centralWidget{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(173, 83, 137, 255), stop:1 rgba(60, 16, 83, 255));}*/
+
+/* további lehetséges hátterek:
+border-image: url(:/resource/img/bckg_5.jpg);
+border-image: url(:/resource/img/bckg_7.jpg);
+border-image: url(:/resource/img/bckg_10.jpg);
+*/
+
+QWidget#centralWidget
+{
+/*background-image: url(:/resource/img/backg_1.jpg);*/
+border-image: url(:/resource/img/backg_1.jpg);
+background-repeat: no-repeat, repeat;
+bacground-position: center;
+/*background-size: cover;
+position: relative;*/
+}
+
+QPushButton:hover
+{
+   background-color:white;
+}</string>
    </property>
-   <widget class="QLineEdit" name="usernameLogin">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>340</y>
-      <width>321</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="passwordLogin">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>400</y>
-      <width>321</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>460</y>
-      <width>321</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Tw Cen MT Condensed</family>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(87, 35, 100);</string>
-    </property>
-    <property name="text">
-     <string>LOGIN</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>340</y>
-      <width>221</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Tw Cen MT</family>
-      <pointsize>18</pointsize>
-      <italic>true</italic>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>Felhasználónév</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>400</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Tw Cen MT</family>
-      <pointsize>18</pointsize>
-      <italic>true</italic>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>Jelszó</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="loginPicture">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>130</y>
-      <width>191</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="resource.qrc">:/resource/img/loginTrans.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>140</y>
-      <width>231</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="lineWidth">
-     <number>2</number>
-    </property>
-    <property name="midLineWidth">
-     <number>2</number>
-    </property>
-    <property name="text">
-     <string>Ezzel valaki kezdjen valamit, nagyon ronda a szíííne és nem tudom mit kezdjek vele</string>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-    <property name="wordWrap">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>170</y>
-      <width>91</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>&lt;---</string>
-    </property>
-   </widget>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetFixedSize</enum>
+      </property>
+      <property name="topMargin">
+       <number>50</number>
+      </property>
+      <property name="bottomMargin">
+       <number>50</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>231</width>
+          <height>181</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="resource.qrc">:/resource/img/loginTrans3.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="usernameLogin">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/loginTrans.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/*
+background-image: url(:/resource/img/kicsi_login_szurke.png);
+background-repeat: no-repeat, repeat;
+background-attachment: fixed;
+background-position:  left;
+
+padding-left: 30px;
+text-align:justify; 
+letter-spacing: 10px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;*/
+
+QLineEdit {
+background-image: url(:/resource/img/kicsi_user_login.png);
+/*background-image: url(:/resource/img/kicsi_login_szurke.png);*/
+background-repeat: no-repeat, repeat;
+padding-left:10px;
+background-attachment: fixed;
+background-position:  left;
+
+padding: 1px;
+border-style: solid;
+/*border: 2px solid gray;*/
+border-radius: 8px;
+
+padding-left: 30px;
+text-align:justify; 
+letter-spacing: 10px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+}
+</string>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Felhasználónév</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="passwordLogin">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/*
+background-image: url(:/resource/img/lock_icon.png);
+background-repeat: no-repeat, repeat;
+background-attachment: fixed;
+background-position:  left;*/
+
+/*
+padding-left: 30px;
+text-align:justify; 
+letter-spacing: 10px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;*/
+
+QLineEdit {
+background-image: url(:/resource/img/lock_icon.png);
+background-repeat: no-repeat, repeat;
+background-attachment: fixed;
+background-position:  left;
+
+padding: 1px;
+border-style: solid;
+/*border: 2px solid gray;*/
+border-radius: 8px;
+
+padding-left: 30px;
+text-align:justify; 
+letter-spacing: 10px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+        <property name="placeholderText">
+         <string>Jelszó</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tw Cen MT Condensed</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #da70d6, stop: 0.1 #ba55d3,  stop: 0.49 #8b008b );
+border-radius: 7;
+/*ccc*/
+}
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #D7BDE2, stop: 0.1 #C39BD3,  stop: 0.49 #BB8FCE );
+}
+</string>
+        </property>
+        <property name="text">
+         <string>LOGIN</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+text-decoration: underline;
+
+color: rgb(0, 255, 255);
+
+
+</string>
+        </property>
+        <property name="text">
+         <string>Forget password?</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="maximumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2"/>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
