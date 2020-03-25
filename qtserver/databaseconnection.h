@@ -8,6 +8,8 @@
 #include <QSqlDriverPlugin>
 #include <QDialog>
 #include <QDebug>
+#include <iostream>
+using namespace std;
 
 class DatabaseConnection
 {
@@ -15,6 +17,8 @@ class DatabaseConnection
 public:
     DatabaseConnection();
     QSqlDatabase getDb() const;
+
+
 };
 
 #endif // DATABASECONNECTION_H

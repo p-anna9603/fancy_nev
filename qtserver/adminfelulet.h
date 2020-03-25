@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QDebug>
+#include "mainwindow.h"
+#include "databaseconnection.h"
 
 namespace Ui {
 class adminFelulet;

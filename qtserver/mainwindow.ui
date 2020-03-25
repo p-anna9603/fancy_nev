@@ -85,9 +85,13 @@ QPushButton:hover
         </property>
         <property name="maximumSize">
          <size>
-          <width>231</width>
+          <width>500</width>
           <height>181</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">padding-left: 130px;
+padding-right: 130px;</string>
         </property>
         <property name="text">
          <string/>
@@ -147,7 +151,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;*/
 QLineEdit {
 background-image: url(:/resource/img/kicsi_user_login.png);
 /*background-image: url(:/resource/img/kicsi_login_szurke.png);*/
-background-repeat: no-repeat, repeat;
+background-repeat: no-repeat;
 padding-left:10px;
 background-attachment: fixed;
 background-position:  left;
@@ -159,7 +163,7 @@ border-radius: 8px;
 
 padding-left: 30px;
 text-align:justify; 
-letter-spacing: 10px;
+/* letter-spacing: 10px; /* valamiért nem akar működni ez */
 font: 14pt &quot;MS Shell Dlg 2&quot;;
 }
 </string>
@@ -210,7 +214,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;*/
 
 QLineEdit {
 background-image: url(:/resource/img/lock_icon.png);
-background-repeat: no-repeat, repeat;
+background-repeat: no-repeat;
 background-attachment: fixed;
 background-position:  left;
 
@@ -221,7 +225,7 @@ border-radius: 8px;
 
 padding-left: 30px;
 text-align:justify; 
-letter-spacing: 10px;
+/* letter-spacing: 10px; /* valamiért nem akar működni ez */
 font: 14pt &quot;MS Shell Dlg 2&quot;;
 }</string>
         </property>
@@ -252,15 +256,19 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
         </property>
         <property name="font">
          <font>
-          <family>Tw Cen MT Condensed</family>
-          <pointsize>12</pointsize>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>14</pointsize>
           <weight>75</weight>
+          <italic>false</italic>
           <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
+         <string notr="true">
+QPushButton {
 color: white;
+font: bold 14pt &quot;MS Shell Dlg 2&quot;;
+letter-spacing: .4rem;
 background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #da70d6, stop: 0.1 #ba55d3,  stop: 0.49 #8b008b );
 border-radius: 7;
 /*ccc*/
@@ -315,18 +323,6 @@ color: rgb(0, 255, 255);
      </layout>
     </item>
    </layout>
-  </widget>
-  <widget class="QDockWidget" name="dockWidget">
-   <property name="maximumSize">
-    <size>
-     <width>0</width>
-     <height>0</height>
-    </size>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>1</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents_2"/>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

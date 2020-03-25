@@ -22,6 +22,8 @@ void adminFelulet::on_buttonVissza_clicked()
 {
     //this->hide();
     this->close();
+//    vissza->show();
+//    new MainWindow(vissza);
     vissza->show();
 }
 

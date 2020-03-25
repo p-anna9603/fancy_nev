@@ -9,7 +9,8 @@
 #include "dialog.h"
 #include "databaseconnection.h"
 #include "adminfelulet.h"
-
+#include <QDebug>
+#include <QTableView>
 #include <iostream>
 using namespace std;
 
@@ -35,7 +36,6 @@ private:
     Ui::MainWindow *ui;
     //meg ez kell:
     DatabaseConnection* database;
-
 };
 
 #endif // MAINWINDOW_H

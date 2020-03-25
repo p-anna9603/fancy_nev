@@ -2,11 +2,13 @@
 
 QSqlDatabase DatabaseConnection::getDb() const
 {
+    qDebug()<< "getDb() fv\n";
     return db;
 }
 
 DatabaseConnection::DatabaseConnection()
 {
+    qDebug() << "DataBaseConnection() fv\n";
     //http://www.phpmyadmin.co/index.php    <-Server
     db=QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("sql2.freesqldatabase.com");
