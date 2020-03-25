@@ -4,6 +4,7 @@
 #include "databaseconnection.h"
 #include <QWidget>
 #include <string>
+#include <QMessageBox>
 
 namespace Ui {
 class kerdesHozzaadasa;
@@ -25,6 +26,8 @@ private:
     std::string getValasz2() const;
     std::string getValasz3() const;
     std::string getValasz4() const;*/
+private slots:
+    void on_hozzaadButton_clicked();
 };
 
 #endif // KERDESHOZZAADASA_H

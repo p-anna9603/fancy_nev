@@ -20,7 +20,8 @@ adminFelulet::~adminFelulet()
 
 void adminFelulet::on_buttonVissza_clicked()
 {
-    this->hide();
+    //this->hide();
+    this->close();
     vissza->show();
 }
 

@@ -138,7 +138,7 @@
     <property name="font">
      <font>
       <family>Tw Cen MT</family>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -157,7 +157,7 @@
     <property name="font">
      <font>
       <family>Tw Cen MT</family>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -208,11 +208,11 @@
     <property name="font">
      <font>
       <family>Tw Cen MT</family>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Option#2</string>
+     <string>Kategória hozzáadása</string>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonOption3">
@@ -227,11 +227,11 @@
     <property name="font">
      <font>
       <family>Tw Cen MT</family>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Option#3</string>
+     <string>Játékeírás módosítása</string>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonOption4">
@@ -246,11 +246,11 @@
     <property name="font">
      <font>
       <family>Tw Cen MT</family>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Option#4</string>
+     <string>Felhasználó törlése</string>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonOption5">
@@ -265,7 +265,7 @@
     <property name="font">
      <font>
       <family>Tw Cen MT</family>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
