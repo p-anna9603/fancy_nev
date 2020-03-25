@@ -8,6 +8,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     //ezt kell minden új windowban a konstruktorba belerakni, meg a headerben lévőt:
     database= new DatabaseConnection();
+
+    // hogy működjön a belépés enterrel is:
+    connect(ui->usernameLogin, SIGNAL(returnPressed()),ui->pushButton_2,SIGNAL(clicked()));
+    connect(ui->passwordLogin, SIGNAL(returnPressed()),ui->pushButton_2,SIGNAL(clicked()));
 }
 
 MainWindow::~MainWindow()
@@ -33,6 +37,12 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
 {
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
+
+    //majd megoldom valahogy hogy csekkolja ezeket is, ez most nem jó (forever loop)
+//    while(username == "" || password =="")
+//    {
+//      QMessageBox::information(this, "Please enter username and password", "Please enter username and password");
+//    }
 
     if(database->getDb().open())
     {
@@ -66,9 +76,9 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
                     }
                     else    //Sima User-->játékAblak
                     {
-                    Dialog dialog;
-                    dialog.setModal(true);
-                    dialog.exec();
+                        Dialog dialog;
+                        dialog.setModal(true);
+                        dialog.exec();
                     }
                 }
                 else
@@ -83,4 +93,3 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
         QMessageBox::information(this, "Not Connected", "Database not connected");
     }
 }
-
