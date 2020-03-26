@@ -13,7 +13,6 @@ kerdesHozzaadasa::kerdesHozzaadasa(QWidget *parent, DatabaseConnection *db) :
     ui(new Ui::kerdesHozzaadasa),
     db(db)
 {
-         qDebug()<<" kerdesHozzaadasa konstruktor \n";
     ui->setupUi(this);
 }
 kerdesHozzaadasa::~kerdesHozzaadasa()
@@ -23,7 +22,6 @@ kerdesHozzaadasa::~kerdesHozzaadasa()
 
 void kerdesHozzaadasa::on_hozzaadButton_clicked()
 {
-    qDebug()<< "kerdes hozzadasa gomb fv\n";
     QString kerdes = ui->kerdesMezo->toPlainText();
     QString valasz1 = ui->valasz1Mezo->text();
     QString valasz2 = ui->valasz1Mezo->text();

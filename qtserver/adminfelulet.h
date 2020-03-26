@@ -18,7 +18,7 @@ class adminFelulet : public QMainWindow
 public:
     explicit adminFelulet( QMainWindow *main,const QString& adminName="Unknown",DatabaseConnection *db = nullptr, QWidget *parent = nullptr);
     ~adminFelulet();
-    QWidget *centralwidget;
+    QWidget *centralwidget = nullptr;
 
 private slots:
 

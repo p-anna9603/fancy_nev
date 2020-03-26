@@ -36,11 +36,13 @@ void adminFelulet::on_buttonVissza_clicked()
 
 void adminFelulet::on_buttonKerdesHozzaad_clicked()
 {
-         qDebug()<<" kerdes hozzaad button \n";
     //ui->kerdesWidget->setStyleSheet("background-color:white;");
     //ui->kerdesWidget->show();
-    kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(centralwidget,db);
+//    kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(centralwidget,db);
+    kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(nullptr,db);
+
     kerdesWidget->show();
+
 
 
 }
