@@ -183,19 +183,6 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="kerdesHozzaadasa" name="kerdesWidget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>120</y>
-      <width>421</width>
-      <height>511</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="buttonOption2">
     <property name="geometry">
      <rect>
@@ -279,21 +266,12 @@
    <zorder>buttonVissza</zorder>
    <zorder>quizzyLogo</zorder>
    <zorder>buttonKerdesHozzaad</zorder>
-   <zorder>kerdesWidget</zorder>
    <zorder>buttonOption2</zorder>
    <zorder>buttonOption3</zorder>
    <zorder>buttonOption4</zorder>
    <zorder>buttonOption5</zorder>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>kerdesHozzaadasa</class>
-   <extends>QWidget</extends>
-   <header>kerdeshozzaadasa.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="resource.qrc"/>
  </resources>

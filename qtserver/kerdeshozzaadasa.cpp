@@ -1,14 +1,21 @@
 #include "kerdeshozzaadasa.h"
 #include "ui_kerdeshozzaadasa.h"
 
-kerdesHozzaadasa::kerdesHozzaadasa(QWidget *parent) :
+//kerdesHozzaadasa::kerdesHozzaadasa(QWidget *parent) :
+//    QWidget(parent),
+//    ui(new Ui::kerdesHozzaadasa)
+//{
+//    ui->setupUi(this);
+//    db= new DatabaseConnection();
+//}
+kerdesHozzaadasa::kerdesHozzaadasa(QWidget *parent, DatabaseConnection *db) :
     QWidget(parent),
-    ui(new Ui::kerdesHozzaadasa)
+    ui(new Ui::kerdesHozzaadasa),
+    db(db)
 {
+         qDebug()<<" kerdesHozzaadasa konstruktor \n";
     ui->setupUi(this);
-    db= new DatabaseConnection();
 }
-
 kerdesHozzaadasa::~kerdesHozzaadasa()
 {
     delete ui;
@@ -16,6 +23,7 @@ kerdesHozzaadasa::~kerdesHozzaadasa()
 
 void kerdesHozzaadasa::on_hozzaadButton_clicked()
 {
+    qDebug()<< "kerdes hozzadasa gomb fv\n";
     QString kerdes = ui->kerdesMezo->toPlainText();
     QString valasz1 = ui->valasz1Mezo->text();
     QString valasz2 = ui->valasz1Mezo->text();
