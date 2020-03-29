@@ -31,11 +31,10 @@ private:
     QMainWindow *vissza;
     DatabaseConnection *db;
 
-    //megnyitja új ablakban
     kerdesHozzaadasa *kerdesWidget;
 
     //lehet így is - csak akkor szépen megkell szerkeszteni
-    // kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(this,db);
+    //kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(this,db);
 
 };
 

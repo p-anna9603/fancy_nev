@@ -38,8 +38,14 @@ void adminFelulet::on_buttonKerdesHozzaad_clicked()
 {
     //ui->kerdesWidget->setStyleSheet("background-color:white;");
     //ui->kerdesWidget->show();
-//    kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(centralwidget,db);
+    //ez a centralwidget-el megoldva, új ablakban
+    // kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(centralwidget,db);
+
+    //nullptr-el (szülő nélkül) új ablakban
     kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(nullptr,db);
+
+    //lehet így is - csak akkor szépen megkell szerkeszteni (így nem új ablakban jelenik meg, hanem statikusan beépítve)
+    //kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(this,db);
 
     kerdesWidget->show();
 
