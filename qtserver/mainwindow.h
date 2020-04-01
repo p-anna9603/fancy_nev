@@ -39,3 +39,4 @@ private:
 };
 
 #endif // MAINWINDOW_H
+// fancy.nev@gmail.com , jelszó : FAncy1234

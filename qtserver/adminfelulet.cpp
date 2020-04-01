@@ -1,15 +1,24 @@
 #include "adminfelulet.h"
 #include "ui_adminfelulet.h"
-#include "kerdeshozzaadasa.h"
 
-adminFelulet::adminFelulet(QMainWindow *qMain, const QString &adminName, QWidget *parent) :
+//adminFelulet::adminFelulet(QMainWindow *qMain, const QString &adminName, QWidget *parent) :
+//    QMainWindow(parent),
+//    ui(new Ui::adminFelulet),
+//    vissza(qMain)
+//{
+//    ui->setupUi(this);
+//    ui->adminUsername->setText(adminName);
+//    ui->kerdesWidget->hide();
+//}
+adminFelulet::adminFelulet(QMainWindow *qMain, const QString &adminName, DatabaseConnection *db, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::adminFelulet),
-    vissza(qMain)
+    vissza(qMain),
+    db(db)
 {
+         qDebug()<<"admin konstruktor \n";
     ui->setupUi(this);
     ui->adminUsername->setText(adminName);
-    ui->kerdesWidget->hide();
 }
 
 adminFelulet::~adminFelulet()
@@ -22,14 +31,24 @@ void adminFelulet::on_buttonVissza_clicked()
 {
     //this->hide();
     this->close();
-//    vissza->show();
-//    new MainWindow(vissza);
     vissza->show();
 }
 
 void adminFelulet::on_buttonKerdesHozzaad_clicked()
 {
     //ui->kerdesWidget->setStyleSheet("background-color:white;");
-    ui->kerdesWidget->show();
+    //ui->kerdesWidget->show();
+    //ez a centralwidget-el megoldva, új ablakban
+    // kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(centralwidget,db);
+
+    //nullptr-el (szülő nélkül) új ablakban
+    kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(nullptr,db);
+
+    //lehet így is - csak akkor szépen megkell szerkeszteni (így nem új ablakban jelenik meg, hanem statikusan beépítve)
+    //kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(this,db);
+
+    kerdesWidget->show();
+
+
 
 }

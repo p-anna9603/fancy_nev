@@ -1,14 +1,20 @@
 #include "kerdeshozzaadasa.h"
 #include "ui_kerdeshozzaadasa.h"
 
-kerdesHozzaadasa::kerdesHozzaadasa(QWidget *parent) :
+//kerdesHozzaadasa::kerdesHozzaadasa(QWidget *parent) :
+//    QWidget(parent),
+//    ui(new Ui::kerdesHozzaadasa)
+//{
+//    ui->setupUi(this);
+//    db= new DatabaseConnection();
+//}
+kerdesHozzaadasa::kerdesHozzaadasa(QWidget *parent, DatabaseConnection *db) :
     QWidget(parent),
-    ui(new Ui::kerdesHozzaadasa)
+    ui(new Ui::kerdesHozzaadasa),
+    db(db)
 {
     ui->setupUi(this);
-    db= new DatabaseConnection();
 }
-
 kerdesHozzaadasa::~kerdesHozzaadasa()
 {
     delete ui;

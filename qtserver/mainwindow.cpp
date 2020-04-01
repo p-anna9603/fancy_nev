@@ -73,14 +73,11 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
                         //QMessageBox::information(this, "Success", "Login Success");
                         if ((username=="adminKlaudia" || username=="adminVera" || username=="adminAnna") && password=="admin")   //admin---->AdminFelület
                         {
-                            adminFelulet *testAdmin=new adminFelulet(this,username);
+                            adminFelulet *testAdmin=new adminFelulet(this,username, database);
 
                             testAdmin->show();
-                    //        this->hide();
+                            //this->hide();
                             this->close();
-
-
-
                             //ui->usernameLogin->setText("");
                             //ui->passwordLogin->setText("");
                         }

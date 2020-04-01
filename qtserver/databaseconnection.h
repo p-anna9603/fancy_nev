@@ -19,6 +19,8 @@ public:
     QSqlDatabase getDb() const;
 
 
+
+
 };
 
 #endif // DATABASECONNECTION_H

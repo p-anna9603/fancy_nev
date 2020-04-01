@@ -6,185 +6,325 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>433</width>
-    <height>450</height>
+    <width>366</width>
+    <height>495</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">QWidget#kerdesHozzaadasa
+{
+/*background-image: url(:/resource/img/backg_1.jpg);*/
+/*border-image: url(:/resource/img/backg_1.jpg);*/
+border-image: url(:/resource/img/bckg_5.jpg);
+background-repeat: no-repeat;
+bacground-position: center;
+/*background-size: cover;
+position: relative;*/
+}
+
+QPushButton:hover
+{
+   background-color:white;
+}</string>
   </property>
-  <widget class="QTextEdit" name="kerdesMezo">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>60</y>
-     <width>311</width>
-     <height>87</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Kérdés</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="valasz1Mezo">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>170</y>
-     <width>311</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Válasz#1</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="valasz2Mezo">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>230</y>
-     <width>311</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Válasz#2</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="valasz3Mezo">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>290</y>
-     <width>311</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Válasz#3</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="valasz4Mezo">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>350</y>
-     <width>311</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Válasz#4</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>-20</y>
-     <width>301</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Tw Cen MT Condensed</family>
-     <pointsize>22</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(87, 35, 100);
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Tw Cen MT Condensed</family>
+       <pointsize>22</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(87, 35, 100);
 background-color:transparent;</string>
-   </property>
-   <property name="text">
-    <string>Kérdés hozzáadása</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="hozzaadButton">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>410</y>
-     <width>311</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Tw Cen MT Condensed</family>
-     <pointsize>14</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(87, 35, 100);</string>
-   </property>
-   <property name="text">
-    <string>Hozzáad</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>180</y>
-     <width>95</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_2">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>240</y>
-     <width>95</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_3">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>300</y>
-     <width>95</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_4">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>360</y>
-     <width>95</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
+     </property>
+     <property name="text">
+      <string>Kérdés hozzáadása</string>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="kerdesMezo">
+     <property name="styleSheet">
+      <string notr="true">QTextEdit{
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+padding: 3px;
+border-radius: 8px;
+ background: qradialgradient(cx:0, cy:0, radius: 1,
+                  fx:0.5, fy:0.5, stop:0 white, stop:1 white);
+}
+
+/*
+QLineEdit {
+background-image: url(:/resource/img/kicsi_user_login.png);
+/*background-image: url(:/resource/img/kicsi_login_szurke.png);
+background-repeat: no-repeat;
+padding-left:10px;
+background-attachment: fixed;
+background-position:  left;
+
+padding: 1px;
+border-style: solid;
+/*border: 2px solid gray;
+border-radius: 8px;
+
+padding-left: 30px;
+text-align:justify; 
+/* letter-spacing: 10px; /* valamiért nem akar működni ez 
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+}
+*/
+</string>
+     </property>
+     <property name="placeholderText">
+      <string>Kérdés megadása...</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLineEdit" name="valasz1Mezo">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>327</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+padding: 3px;
+border-radius: 8px;
+}
+
+</string>
+       </property>
+       <property name="placeholderText">
+        <string>Válasz#1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton">
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLineEdit" name="valasz2Mezo">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>327</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+padding: 3px;
+border-radius: 8px;
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string>Válasz#2</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLineEdit" name="valasz3Mezo">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>327</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+padding: 3px;
+border-radius: 8px;
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string>Válasz#3</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLineEdit" name="valasz4Mezo">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>327</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+padding: 3px;
+border-radius: 8px;
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string>Válasz#4</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_4">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="hozzaadButton">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>348</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+color: white;
+font: bold 14pt &quot;MS Shell Dlg 2&quot;;
+letter-spacing: .4rem;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2964BF, stop: 0.1 #879FC4,  stop: 0.49 #1B4078 );
+border-radius: 7;
+/*ccc*/
+}
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #9CA9BD, stop: 0.1 #D2DAE5,  stop: 0.49 #87A2CD );
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Hozzáad</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
