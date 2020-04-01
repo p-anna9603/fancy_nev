@@ -51,7 +51,9 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
         if(database->getDb().open())
         {
             qDebug() << "pushbutton if ág";
-            QSqlQuery query(QSqlDatabase::database("MyConnect"));
+
+            // QSqlQuery query(QSqlDatabase::database());
+            QSqlQuery query(database->getDb());
             query.prepare(QString("SELECT * FROM Users WHERE username = :username AND password = :password"));
             query.bindValue(":username", username);
             query.bindValue(":password", password);
