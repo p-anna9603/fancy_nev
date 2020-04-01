@@ -6,33 +6,14 @@ QSqlDatabase DatabaseConnection::getDb() const
     return db;
 }
 
-//DatabaseConnection::DatabaseConnection()
-//{
-//    qDebug() << "DataBaseConnection() fv\n";
-//    //http://www.phpmyadmin.co/index.php    <-Server
-//    db=QSqlDatabase::addDatabase("QMYSQL");
-//    db.setHostName("sql2.freesqldatabase.com");
-//    db.setUserName("sql2326670");      // <-Username
-//    db.setPassword("bG5%uY1!");         //<-Password
-//    db.setDatabaseName("sql2326670");
-//    if(db.open())
-//    {
-//       qDebug()<<"Connection, Database connected successfully";
-//    }
-//    else
-//    {
-//        qDebug()<<"Not Connected, Database not connected";
-//        qDebug()<<db.lastError();
-//    }
-//}
 DatabaseConnection::DatabaseConnection()
 {
-    //http://www.phpmyadmin.co/index.php    <-Server
+    //  http://myadmin.contu021.bplaced.net/index.php    <-Server
     db=QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("remotemysql.com");
-    db.setUserName("GaZL22lGP6");      // <-Username
-    db.setPassword("X5QBXJILeg");         //<-Password
-    db.setDatabaseName("GaZL22lGP6");
+    db.setHostName("localhost"); //?????
+    db.setUserName("contu021_fancy");      // <-Username
+    db.setPassword("EhQXX56Qcdkf4HKC");         //<-Password
+    db.setDatabaseName("contu021_quizzy");
     if(db.open())
     {
        qDebug()<<"Connection, Database connected successfully";
