@@ -8,12 +8,13 @@ QSqlDatabase DatabaseConnection::getDb() const
 
 DatabaseConnection::DatabaseConnection()
 {
-    //  http://myadmin.contu021.bplaced.net/index.php    <-Server
+    // https://remotemysql.com/phpmyadmin/index.php  <-Server
     db=QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("localhost"); //?????
-    db.setUserName("contu021_fancy");      // <-Username
-    db.setPassword("EhQXX56Qcdkf4HKC");         //<-Password
-    db.setDatabaseName("contu021_quizzy");
+    db.setHostName("remotemysql.com");
+    db.setPort(3306);
+    db.setUserName("W59wkiPNGD");      // <-Username
+    db.setPassword("CXaZWFE9Zj");         //<-Password
+    db.setDatabaseName("W59wkiPNGD");
     if(db.open())
     {
        qDebug()<<"Connection, Database connected successfully";

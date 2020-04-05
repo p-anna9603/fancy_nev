@@ -22,6 +22,7 @@
         <file>img/loginTrans3.png</file>
         <file>img/lock_icon.png</file>
         <file>img/kicsi_user_login.png</file>
+        <file>img/question_mark.png</file>
     </qresource>
     <qresource prefix="/Myfile"/>
     <qresource prefix="/bacground"/>

@@ -256,7 +256,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Option#5</string>
+     <string>Játék felület</string>
     </property>
    </widget>
    <zorder>label</zorder>

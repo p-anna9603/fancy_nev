@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>366</width>
-    <height>495</height>
+    <width>369</width>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/resource/img/question_mark.png</normaloff>:/resource/img/question_mark.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#kerdesHozzaadasa
@@ -326,6 +330,8 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #9CA9BD, 
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

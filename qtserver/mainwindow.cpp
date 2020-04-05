@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //ezt kell minden új windowban a konstruktorba belerakni, meg a headerben lévőt:
     database= new DatabaseConnection();
 
-    // hogy működjön a belépés enterrel is:
+    // hogy működjön a belépés enterrel is:     Klaudia liked your comment (szivekécsszeműsmiley)
     connect(ui->usernameLogin, SIGNAL(returnPressed()),ui->pushButton_2,SIGNAL(clicked()));
     connect(ui->passwordLogin, SIGNAL(returnPressed()),ui->pushButton_2,SIGNAL(clicked()));
 }
@@ -75,13 +75,13 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
                         //QMessageBox::information(this, "Success", "Login Success");
                         if ((username=="adminKlaudia" || username=="adminVera" || username=="adminAnna") && password=="admin")   //admin---->AdminFelület
                         {
-                            adminFelulet *testAdmin=new adminFelulet(this,username, database);
+                            adminFelulet *testAdmin=new adminFelulet(this,username.replace("admin",""), database);
 
                             testAdmin->show();
                             //this->hide();
                             this->close();
-                            //ui->usernameLogin->setText("");
-                            //ui->passwordLogin->setText("");
+                            ui->usernameLogin->setText("");
+                            ui->passwordLogin->setText("");
                         }
                         else    //Sima User-->játékAblak
                         {
