@@ -6,6 +6,7 @@
 //#include "mainwindow.h"
 #include "databaseconnection.h"
 #include "kerdeshozzaadasa.h"
+#include "jatekleiras.h"
 #include <QWidget>
 namespace Ui {
 class adminFelulet;
@@ -26,12 +27,14 @@ private slots:
 
     void on_buttonKerdesHozzaad_clicked();
 
+    void on_buttonOption3_clicked();
+
 private:
     Ui::adminFelulet *ui;
     QMainWindow *vissza;
     DatabaseConnection *db;
-
-    kerdesHozzaadasa *kerdesWidget;
+    //jatekLeiras *jatekWidget;
+   // kerdesHozzaadasa *kerdesWidget;
 
     //lehet így is - csak akkor szépen megkell szerkeszteni
     //kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(this,db);
