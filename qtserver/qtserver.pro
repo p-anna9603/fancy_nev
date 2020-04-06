@@ -30,6 +30,7 @@ SOURCES += \
         adminfelulet.cpp \
         databaseconnection.cpp \
         dialog.cpp \
+        jatekleiras.cpp \
         kerdeshozzaadasa.cpp \
         main.cpp \
         mainwindow.cpp
@@ -38,12 +39,14 @@ HEADERS += \
         adminfelulet.h \
         databaseconnection.h \
         dialog.h \
+        jatekleiras.h \
         kerdeshozzaadasa.h \
         mainwindow.h
 
 FORMS += \
         adminfelulet.ui \
         dialog.ui \
+        jatekleiras.ui \
         kerdeshozzaadasa.ui \
         mainwindow.ui
 

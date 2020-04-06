@@ -38,6 +38,8 @@ void MainWindow::on_pushButton_clicked()    //db_Connection Button
 void MainWindow::on_pushButton_2_clicked()  //Login Button
 {
 
+    ui->usernameLogin->setText("adminKlaudia");
+    ui->passwordLogin->setText("admin");
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
 
@@ -73,6 +75,7 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
                     {
                         //idegbajt kapok mégegyszer előugrik ez a szar
                         //QMessageBox::information(this, "Success", "Login Success");
+
                         if ((username=="adminKlaudia" || username=="adminVera" || username=="adminAnna") && password=="admin")   //admin---->AdminFelület
                         {
                             adminFelulet *testAdmin=new adminFelulet(this,username.replace("admin",""), database);

@@ -14,6 +14,7 @@ kerdesHozzaadasa::kerdesHozzaadasa(QWidget *parent, DatabaseConnection *db) :
     db(db)
 {
     ui->setupUi(this);
+    QMessageBox::information(this, "WARNING", "Ne adj hozzá kérdést kategória nélkül!!!");
 }
 kerdesHozzaadasa::~kerdesHozzaadasa()
 {
@@ -36,7 +37,6 @@ void kerdesHozzaadasa::on_hozzaadButton_clicked()
         helyesNum=3;
     if (ui->radioButton_4->isChecked())
         helyesNum=4;
-
 
     if(db->getDb().open())
     {

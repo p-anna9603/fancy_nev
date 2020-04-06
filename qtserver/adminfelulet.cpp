@@ -24,6 +24,10 @@ adminFelulet::adminFelulet(QMainWindow *qMain, const QString &adminName, Databas
 adminFelulet::~adminFelulet()
 {
     delete ui;
+    delete vissza;
+    delete db;
+    //delete kerdesWidget;
+    //delete jatekWidget;
 }
 
 
@@ -51,4 +55,10 @@ void adminFelulet::on_buttonKerdesHozzaad_clicked()
 
 
 
+}
+
+void adminFelulet::on_buttonOption3_clicked()
+{
+    jatekLeiras *jatekWidget=new jatekLeiras(nullptr,db);
+    jatekWidget->show();
 }
