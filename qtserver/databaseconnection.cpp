@@ -15,7 +15,8 @@ DatabaseConnection::DatabaseConnection()
     db.setUserName("W59wkiPNGD");      // <-Username
     db.setPassword("CXaZWFE9Zj");         //<-Password
     db.setDatabaseName("W59wkiPNGD");
-    if(db.open())
+    db.open();
+    if(db.isOpen())
     {
        qDebug()<<"Connection, Database connected successfully";
     }

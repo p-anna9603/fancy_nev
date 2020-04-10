@@ -31,24 +31,30 @@ SOURCES += \
         databaseconnection.cpp \
         dialog.cpp \
         jatekleiras.cpp \
+        kategoriahozzaadasa.cpp \
         kerdeshozzaadasa.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        pontszammodositasa.cpp
 
 HEADERS += \
         adminfelulet.h \
         databaseconnection.h \
         dialog.h \
         jatekleiras.h \
+        kategoriahozzaadasa.h \
         kerdeshozzaadasa.h \
-        mainwindow.h
+        mainwindow.h \
+        pontszammodositasa.h
 
 FORMS += \
         adminfelulet.ui \
         dialog.ui \
         jatekleiras.ui \
+        kategoriahozzaadasa.ui \
         kerdeshozzaadasa.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        pontszammodositasa.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

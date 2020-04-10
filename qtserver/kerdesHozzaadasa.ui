@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Kérdés hozzáadása</string>
   </property>
   <property name="windowIcon">
    <iconset resource="resource.qrc">
@@ -115,7 +115,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
     </widget>
    </item>
    <item>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="listaTargyaknak">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -137,29 +137,14 @@ border-radius: 8px;
 }</string>
      </property>
      <property name="editable">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="currentText">
-      <string>Témakör kiválasztása</string>
+      <string/>
      </property>
      <property name="maxCount">
       <number>2147483646</number>
      </property>
-     <item>
-      <property name="text">
-       <string>Történelem</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Magyar nyelv és irodalom</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Matematika</string>
-      </property>
-     </item>
     </widget>
    </item>
    <item>
@@ -378,6 +363,19 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #9CA9BD, 
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>kerdesMezo</tabstop>
+  <tabstop>listaTargyaknak</tabstop>
+  <tabstop>valasz1Mezo</tabstop>
+  <tabstop>valasz2Mezo</tabstop>
+  <tabstop>valasz3Mezo</tabstop>
+  <tabstop>valasz4Mezo</tabstop>
+  <tabstop>hozzaadButton</tabstop>
+  <tabstop>radioButton</tabstop>
+  <tabstop>radioButton_2</tabstop>
+  <tabstop>radioButton_3</tabstop>
+  <tabstop>radioButton_4</tabstop>
+ </tabstops>
  <resources>
   <include location="resource.qrc"/>
  </resources>

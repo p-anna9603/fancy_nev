@@ -6,8 +6,10 @@
 //#include "mainwindow.h"
 #include "databaseconnection.h"
 #include "kerdeshozzaadasa.h"
-#include "jatekleiras.h"
+#include "pontszammodositasa.h"
+#include "kategoriahozzaadasa.h"
 #include <QWidget>
+
 namespace Ui {
 class adminFelulet;
 }
@@ -28,6 +30,8 @@ private slots:
     void on_buttonKerdesHozzaad_clicked();
 
     void on_buttonOption3_clicked();
+
+    void on_buttonOption2_clicked();
 
 private:
     Ui::adminFelulet *ui;

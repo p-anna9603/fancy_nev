@@ -57,8 +57,14 @@ void adminFelulet::on_buttonKerdesHozzaad_clicked()
 
 }
 
-void adminFelulet::on_buttonOption3_clicked()
+void adminFelulet::on_buttonOption3_clicked()   //Pontszám módosítás
 {
-    jatekLeiras *jatekWidget=new jatekLeiras(nullptr,db);
-    jatekWidget->show();
+    pontszamModositasa *pontszamFelulet=new pontszamModositasa(nullptr,db);
+    pontszamFelulet->show();
+}
+
+void adminFelulet::on_buttonOption2_clicked()   //Kategória hozzáad
+{
+    kategoriaHozzaadasa *kategoriaFelulet=new kategoriaHozzaadasa(nullptr,db);
+    kategoriaFelulet->show();
 }
