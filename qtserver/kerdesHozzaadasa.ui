@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>kerdesHozzaadasa</class>
  <widget class="QWidget" name="kerdesHozzaadasa">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,11 +20,12 @@
    <iconset resource="resource.qrc">
     <normaloff>:/resource/img/question_mark.png</normaloff>:/resource/img/question_mark.png</iconset>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <property name="styleSheet">
    <string notr="true">QWidget#kerdesHozzaadasa
 {
-/*background-image: url(:/resource/img/backg_1.jpg);*/
-/*border-image: url(:/resource/img/backg_1.jpg);*/
 border-image: url(:/resource/img/bckg_5.jpg);
 background-repeat: no-repeat;
 bacground-position: center;

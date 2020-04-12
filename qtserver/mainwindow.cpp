@@ -19,27 +19,14 @@ MainWindow::~MainWindow()
 {
     qDebug()<< "Destruktor\n";
     delete ui;
-    delete database;
-}
-
-void MainWindow::on_pushButton_clicked()    //db_Connection Button
-{
-    if(database->getDb().open())
-    {
-        QMessageBox::information(this,"Connection", "Database connected successfully");
-    }
-    else
-    {
-        QMessageBox::information(this, "Not Connected", "Database not connected");
-    }
-
+    QSqlDatabase::removeDatabase("QMYSQL");
+    database->getDb().close();
 }
 
 void MainWindow::on_pushButton_2_clicked()  //Login Button
 {
-
-    ui->usernameLogin->setText("adminKlaudia");
-    ui->passwordLogin->setText("admin");
+    ui->usernameLogin->setText("player");
+    ui->passwordLogin->setText("player");
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
 
@@ -50,7 +37,7 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
     }
     else
     {
-        if(database->getDb().open())
+        if(database->getDb().isOpen())
         {
             qDebug() << "pushbutton if ág";
 
@@ -66,13 +53,17 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
             }
             else
             {
+                if(query.size() == 0)
+                {
+                     QMessageBox::information(this, "Failed","Login Failed");
+                }
                 while(query.next())
                 {
-                    QString usernameFromDB = query.value(0).toString();
-                    QString passwordFromDB = query.value(1).toString();
+//                   QString usernameFromDB = query.value(0).toString();
+//                   QString passwordFromDB = query.value(1).toString();
 
-                    if(usernameFromDB == username && passwordFromDB == password)
-                    {
+//                    if(usernameFromDB == username && passwordFromDB == password)
+//                   {
                         //idegbajt kapok mégegyszer előugrik ez a szar
                         //QMessageBox::information(this, "Success", "Login Success");
 
@@ -88,15 +79,14 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
                         }
                         else    //Sima User-->játékAblak
                         {
-                            Dialog dialog;
-                            dialog.setModal(true);
-                            dialog.exec();
+                            jatekFelulet *jatek = new jatekFelulet(username, database);
+                            jatek->show();
+                            this->close();
+//                            Dialog dialog;
+//                            dialog.setModal(true);
+//                            dialog.exec();
                         }
-                    }
-                    else
-                    {
-                        QMessageBox::information(this, "Failed","Login Failed");
-                    }
+//                   }
                 }
             }
         }
@@ -104,7 +94,5 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
         {
             QMessageBox::information(this, "Not Connected", "Database not connected");
         }
-        QSqlDatabase::removeDatabase("QMYSQL");
-        database->getDb().close();
     }
 }

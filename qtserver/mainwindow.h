@@ -8,6 +8,7 @@
 #include <QSqlDriverPlugin>
 #include "dialog.h"
 #include "databaseconnection.h"
+#include "jatekfelulet.h"
 #include "adminfelulet.h"
 #include <QDebug>
 #include <QTableView>
@@ -27,8 +28,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
 
 

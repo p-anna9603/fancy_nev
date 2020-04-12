@@ -30,7 +30,9 @@ SOURCES += \
         adminfelulet.cpp \
         databaseconnection.cpp \
         dialog.cpp \
+        jatekfelulet.cpp \
         jatekleiras.cpp \
+        jatekosadatok.cpp \
         kategoriahozzaadasa.cpp \
         kerdeshozzaadasa.cpp \
         main.cpp \
@@ -41,7 +43,9 @@ HEADERS += \
         adminfelulet.h \
         databaseconnection.h \
         dialog.h \
+        jatekfelulet.h \
         jatekleiras.h \
+        jatekosadatok.h \
         kategoriahozzaadasa.h \
         kerdeshozzaadasa.h \
         mainwindow.h \
@@ -50,7 +54,9 @@ HEADERS += \
 FORMS += \
         adminfelulet.ui \
         dialog.ui \
+        jatekfelulet.ui \
         jatekleiras.ui \
+        jatekosadatok.ui \
         kategoriahozzaadasa.ui \
         kerdeshozzaadasa.ui \
         mainwindow.ui \
