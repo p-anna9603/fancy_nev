@@ -2,6 +2,7 @@
 #define JATEKOSADATOK_H
 
 #include <QWidget>
+#include <QDebug>
 
 namespace Ui {
 class jatekosAdatok;

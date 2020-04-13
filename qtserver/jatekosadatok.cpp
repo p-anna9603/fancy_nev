@@ -8,11 +8,10 @@ jatekosAdatok::jatekosAdatok(QWidget *parent, QString playerName, QString userFu
     userFullName(userFullName),
     userEmail(email)
 {
-    ui->setupUi(this);
     ui->playerName->setText(playerName);
     ui->userFullName->setText(userFullName);
     ui->userEmail->setText(userEmail);
-
+ //   ui->setupUi(this);
 }
 
 jatekosAdatok::~jatekosAdatok()

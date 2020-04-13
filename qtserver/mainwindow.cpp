@@ -25,8 +25,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_2_clicked()  //Login Button
 {
-    ui->usernameLogin->setText("player");
-    ui->passwordLogin->setText("player");
+//    ui->usernameLogin->setText("player");
+//    ui->passwordLogin->setText("player");
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
 
@@ -79,7 +79,7 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
                         }
                         else    //Sima User-->játékAblak
                         {
-                            jatekFelulet *jatek = new jatekFelulet(username, database);
+                            jatekFelulet *jatek = new jatekFelulet(this,username, database);
                             jatek->show();
                             this->close();
 //                            Dialog dialog;

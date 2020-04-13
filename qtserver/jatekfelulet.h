@@ -14,16 +14,24 @@ class jatekFelulet : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit jatekFelulet(const QString &playerName, DatabaseConnection *db = nullptr, QWidget *parent = nullptr);
+    explicit jatekFelulet(QMainWindow *qMain, const QString &playerName, DatabaseConnection *db = nullptr, QWidget *parent = nullptr);
     ~jatekFelulet();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_fiokomButton_clicked();
+
+    void on_visszaButton_clicked();
+
+    void on_EredmenyButton_clicked();
+
+    void on_pontPush_clicked();
 
 private:
     Ui::jatekFelulet *ui;
     DatabaseConnection *db;
     QString playerName;
+    QMainWindow *vissza;
+    jatekosAdatok *adatok;
 };
 
 #endif // JATEKFELULET_H
