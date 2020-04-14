@@ -25,8 +25,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_2_clicked()  //Login Button
 {
-//    ui->usernameLogin->setText("player");
-//    ui->passwordLogin->setText("player");
+    ui->usernameLogin->setText("player");
+    ui->passwordLogin->setText("player");
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
 

@@ -28,6 +28,7 @@ CONFIG += c++11
 
 SOURCES += \
         adminfelulet.cpp \
+        clickablelabel.cpp \
         databaseconnection.cpp \
         dialog.cpp \
         jatekfelulet.cpp \
@@ -37,10 +38,12 @@ SOURCES += \
         kerdeshozzaadasa.cpp \
         main.cpp \
         mainwindow.cpp \
-        pontszammodositasa.cpp
+        pontszammodositasa.cpp \
+        termeszetikepek.cpp
 
 HEADERS += \
         adminfelulet.h \
+        clickablelabel.h \
         databaseconnection.h \
         dialog.h \
         jatekfelulet.h \
@@ -49,7 +52,8 @@ HEADERS += \
         kategoriahozzaadasa.h \
         kerdeshozzaadasa.h \
         mainwindow.h \
-        pontszammodositasa.h
+        pontszammodositasa.h \
+        termeszetikepek.h
 
 FORMS += \
         adminfelulet.ui \
@@ -60,7 +64,8 @@ FORMS += \
         kategoriahozzaadasa.ui \
         kerdeshozzaadasa.ui \
         mainwindow.ui \
-        pontszammodositasa.ui
+        pontszammodositasa.ui \
+        termeszetikepek.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

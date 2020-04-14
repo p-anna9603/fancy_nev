@@ -16,6 +16,9 @@ jatekFelulet::jatekFelulet(QMainWindow *qMain, const QString &playerName, Databa
 //    ui->pontszamWidget->hide();
     ui->pontPush->hide();
     ui->KartyaPush->hide();
+
+    // Adott képre (QLabel) lehessen kattintani. (lsd: clickableLabel)
+    connect(ui->term1, SIGNAL(Mouse_Pressed()), this, SLOT(Mouse_Pressed()));
 }
 
 jatekFelulet::~jatekFelulet()
@@ -49,7 +52,7 @@ void jatekFelulet::on_fiokomButton_clicked()
                 qDebug() << query.value(0).toString();
                 qDebug() << userFullName << " " << userEmail;
 
-                ui->stackedWidget->setCurrentIndex(1);
+                ui->stackedWidget->setCurrentIndex(2);
                 ui->username->setText(playerName);
                 ui->fullName->setText(userFullName);
                 ui->email->setText(userEmail);
@@ -163,3 +166,26 @@ void jatekFelulet::on_pontPush_clicked()
     ui->stackedWidget->show();
 }
 
+
+void jatekFelulet::on_KartyaPush_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+    ui->pontPush->hide();
+    ui->KartyaPush->hide();
+    ui->stackedWidget->show();
+}
+
+void jatekFelulet::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+    ui->pontPush->hide();
+    ui->KartyaPush->hide();
+    ui->stackedWidget->show();
+}
+
+void jatekFelulet::Mouse_Pressed()
+{
+    qDebug() << "Klikk!";
+    term = new termeszetiKepek();
+    term->show();
+}

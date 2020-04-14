@@ -24,6 +24,36 @@
         <file>img/kicsi_user_login.png</file>
         <file>img/question_mark.png</file>
         <file>txt/jatekLeiras.txt</file>
+        <file>img/Termeszeti/t3.jpg</file>
+        <file>img/Termeszeti/háttér4.jpg</file>
+        <file>img/Termeszeti/t2.jpg</file>
+        <file>img/Termeszeti/t5.jpg</file>
+        <file>img/Termeszeti/háttér2.jpg</file>
+        <file>img/Termeszeti/háttér3.jpg</file>
+        <file>img/Termeszeti/t1.jpg</file>
+        <file>img/Termeszeti/Kicsiben/háttér2.jpg</file>
+        <file>img/Termeszeti/Kicsiben/háttér3.jpg</file>
+        <file>img/Termeszeti/Kicsiben/t1.jpg</file>
+        <file>img/Termeszeti/Kicsiben/t2.jpg</file>
+        <file>img/Termeszeti/Kicsiben/t3.jpg</file>
+        <file>img/Termeszeti/Kicsiben/t5.jpg</file>
+        <file>img/Termeszeti/Kicsiben/háttér4.jpg</file>
+        <file>img/Termeszeti/Nagy_term_szürke/háttér2.jpg</file>
+        <file>img/Termeszeti/Nagy_term_szürke/háttér3.jpg</file>
+        <file>img/Termeszeti/Nagy_term_szürke/háttér4.jpg</file>
+        <file>img/Termeszeti/Nagy_term_szürke/t1.jpg</file>
+        <file>img/Termeszeti/Nagy_term_szürke/t2.jpg</file>
+        <file>img/Termeszeti/Nagy_term_szürke/t3.jpg</file>
+        <file>img/Termeszeti/Nagy_term_szürke/t5.jpg</file>
+        <file>img/Termeszeti/t3_kicsi/image_part_001.jpg</file>
+        <file>img/Termeszeti/t3_kicsi/image_part_002.jpg</file>
+        <file>img/Termeszeti/t3_kicsi/image_part_003.jpg</file>
+        <file>img/Termeszeti/t3_kicsi/image_part_004.jpg</file>
+        <file>img/Termeszeti/t3_kicsi/image_part_005.jpg</file>
+        <file>img/Termeszeti/t3_kicsi/image_part_006.jpg</file>
+        <file>img/Termeszeti/t3_kicsi/image_part_007.jpg</file>
+        <file>img/Termeszeti/t3_kicsi/image_part_008.jpg</file>
+        <file>img/Termeszeti/t3_kicsi/image_part_009.jpg</file>
     </qresource>
     <qresource prefix="/Myfile"/>
     <qresource prefix="/bacground"/>
