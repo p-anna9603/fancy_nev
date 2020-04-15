@@ -8,6 +8,7 @@
 #include "kerdeshozzaadasa.h"
 #include "pontszammodositasa.h"
 #include "kategoriahozzaadasa.h"
+#include "jatekfelulet.h"
 #include <QWidget>
 
 namespace Ui {
@@ -33,10 +34,13 @@ private slots:
 
     void on_buttonOption2_clicked();
 
+    void on_buttonOption5_clicked();
+
 private:
     Ui::adminFelulet *ui;
     QMainWindow *vissza;
     DatabaseConnection *db;
+    QString username;
     //jatekLeiras *jatekWidget;
    // kerdesHozzaadasa *kerdesWidget;
 

@@ -6,6 +6,7 @@
 #include "jatekosadatok.h"
 #include "clickablelabel.h"
 #include "termeszetikepek.h"
+#include "quizfelulet.h"
 
 namespace Ui {
 class jatekFelulet;
@@ -33,6 +34,8 @@ private slots:
     void on_pushButton_clicked();
 
     void Mouse_Pressed();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::jatekFelulet *ui;

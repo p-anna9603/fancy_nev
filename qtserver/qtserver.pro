@@ -39,6 +39,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         pontszammodositasa.cpp \
+        quizfelulet.cpp \
         termeszetikepek.cpp
 
 HEADERS += \
@@ -53,6 +54,7 @@ HEADERS += \
         kerdeshozzaadasa.h \
         mainwindow.h \
         pontszammodositasa.h \
+        quizfelulet.h \
         termeszetikepek.h
 
 FORMS += \
@@ -65,6 +67,7 @@ FORMS += \
         kerdeshozzaadasa.ui \
         mainwindow.ui \
         pontszammodositasa.ui \
+        quizfelulet.ui \
         termeszetikepek.ui
 
 # Default rules for deployment.

@@ -14,7 +14,8 @@ adminFelulet::adminFelulet(QMainWindow *qMain, const QString &adminName, Databas
     QMainWindow(parent),
     ui(new Ui::adminFelulet),
     vissza(qMain),
-    db(db)
+    db(db),
+    username(adminName)
 {
          qDebug()<<"admin konstruktor \n";
     ui->setupUi(this);
@@ -67,4 +68,11 @@ void adminFelulet::on_buttonOption2_clicked()   //Kategória hozzáad
 {
     kategoriaHozzaadasa *kategoriaFelulet=new kategoriaHozzaadasa(nullptr,db);
     kategoriaFelulet->show();
+}
+
+void adminFelulet::on_buttonOption5_clicked()
+{
+    jatekFelulet *jatek = new jatekFelulet(this,username, db);
+    jatek->show();
+    this->close();
 }

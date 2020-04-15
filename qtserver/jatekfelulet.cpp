@@ -189,3 +189,10 @@ void jatekFelulet::Mouse_Pressed()
     term = new termeszetiKepek();
     term->show();
 }
+
+void jatekFelulet::on_pushButton_4_clicked()    //START
+{
+    QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db);
+    this->hide();
+    kvizfelulet->show();
+}
