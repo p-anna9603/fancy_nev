@@ -17,7 +17,7 @@ QuizFelulet::~QuizFelulet()
 
 void QuizFelulet::kerdesLekeres()
 {
-    double elso=0, utolso=0;
+    int elso=0, utolso=0;
     if(db->getDb().isOpen())
     {
         try
@@ -54,19 +54,22 @@ void QuizFelulet::kerdesLekeres()
                 query.next();
                 utolso=query.value(0).toString().toDouble();
             }
-
+            qDebug()<<"elso";
+            qDebug()<<elso;
+            qDebug()<<"utolso";
+            qDebug()<<utolso;
             //Az első és utolsó ID-jú kérdések között randomoltatok egy számot
 
             try
             {
                 QSqlQuery queryQuestion(QSqlDatabase::database());
-                int meret=0;
-                std::random_device rd;
+               /* std::random_device rd;
                 std::mt19937 mt(rd());
-                std::uniform_real_distribution<double> dist(elso, utolso);  //zárt intervalum
+                std::uniform_real_distribution<> dist(elso, utolso);  //zárt intervalum*/
+                do
                 {
                     qDebug()<<"Eleje";
-                    int randomSzam=dist(mt);
+                    int randomSzam=(elso + ( std::rand() % ( utolso - elso + 1 ) ));
                     //randomSzam=1; így nyilván jó
                     qDebug()<<"randomSzam:";
                     qDebug()<<randomSzam;
@@ -81,8 +84,7 @@ void QuizFelulet::kerdesLekeres()
                     }
                     qDebug()<<"3\nQuery size:";
                     qDebug()<<queryQuestion.size();
-                    meret=queryQuestion.size();
-                }while(meret== 0);      //itt megfagy a program fuckknowswhy
+                }while(queryQuestion.size()==0);     //itt megfagy a program fuckknowswhy
                 qDebug()<<"while out";
                 if (queryQuestion.size() == 1)
                 {
