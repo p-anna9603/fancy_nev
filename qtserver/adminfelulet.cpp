@@ -53,9 +53,6 @@ void adminFelulet::on_buttonKerdesHozzaad_clicked()
     //kerdesHozzaadasa *kerdesWidget = new kerdesHozzaadasa(this,db);
 
     kerdesWidget->show();
-
-
-
 }
 
 void adminFelulet::on_buttonOption3_clicked()   //Pontszám módosítás

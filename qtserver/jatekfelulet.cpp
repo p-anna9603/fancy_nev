@@ -100,7 +100,7 @@ void jatekFelulet::on_EredmenyButton_clicked()
     ui->KartyaPush->show();
 }
 
-void jatekFelulet::on_pontPush_clicked()
+void jatekFelulet::on_pontPush_clicked() // Pontszámaim
 {
     ui->stackedWidget->setCurrentIndex(0);
 
@@ -167,7 +167,7 @@ void jatekFelulet::on_pontPush_clicked()
 }
 
 
-void jatekFelulet::on_KartyaPush_clicked()
+void jatekFelulet::on_KartyaPush_clicked() // Eredményeim --> Kártyák
 {
     ui->stackedWidget->setCurrentIndex(1);
     ui->pontPush->hide();
@@ -192,7 +192,42 @@ void jatekFelulet::Mouse_Pressed()
 
 void jatekFelulet::on_pushButton_4_clicked()    //START
 {
+    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->show();
+/*
     QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db);
+    this->hide();
+    kvizfelulet->show();*/
+}
+
+void jatekFelulet::on_tortenelemTema_clicked()
+{
+    kerdesId = 1;
+    QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db, kerdesId);
+    this->hide();
+    kvizfelulet->show();
+}
+
+void jatekFelulet::on_irodalomTema_clicked()
+{
+    kerdesId = 2;
+    QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db, kerdesId);
+    this->hide();
+    kvizfelulet->show();
+}
+
+void jatekFelulet::on_egyetemTema_clicked()
+{
+    kerdesId = 3;
+    QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db, kerdesId);
+    this->hide();
+    kvizfelulet->show();
+}
+
+void jatekFelulet::on_sportTema_clicked()
+{
+    kerdesId = 4;
+    QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db, kerdesId);
     this->hide();
     kvizfelulet->show();
 }

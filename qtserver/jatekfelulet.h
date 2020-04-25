@@ -37,6 +37,14 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_tortenelemTema_clicked();
+
+    void on_irodalomTema_clicked();
+
+    void on_egyetemTema_clicked();
+
+    void on_sportTema_clicked();
+
 private:
     Ui::jatekFelulet *ui;
     DatabaseConnection *db;
@@ -44,6 +52,8 @@ private:
     QMainWindow *vissza;
     jatekosAdatok *adatok;
     termeszetiKepek *term;
+    int kerdesId = 0;
+
  //   QLabel *term1;
 };
 
