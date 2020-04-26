@@ -12,6 +12,7 @@
 #include "adminfelulet.h"
 #include <QDebug>
 #include <QTableView>
+#include <regex>
 #include <iostream>
 using namespace std;
 
@@ -31,7 +32,7 @@ private slots:
     void on_pushButton_2_clicked();
 
 
-//    void on_regisztralasButton_clicked();
+    void on_regisztralasButton_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -25,8 +25,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_2_clicked()  //Login Button
 {
-    ui->usernameLogin->setText("player");
-    ui->passwordLogin->setText("player");
+    //ui->usernameLogin->setText("player");
+    //ui->passwordLogin->setText("player");
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
 
@@ -119,16 +119,20 @@ void MainWindow::on_regisztralasButton_clicked()
             QSqlQuery query(database->getDb());
             query.prepare(QString("SELECT * FROM Users WHERE username = :username"));
             query.bindValue(":username", userName);
+            const std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
             if(!query.exec())
             {
                 QMessageBox::information(this, "Failed", "Query Failed to execute");
-
             }
             else
             {
-                if(query.size() != 0)
+                if((std::regex_match(email.toStdString(),pattern))==false)
                 {
-                     QMessageBox::information(this, "Már létező felhasználónév!", "Válassz másik felhasználó nevet!");
+                    QMessageBox::information(this,"Nem megfelelő email", "Adj meg érvényes email-címet!");
+                }
+                else if(query.size() != 0)
+                {
+                     QMessageBox::information(this, "Már létező felhasználónév", "Válassz másik felhasználó nevet!");
                 }
                 else
                 {
@@ -138,7 +142,20 @@ void MainWindow::on_regisztralasButton_clicked()
                     }
                     else
                     {
-                        QSqlQuery queryInsert("INSERT INTO Users VALUES(:username,:password,:email,:firstname,:lastname)");
+                        query.prepare(QString("INSERT INTO Users(username,password,email,firstName,lastName) VALUES(:userName,:pass2,:email,:firstName,:lastName)"));
+                        query.bindValue(":userName", userName);
+                        query.bindValue(":pass2", pass2);
+                        query.bindValue(":email", email);
+                        query.bindValue(":firstName", firstName);
+                        query.bindValue(":lastName", lastName);
+                        if (!query.exec())
+                        {
+                            QMessageBox::information(this,"Regisztráció ERROR","Sikertelen regisztráció!");
+                        }
+                        else
+                        {
+                            QMessageBox::information(this, "Regisztráció", "Sikeres regisztráció!");
+                        }
                     }
                 }
             }

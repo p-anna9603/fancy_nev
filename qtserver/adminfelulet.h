@@ -9,6 +9,7 @@
 #include "pontszammodositasa.h"
 #include "kategoriahozzaadasa.h"
 #include "jatekfelulet.h"
+#include "felhasznalotorlese.h"
 #include <QWidget>
 
 namespace Ui {
@@ -35,6 +36,8 @@ private slots:
     void on_buttonOption2_clicked();
 
     void on_buttonOption5_clicked();
+
+    void on_buttonOption4_clicked();
 
 private:
     Ui::adminFelulet *ui;

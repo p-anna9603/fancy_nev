@@ -73,3 +73,9 @@ void adminFelulet::on_buttonOption5_clicked()
     jatek->show();
     this->close();
 }
+
+void adminFelulet::on_buttonOption4_clicked()
+{
+    felhasznaloTorlese *ft=new felhasznaloTorlese(nullptr,db);
+    ft->show();
+}

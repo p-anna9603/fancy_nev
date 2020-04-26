@@ -31,6 +31,7 @@ SOURCES += \
         clickablelabel.cpp \
         databaseconnection.cpp \
         dialog.cpp \
+        felhasznalotorlese.cpp \
         jatekfelulet.cpp \
         jatekleiras.cpp \
         jatekosadatok.cpp \
@@ -47,6 +48,7 @@ HEADERS += \
         clickablelabel.h \
         databaseconnection.h \
         dialog.h \
+        felhasznalotorlese.h \
         jatekfelulet.h \
         jatekleiras.h \
         jatekosadatok.h \
@@ -60,6 +62,7 @@ HEADERS += \
 FORMS += \
         adminfelulet.ui \
         dialog.ui \
+        felhasznalotorlese.ui \
         jatekfelulet.ui \
         jatekleiras.ui \
         jatekosadatok.ui \
