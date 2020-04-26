@@ -4,6 +4,7 @@
 QuizFelulet::QuizFelulet(QWidget *parent, DatabaseConnection *db, int temaId) :
     QMainWindow(parent),
     ui(new Ui::QuizFelulet),
+    vissza(parent),
     db(db),
     kerdesTemaId(temaId)
 {
@@ -187,8 +188,11 @@ void QuizFelulet::valaszLekeres()
 
                         if(j == 0) // első válasz
                         {
+                            qDeleteAll(ui->valasz1Button->children());
+                            ui->valasz1Button->setStyleSheet("hover:background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3;");
                             valasz1 = checkStringLength(query.value(0).toString());
-                            ui->valasz1Button->setText(valasz1);
+                            ui->valasz1Button->setText("");
+                            ui->valasz1Button->setLayout(valasz1);
                             if(correct == 1) // ha helyes elmentjük hogy az 1 a helyes (buttonokhoz)
                             {
                                 helyesValasz = 1;
@@ -196,8 +200,11 @@ void QuizFelulet::valaszLekeres()
                         }
                         else if(j == 1) // második válasz
                         {
+                            qDeleteAll(ui->valasz2Button->children());
+                            ui->valasz2Button->setStyleSheet("hover:background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3;");
                             valasz2 = checkStringLength(query.value(0).toString());
-                            ui->valasz2Button->setText(valasz2);
+                            ui->valasz2Button->setText("");
+                            ui->valasz2Button->setLayout(valasz2);
                             if(correct == 1)
                             {
                                 helyesValasz = 2;
@@ -205,8 +212,11 @@ void QuizFelulet::valaszLekeres()
                         }
                         else if(j == 2) // haramdik válasz
                         {
+                            qDeleteAll(ui->valasz3Button->children());
+                            ui->valasz3Button->setStyleSheet("hover:background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3;");
                             valasz3 = checkStringLength(query.value(0).toString());
-                            ui->valasz3Button->setText(valasz3);
+                            ui->valasz3Button->setText("");
+                            ui->valasz3Button->setLayout(valasz3);
                             if(correct == 1)
                             {
                                 helyesValasz = 3;
@@ -214,8 +224,11 @@ void QuizFelulet::valaszLekeres()
                         }
                         else if(j == 3) // negyedik válasz
                         {
+                            qDeleteAll(ui->valasz4Button->children());
+                            ui->valasz4Button->setStyleSheet("hover:background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3;");
                             valasz4 = checkStringLength(query.value(0).toString());
-                            ui->valasz4Button->setText(valasz4);
+                            ui->valasz4Button->setText("");
+                            ui->valasz4Button->setLayout(valasz4);
                             if(correct == 1)
                             {
                                 helyesValasz = 4;
@@ -237,32 +250,55 @@ void QuizFelulet::valaszLekeres()
     }
 }
 
-QString QuizFelulet::checkStringLength(QString str)
+QHBoxLayout *QuizFelulet::checkStringLength(QString str)
 {
-    int i = 0;
-    if(str.length() > 37)
-    {
-        for(i = 28; i < str.length();)
-        {
-            if(str.data()[i] != ' ')
-            {
-                i++;
-            }
-            else
-            {
-                break;
-            }
-        }
-        if(str.data()[i] == ' ' && str.data()[i+1] == ' ')
-        { // ha pont 28 karakteres a string akkor felső sorba rakja - ez elkerülentő
+    /* ez az első is jó de ha pl az utolsó szó nagyon hosszú akkor ugyanúgy rossz*/
+//    int i = 0;
+//    if(str.length() > 37)
+//    {
+//        for(i = 28; i < str.length();)
+//        {
+//            if(str.data()[i] != ' ')
+//            {
+//                i++;
+//            }
+//            else
+//            {
+//                break;
+//            }
+//        }
+//        if(str.data()[i] == ' ' && str.data()[i+1] == ' ')
+//        { // ha pont 28 karakteres a string akkor felső sorba rakja - ez elkerülentő
 
+//        }
+//        else{
+//           str.insert(i,'\n');
+//        }
+//    }
+//    qDebug()<< "i értéke: " << i;
+//    return str;
+
+        QHBoxLayout *pLayout = new QHBoxLayout();
+        QLabel *pTextLabel = new QLabel();
+        pTextLabel->setText(str);
+        pTextLabel->setAlignment(Qt::AlignCenter);
+        pTextLabel->setWordWrap(true);
+        pTextLabel->setTextInteractionFlags(Qt::NoTextInteraction);
+        pTextLabel->setMouseTracking(false);
+        pTextLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        if(str.length() > 37)
+        {
+          pTextLabel->setStyleSheet("color: white;font: bold 10pt ""MS Shell Dlg 2"";");
         }
-        else{
-           str.insert(i,'\n');
+        else
+        {
+            pTextLabel->setStyleSheet("color: white;font: bold 12pt ""MS Shell Dlg 2"";");
         }
-    }
-    qDebug()<< "i értéke: " << i;
-    return str;
+        pLayout->addWidget(pTextLabel);
+        pLayout->setSpacing(0);
+        pLayout->setMargin(0);
+        pLayout->setContentsMargins(5, 5, 5, 5);
+        return pLayout;
 }
 
 void QuizFelulet::on_valasz1Button_clicked()
@@ -281,7 +317,7 @@ void QuizFelulet::on_valasz1Button_clicked()
     ui->valasz4Button->setEnabled(false);
     ui->counter->setText(QString::number(joValaszCounter));
     ui->nextQuestion->setEnabled(true);
-    if(eddigiKerdesCounter == 11)
+    if(eddigiKerdesCounter == 5)
     {
         ui->nextQuestion->setEnabled(false);
         QEventLoop loop;
@@ -290,6 +326,8 @@ void QuizFelulet::on_valasz1Button_clicked()
         totalPoints = joValaszCounter * 50;
         QString status = QString("Gratulálok! Nyertél %1 pontot.").arg(totalPoints);
         QMessageBox::information(this,"Végeztél", status);
+        this->close();
+        vissza->show();
     }
 }
 
@@ -318,6 +356,8 @@ void QuizFelulet::on_valasz2Button_clicked()
         totalPoints = joValaszCounter * 50;
         QString status = QString("Gratulálok! Nyertél %1 pontot.").arg(totalPoints);
         QMessageBox::information(this,"Végeztél", status);
+        this->close();
+        vissza->show();
     }
 }
 
@@ -346,6 +386,8 @@ void QuizFelulet::on_valasz3Button_clicked()
         totalPoints = joValaszCounter * 50;
         QString status = QString("Gratulálok! Nyertél %1 pontot.").arg(totalPoints);
         QMessageBox::information(this,"Végeztél", status);
+        this->close();
+        vissza->show();
     }
 }
 
@@ -374,6 +416,8 @@ void QuizFelulet::on_valasz4Button_clicked()
         totalPoints = joValaszCounter * 50;
         QString status = QString("Gratulálok! Nyertél %1 pontot.").arg(totalPoints);
         QMessageBox::information(this,"Végeztél", status);
+        this->close();
+        vissza->show();
     }
 }
 
@@ -416,3 +460,5 @@ void QuizFelulet::setBackground()
           this->setPalette(palette);
     }
 }
+
+

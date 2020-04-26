@@ -203,7 +203,7 @@ void jatekFelulet::on_pushButton_4_clicked()    //START
 void jatekFelulet::on_tortenelemTema_clicked()
 {
     kerdesId = 1;
-    QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db, kerdesId);
+    QuizFelulet *kvizfelulet=new QuizFelulet(this,db, kerdesId);
     this->hide();
     kvizfelulet->show();
 }
@@ -211,7 +211,7 @@ void jatekFelulet::on_tortenelemTema_clicked()
 void jatekFelulet::on_irodalomTema_clicked()
 {
     kerdesId = 2;
-    QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db, kerdesId);
+    QuizFelulet *kvizfelulet=new QuizFelulet(this,db, kerdesId);
     this->hide();
     kvizfelulet->show();
 }
@@ -219,7 +219,7 @@ void jatekFelulet::on_irodalomTema_clicked()
 void jatekFelulet::on_egyetemTema_clicked()
 {
     kerdesId = 3;
-    QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db, kerdesId);
+    QuizFelulet *kvizfelulet=new QuizFelulet(this,db, kerdesId);
     this->hide();
     kvizfelulet->show();
 }
@@ -227,7 +227,7 @@ void jatekFelulet::on_egyetemTema_clicked()
 void jatekFelulet::on_sportTema_clicked()
 {
     kerdesId = 4;
-    QuizFelulet *kvizfelulet=new QuizFelulet(nullptr,db, kerdesId);
+    QuizFelulet *kvizfelulet=new QuizFelulet(this,db, kerdesId);
     this->hide();
     kvizfelulet->show();
 }

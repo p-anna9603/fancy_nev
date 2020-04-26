@@ -20,8 +20,6 @@ color: white;
 font: bold 11pt &quot;MS Shell Dlg 2&quot;;
 background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #df9fbf, stop: 0.1 #c6538c,  stop: 0.49 #73264d );
 selection-background-color: blue;
-border-left: 1px solid white;
-border-right: 1px solid white;
 border-radius: 7px;
 
 margin-left: 0px;
@@ -120,8 +118,6 @@ color: white;
 font: bold 11pt &quot;MS Shell Dlg 2&quot;;
 background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #df9fbf, stop: 0.1 #c6538c,  stop: 0.49 #73264d );
 selection-background-color: blue;
-border-left: 1px solid white;
-border-right: 1px solid white;
 border-radius: 7px;
 
 margin-left: 0px;
@@ -202,8 +198,6 @@ color: white;
 font: bold 11pt &quot;MS Shell Dlg 2&quot;;
 background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #df9fdf, stop: 0.1 #cc66cc,  stop: 0.49 #993399 );
 selection-background-color: blue;
-border-left: 1px solid white;
-border-right: 1px solid white;
 border-radius: 7px;
 
 margin-left: 0px;

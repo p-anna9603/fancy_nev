@@ -8,6 +8,7 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
+#include <qboxlayout.h>
 
 namespace Ui {
 class QuizFelulet;
@@ -32,13 +33,17 @@ private slots:
 
     void on_nextQuestion_clicked();
 
+
 private:
     Ui::QuizFelulet *ui;
     DatabaseConnection *db;
+//    jatekFelulet *vissza;
+    QWidget *vissza;
     int kerdesTemaId;
     int questionId; // válasz lekéréséhez
     int helyesValasz = 0; // helyes válasz ID (1,2,3,4)
-    QString valasz1, valasz2, valasz3, valasz4;
+//    QString valasz1, valasz2, valasz3, valasz4;
+    QHBoxLayout * valasz1,* valasz2,* valasz3, *valasz4;
     int joValaszCounter = 0;
     int eddigiKerdesCounter = 0;
     vector<int> marKerdezettId;
@@ -48,7 +53,7 @@ private:
     void kerdesLekeres();
     void valaszLekeres();
     void setBackground();
-    QString checkStringLength(QString str);
+    QHBoxLayout * checkStringLength(QString str);
 
 
 };
