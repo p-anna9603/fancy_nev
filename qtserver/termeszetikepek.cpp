@@ -1,7 +1,7 @@
 #include "termeszetikepek.h"
 #include "ui_termeszetikepek.h"
 
-termeszetiKepek::termeszetiKepek(QWidget *parent) :
+termeszetiKepek::termeszetiKepek(QWidget *parent, vector<QString> list) :
     QMainWindow(parent),
     ui(new Ui::termeszetiKepek)
 {
@@ -16,10 +16,28 @@ termeszetiKepek::termeszetiKepek(QWidget *parent) :
     ui->t3_1->setPixmap(pix1);
     ui->t3_1->show();
 
+    vector<QString> kiskeplist = list;
+    for(QString x : kiskeplist)
+    {
+        qDebug() << x;
+    }
+
     //lab->setDr
 }
 
 termeszetiKepek::~termeszetiKepek()
 {
     delete ui;
+}
+
+void termeszetiKepek::setKisKepLista(QString str) // nem jó
+{
+
+    qDebug()<<"Beugrik setKisképbe";
+    qDebug() << str;
+    qDebug()<< kiskepLista.size();
+    qDebug()<< "és akkor szúrjuk be";
+    kiskepLista.push_back(str);
+     qDebug()<<"Kilép setKisképből";
+     j++;
 }

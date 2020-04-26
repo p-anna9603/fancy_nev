@@ -6,6 +6,10 @@
 #include <QStringListModel>
 #include <QDrag>
 #include <QDragMoveEvent>
+#include <vector>
+#include <iterator>
+#include "quizfelulet.h"
+#include <iostream>
 
 namespace Ui {
 class termeszetiKepek;
@@ -16,12 +20,16 @@ class termeszetiKepek : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit termeszetiKepek(QWidget *parent = nullptr);
+    explicit termeszetiKepek(QWidget *parent = nullptr, vector<QString> list = {nullptr});
     ~termeszetiKepek();
+     void setKisKepLista(QString str);
+
 
 private:
     Ui::termeszetiKepek *ui;
     QLabel *lab;
+    vector<QString> kiskepLista = {""};
+    int j = 0;
 };
 
 #endif // TERMESZETIKEPEK_H

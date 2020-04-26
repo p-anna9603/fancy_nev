@@ -19,7 +19,7 @@ class QuizFelulet : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit QuizFelulet(QWidget *parent = nullptr,DatabaseConnection *db=nullptr, int temaId= 0);
+    explicit QuizFelulet(QWidget *parent = nullptr,DatabaseConnection *db=nullptr, int temaId= 0, QString playerName = "");
     ~QuizFelulet();
 
 private slots:
@@ -37,6 +37,7 @@ private slots:
 private:
     Ui::QuizFelulet *ui;
     DatabaseConnection *db;
+    QString playerName;
 //    jatekFelulet *vissza;
     QWidget *vissza;
     int kerdesTemaId;
@@ -53,6 +54,7 @@ private:
     void kerdesLekeres();
     void valaszLekeres();
     void setBackground();
+    void assignPointsToPlayer();
     QHBoxLayout * checkStringLength(QString str);
 
 

@@ -96,3 +96,56 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
         }
     }
 }
+
+void MainWindow::on_regisztralasButton_clicked()
+{
+    QString firstName = ui->vnevReg->text();
+    QString lastName = ui->knevReg->text();
+    QString email = ui->emailReg->text();
+    QString userName = ui->userNameReg->text();
+    QString pass1 = ui->passwordReg->text();
+    QString pass2 = ui->passwordReg2->text();
+
+    if(email == "" || userName == "" || pass1 == "" || pass2 == "")
+    {
+        QMessageBox::information(this, "Missing data", "Please fill every field!");
+    }
+    else
+    {
+        if(database->getDb().isOpen())
+        {
+            qDebug() << "pushbutton if ág";
+
+            QSqlQuery query(database->getDb());
+            query.prepare(QString("SELECT * FROM Users WHERE username = :username"));
+            query.bindValue(":username", userName);
+            if(!query.exec())
+            {
+                QMessageBox::information(this, "Failed", "Query Failed to execute");
+
+            }
+            else
+            {
+                if(query.size() != 0)
+                {
+                     QMessageBox::information(this, "Már létező felhasználónév!", "Válassz másik felhasználó nevet!");
+                }
+                else
+                {
+                    if(pass1 != pass2)
+                    {
+                        QMessageBox::information(this,"Nem egyező jelszó", "Adj meg egyező jelszavakat!");
+                    }
+                    else
+                    {
+                        QSqlQuery queryInsert("INSERT INTO Users VALUES(:username,:password,:email,:firstname,:lastname)");
+                    }
+                }
+            }
+        }
+        else
+        {
+            QMessageBox::information(this, "Not Connected", "Database not connected");
+        }
+    }
+}

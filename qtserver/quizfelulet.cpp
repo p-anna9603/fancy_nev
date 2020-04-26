@@ -1,12 +1,13 @@
 #include "quizfelulet.h"
 #include "ui_quizfelulet.h"
 
-QuizFelulet::QuizFelulet(QWidget *parent, DatabaseConnection *db, int temaId) :
+QuizFelulet::QuizFelulet(QWidget *parent, DatabaseConnection *db, int temaId, QString playerName) :
     QMainWindow(parent),
     ui(new Ui::QuizFelulet),
     vissza(parent),
     db(db),
-    kerdesTemaId(temaId)
+    kerdesTemaId(temaId),
+    playerName(playerName)
 {
     ui->setupUi(this);
     setBackground();
@@ -252,32 +253,6 @@ void QuizFelulet::valaszLekeres()
 
 QHBoxLayout *QuizFelulet::checkStringLength(QString str)
 {
-    /* ez az első is jó de ha pl az utolsó szó nagyon hosszú akkor ugyanúgy rossz*/
-//    int i = 0;
-//    if(str.length() > 37)
-//    {
-//        for(i = 28; i < str.length();)
-//        {
-//            if(str.data()[i] != ' ')
-//            {
-//                i++;
-//            }
-//            else
-//            {
-//                break;
-//            }
-//        }
-//        if(str.data()[i] == ' ' && str.data()[i+1] == ' ')
-//        { // ha pont 28 karakteres a string akkor felső sorba rakja - ez elkerülentő
-
-//        }
-//        else{
-//           str.insert(i,'\n');
-//        }
-//    }
-//    qDebug()<< "i értéke: " << i;
-//    return str;
-
         QHBoxLayout *pLayout = new QHBoxLayout();
         QLabel *pTextLabel = new QLabel();
         pTextLabel->setText(str);
@@ -326,6 +301,7 @@ void QuizFelulet::on_valasz1Button_clicked()
         totalPoints = joValaszCounter * 50;
         QString status = QString("Gratulálok! Nyertél %1 pontot.").arg(totalPoints);
         QMessageBox::information(this,"Végeztél", status);
+        assignPointsToPlayer();
         this->close();
         vissza->show();
     }
@@ -356,6 +332,7 @@ void QuizFelulet::on_valasz2Button_clicked()
         totalPoints = joValaszCounter * 50;
         QString status = QString("Gratulálok! Nyertél %1 pontot.").arg(totalPoints);
         QMessageBox::information(this,"Végeztél", status);
+        assignPointsToPlayer();
         this->close();
         vissza->show();
     }
@@ -386,6 +363,7 @@ void QuizFelulet::on_valasz3Button_clicked()
         totalPoints = joValaszCounter * 50;
         QString status = QString("Gratulálok! Nyertél %1 pontot.").arg(totalPoints);
         QMessageBox::information(this,"Végeztél", status);
+        assignPointsToPlayer();
         this->close();
         vissza->show();
     }
@@ -416,6 +394,7 @@ void QuizFelulet::on_valasz4Button_clicked()
         totalPoints = joValaszCounter * 50;
         QString status = QString("Gratulálok! Nyertél %1 pontot.").arg(totalPoints);
         QMessageBox::information(this,"Végeztél", status);
+        assignPointsToPlayer();
         this->close();
         vissza->show();
     }
@@ -458,6 +437,67 @@ void QuizFelulet::setBackground()
           QPalette palette;
           palette.setBrush(QPalette::Background, bkgnd);
           this->setPalette(palette);
+    }
+}
+
+void QuizFelulet::assignPointsToPlayer()
+{
+    int pointFromDb;
+    QSqlQuery query(QSqlDatabase::database());
+    query.prepare("SELECT username,points FROM Points WHERE username = :username AND category_id = :categoryID");
+    query.bindValue(":username", playerName);
+    query.bindValue(":categoryID", kerdesTemaId);
+    if(db->getDb().isOpen())
+    {
+        try
+        {
+            if(!query.exec())
+            {
+                throw QString("SELECT username WHERE username = :username AND category_id = :categoryID");
+            }
+            else
+            {
+                if(query.size() == 0) // ha még nincsen pontja ebben a kategóriában -- bekell szúrni névvel együtt
+                {
+                    QSqlQuery queryInsert(QSqlDatabase::database());
+                    queryInsert.prepare("INSERT INTO Points(username,category_id,points) VALUES(:uname,:categoryId,:points)");
+                    queryInsert.bindValue(":uname", playerName);
+                    queryInsert.bindValue(":categoryId", kerdesTemaId);
+                    queryInsert.bindValue(":points", totalPoints);
+                    if(!queryInsert.exec())
+                    {
+                        qDebug() << "Sikertelen beszúrás";
+                        throw QString("INSERT INTO Points(username,category_id,points) VALUES(:uname,:categoryId,:points)");
+                    }
+                    qDebug()<<"Beszúrva az adatbázishoz a pont." << totalPoints;
+                }
+                else // ha már van, lekell kérni és hozzá kell adni
+                {
+                    query.next();
+                    pointFromDb = query.value(1).toInt();
+                    totalPoints+=pointFromDb;
+                    QSqlQuery queryUpdate(QSqlDatabase::database());
+                    queryUpdate.prepare("UPDATE Points SET points = :points WHERE username = :uname AND category_id = :categoryID");
+                    queryUpdate.bindValue(":uname", playerName);
+                    queryUpdate.bindValue(":categoryID", kerdesTemaId);
+                    queryUpdate.bindValue(":points", totalPoints);
+                    if(!queryUpdate.exec())
+                    {
+                        qDebug() << "Sikertelen update";
+                        throw QString("UPDATE Points SET points = :points WHERE username = :uname AND category_id = :categoryID");
+                    }
+                    qDebug()<<"Hozzáadva az adatbázishoz a pont." << totalPoints;
+                }
+            }
+        }
+        catch(QString e)
+        {
+                QMessageBox::information(this, "Failed Quizfelület catch QString", e);
+        }
+        catch(...)
+        {
+                QMessageBox::information(this, "Failed Quizfelület catch ...", "Unexpected error");
+        }
     }
 }
 

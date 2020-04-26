@@ -17,9 +17,11 @@ public:
 signals:
     void clicked();
     void Mouse_Pressed();
+    void Mouse_PressedOnLittlePic();
+    void Mouse_Pos();
 
 public:
-    void mousePressEvent(QMouseEvent* event);
+    void mousePressEvent(QMouseEvent* event) override;
 
 };
 

@@ -20,6 +20,7 @@ public:
     explicit jatekFelulet(QMainWindow *qMain, const QString &playerName, DatabaseConnection *db = nullptr, QWidget *parent = nullptr);
     ~jatekFelulet();
 
+
 private slots:
     void on_fiokomButton_clicked();
 
@@ -35,6 +36,8 @@ private slots:
 
     void Mouse_Pressed();
 
+    void Mouse_PressedOnLittlePic();
+
     void on_pushButton_4_clicked();
 
     void on_tortenelemTema_clicked();
@@ -45,6 +48,10 @@ private slots:
 
     void on_sportTema_clicked();
 
+    void on_jatekrolButton_clicked();
+
+    void on_kartya_vasarlas_clicked();
+
 private:
     Ui::jatekFelulet *ui;
     DatabaseConnection *db;
@@ -52,7 +59,14 @@ private:
     QMainWindow *vissza;
     jatekosAdatok *adatok;
     termeszetiKepek *term;
+    int osszPontszam = 0;
     int kerdesId = 0;
+    vector<QString> kisKepekLista;
+
+    void getPoints();
+    vector<QString> getKisKepLista();
+
+
 
  //   QLabel *term1;
 };
