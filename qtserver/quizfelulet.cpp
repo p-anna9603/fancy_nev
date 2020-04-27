@@ -33,8 +33,7 @@ void QuizFelulet::kerdesLekeres()
     {
         try
         {
-//            if(eddigiKerdesCounter == 0)
-//            {
+
                 QSqlQuery query(QSqlDatabase::database());
                 //Lekérdezem az összes category_id-hoz tartozó kérdés id-t és listába rakom
                 query.prepare(QString("SELECT id FROM Question WHERE category_id = :categoryID ORDER BY category_id ASC, id ASC"));
@@ -61,39 +60,6 @@ void QuizFelulet::kerdesLekeres()
                         }
                     }
                 }
-//            }
-           if(eddigiKerdesCounter != 0)
-            {
-                for(auto it = begin(kerdesIdkLista); it != end(kerdesIdkLista); ++it)
-                {
-                    for(auto li = begin(marKerdezettId); li != end(marKerdezettId); ++li)
-                    {
-                        if(*it != *li)
-                        {
-                            szurtKerdesIdkLista.push_back(*it);
-                        }
-                    }
-                }
-                for(auto li = begin(szurtKerdesIdkLista); li != end(szurtKerdesIdkLista); ++li)
-                {
-                    qDebug()<< "Kerdes id szurt listabol: " << *li;
-                }
-                qDebug()<<"\n\n";
-                for(auto li = begin(marKerdezettId); li != end(marKerdezettId); ++li)
-                {
-                    qDebug()<< "Kerdes id kerdezett listabol: " << *li;
-                }
-                // random szám generálás
-                srand((unsigned int)time(NULL));
-                int RandomValue = rand() % ((szurtKerdesIdkLista.size()-1) - 0);
-                qDebug()<< "Random szám";
-                qDebug()<< RandomValue;
-                randomTemaId = szurtKerdesIdkLista[RandomValue];
-                qDebug()<< "Random ID";
-                qDebug()<< randomTemaId;
-            }
-            else
-            {
                 srand((unsigned int)time(NULL));
                 int RandomValue = rand() % ((kerdesIdkLista.size()-1) - 0);
                 qDebug()<< "Random szám";
@@ -101,7 +67,7 @@ void QuizFelulet::kerdesLekeres()
                 randomTemaId = kerdesIdkLista[RandomValue];
                 qDebug()<< "Random ID";
                 qDebug()<< randomTemaId;
-            }
+
 
             marKerdezettId.push_back(kerdesIdDbbol); // fontos, hogy az előbbi ciklus után adjuk hozzá a már kérdezettek vektorához
             eddigiKerdesCounter++;
