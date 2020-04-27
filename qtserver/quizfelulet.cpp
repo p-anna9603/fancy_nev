@@ -27,38 +27,42 @@ void QuizFelulet::kerdesLekeres()
     int randomTemaId;
     QString question;
     vector <int> kerdesIdkLista;
+    vector<int>::iterator it;
     ui->nextQuestion->setEnabled(false);
     if(db->getDb().isOpen())
     {
         try
         {
-            QSqlQuery query(QSqlDatabase::database());
-            //Lekérdezem az összes category_id-hoz tartozó kérdés id-t és listába rakom
-            query.prepare(QString("SELECT id FROM Question WHERE category_id = :categoryID ORDER BY category_id ASC, id ASC"));
-            query.bindValue(":categoryID", kerdesTemaId);
+            if(eddigiKerdesCounter == 0)
+            {
+                QSqlQuery query(QSqlDatabase::database());
+                //Lekérdezem az összes category_id-hoz tartozó kérdés id-t és listába rakom
+                query.prepare(QString("SELECT id FROM Question WHERE category_id = :categoryID ORDER BY category_id ASC, id ASC"));
+                query.bindValue(":categoryID", kerdesTemaId);
 
-            if(!query.exec())
-            {
-                throw QString("SELECT id FROM Question ORDER BY id ASC failed to execute");
-            }
-            else
-            {
-                if(query.size() == 0)
+                if(!query.exec())
                 {
-                     QMessageBox::information(this, "Error","No question found");
+                    throw QString("SELECT id FROM Question ORDER BY id ASC failed to execute");
                 }
                 else
                 {
-                    while(query.next())
+                    if(query.size() == 0)
                     {
-                        kerdesIdDbbol = query.value(0).toInt();
-                        kerdesIdkLista.push_back(kerdesIdDbbol);
-                        qDebug()<< "Kerdes ID";
-                        qDebug()<<kerdesIdDbbol;
+                         QMessageBox::information(this, "Error","No question found");
+                    }
+                    else
+                    {
+                        while(query.next())
+                        {
+                            kerdesIdDbbol = query.value(0).toInt();
+                            kerdesIdkLista.push_back(kerdesIdDbbol);
+                            qDebug()<< "Kerdes ID db-bol";
+                            qDebug()<<kerdesIdDbbol;
+                        }
                     }
                 }
             }
-            if(eddigiKerdesCounter != 0)
+           if(eddigiKerdesCounter != 0)
             {
                 for(auto it = begin(kerdesIdkLista); it != end(kerdesIdkLista); ++it)
                 {
@@ -69,6 +73,15 @@ void QuizFelulet::kerdesLekeres()
                             szurtKerdesIdkLista.push_back(*it);
                         }
                     }
+                }
+                for(auto li = begin(szurtKerdesIdkLista); li != end(szurtKerdesIdkLista); ++li)
+                {
+                    qDebug()<< "Kerdes id szurt listabol: " << *li;
+                }
+                qDebug()<<"\n\n";
+                for(auto li = begin(marKerdezettId); li != end(marKerdezettId); ++li)
+                {
+                    qDebug()<< "Kerdes id kerdezett listabol: " << *li;
                 }
                 // random szám generálás
                 srand((unsigned int)time(NULL));
@@ -89,9 +102,21 @@ void QuizFelulet::kerdesLekeres()
                 qDebug()<< "Random ID";
                 qDebug()<< randomTemaId;
             }
+
             marKerdezettId.push_back(kerdesIdDbbol); // fontos, hogy az előbbi ciklus után adjuk hozzá a már kérdezettek vektorához
             eddigiKerdesCounter++;
             ui->osszCounter->setText(QString::number(eddigiKerdesCounter));
+
+     /*       srand((unsigned int)time(NULL));
+            int RandomValue = rand() % ((kerdesIdkLista.size()-1) - 0);
+            qDebug()<< "Random szám";
+            qDebug()<< RandomValue;
+            randomTemaId = kerdesIdkLista[RandomValue];
+            qDebug()<< "Random ID";
+            qDebug()<< randomTemaId;
+
+           it = std::find(kerdesIdkLista.begin(), kerdesIdkLista.end(), randomTemaId);
+           kerdesIdkLista.erase(it);*/
 
             try
             {
@@ -292,7 +317,7 @@ void QuizFelulet::on_valasz1Button_clicked()
     ui->valasz4Button->setEnabled(false);
     ui->counter->setText(QString::number(joValaszCounter));
     ui->nextQuestion->setEnabled(true);
-    if(eddigiKerdesCounter == 5)
+    if(eddigiKerdesCounter == kerdesekSzama)
     {
         ui->nextQuestion->setEnabled(false);
         QEventLoop loop;
@@ -323,7 +348,7 @@ void QuizFelulet::on_valasz2Button_clicked()
     ui->valasz4Button->setEnabled(false);
     ui->counter->setText(QString::number(joValaszCounter));
     ui->nextQuestion->setEnabled(true);
-    if(eddigiKerdesCounter == 5)
+    if(eddigiKerdesCounter == kerdesekSzama)
     {
         ui->nextQuestion->setEnabled(false);
         QEventLoop loop;
@@ -354,7 +379,7 @@ void QuizFelulet::on_valasz3Button_clicked()
     ui->valasz4Button->setEnabled(false);
     ui->counter->setText(QString::number(joValaszCounter));
     ui->nextQuestion->setEnabled(true);
-    if(eddigiKerdesCounter == 5)
+    if(eddigiKerdesCounter == kerdesekSzama)
     {
         ui->nextQuestion->setEnabled(false);
         QEventLoop loop;
@@ -385,7 +410,7 @@ void QuizFelulet::on_valasz4Button_clicked()
     ui->valasz1Button->setEnabled(false);
     ui->counter->setText(QString::number(joValaszCounter));
     ui->nextQuestion->setEnabled(true);
-    if(eddigiKerdesCounter == 5)
+    if(eddigiKerdesCounter == kerdesekSzama)
     {
         ui->nextQuestion->setEnabled(false);
         QEventLoop loop;

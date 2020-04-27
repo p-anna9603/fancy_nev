@@ -9,6 +9,7 @@
 #include <iterator>
 #include <iostream>
 #include <qboxlayout.h>
+using namespace std;
 
 namespace Ui {
 class QuizFelulet;
@@ -50,6 +51,7 @@ private:
     vector<int> marKerdezettId;
     vector <int> szurtKerdesIdkLista; //a még nem kérdezett kérdés id-k
     int totalPoints;
+    int kerdesekSzama = 10; // mennyi kérdés legyen adott témában
 
     void kerdesLekeres();
     void valaszLekeres();

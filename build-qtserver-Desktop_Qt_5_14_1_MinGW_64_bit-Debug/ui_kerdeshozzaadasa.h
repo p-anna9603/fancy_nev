@@ -32,7 +32,7 @@ public:
     QLabel *label;
     QSpacerItem *verticalSpacer_2;
     QTextEdit *kerdesMezo;
-    QComboBox *comboBox;
+    QComboBox *listaTargyaknak;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
     QLineEdit *valasz1Mezo;
@@ -52,15 +52,15 @@ public:
     {
         if (kerdesHozzaadasa->objectName().isEmpty())
             kerdesHozzaadasa->setObjectName(QString::fromUtf8("kerdesHozzaadasa"));
+        kerdesHozzaadasa->setWindowModality(Qt::NonModal);
         kerdesHozzaadasa->resize(369, 616);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/resource/img/question_mark.png"), QSize(), QIcon::Normal, QIcon::Off);
         kerdesHozzaadasa->setWindowIcon(icon);
+        kerdesHozzaadasa->setAutoFillBackground(false);
         kerdesHozzaadasa->setStyleSheet(QString::fromUtf8("QWidget#kerdesHozzaadasa\n"
 "{\n"
-"/*background-image: url(:/resource/img/backg_1.jpg);*/\n"
-"/*border-image: url(:/resource/img/backg_1.jpg);*/\n"
-"border-image: url(:/resource/img/bckg_6.jpg);\n"
+"border-image: url(:/resource/img/bckg_5.jpg);\n"
 "background-repeat: no-repeat;\n"
 "bacground-position: center;\n"
 "/*background-size: cover;\n"
@@ -126,27 +126,24 @@ public:
 
         verticalLayout->addWidget(kerdesMezo);
 
-        comboBox = new QComboBox(kerdesHozzaadasa);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        listaTargyaknak = new QComboBox(kerdesHozzaadasa);
+        listaTargyaknak->setObjectName(QString::fromUtf8("listaTargyaknak"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(comboBox->sizePolicy().hasHeightForWidth());
-        comboBox->setSizePolicy(sizePolicy);
-        comboBox->setMinimumSize(QSize(327, 35));
-        comboBox->setStyleSheet(QString::fromUtf8("QComboBox{\n"
+        sizePolicy.setHeightForWidth(listaTargyaknak->sizePolicy().hasHeightForWidth());
+        listaTargyaknak->setSizePolicy(sizePolicy);
+        listaTargyaknak->setMinimumSize(QSize(327, 35));
+        listaTargyaknak->setStyleSheet(QString::fromUtf8("QComboBox{\n"
 "font: 75 14pt \"MS Shell Dlg 2\";\n"
 "	background-color: rgb(231, 231, 231);\n"
 "padding: 3px;\n"
 "border-radius: 8px;\n"
 "}"));
-        comboBox->setEditable(true);
-        comboBox->setMaxCount(2147483646);
+        listaTargyaknak->setEditable(false);
+        listaTargyaknak->setMaxCount(2147483646);
 
-        verticalLayout->addWidget(comboBox);
+        verticalLayout->addWidget(listaTargyaknak);
 
         verticalSpacer = new QSpacerItem(20, 25, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
@@ -278,6 +275,16 @@ public:
 
         verticalLayout->addWidget(hozzaadButton);
 
+        QWidget::setTabOrder(kerdesMezo, listaTargyaknak);
+        QWidget::setTabOrder(listaTargyaknak, valasz1Mezo);
+        QWidget::setTabOrder(valasz1Mezo, valasz2Mezo);
+        QWidget::setTabOrder(valasz2Mezo, valasz3Mezo);
+        QWidget::setTabOrder(valasz3Mezo, valasz4Mezo);
+        QWidget::setTabOrder(valasz4Mezo, hozzaadButton);
+        QWidget::setTabOrder(hozzaadButton, radioButton);
+        QWidget::setTabOrder(radioButton, radioButton_2);
+        QWidget::setTabOrder(radioButton_2, radioButton_3);
+        QWidget::setTabOrder(radioButton_3, radioButton_4);
 
         retranslateUi(kerdesHozzaadasa);
 
@@ -286,14 +293,10 @@ public:
 
     void retranslateUi(QWidget *kerdesHozzaadasa)
     {
-        kerdesHozzaadasa->setWindowTitle(QCoreApplication::translate("kerdesHozzaadasa", "Form", nullptr));
+        kerdesHozzaadasa->setWindowTitle(QCoreApplication::translate("kerdesHozzaadasa", "K\303\251rd\303\251s hozz\303\241ad\303\241sa", nullptr));
         label->setText(QCoreApplication::translate("kerdesHozzaadasa", "K\303\251rd\303\251s hozz\303\241ad\303\241sa", nullptr));
         kerdesMezo->setPlaceholderText(QCoreApplication::translate("kerdesHozzaadasa", "K\303\251rd\303\251s megad\303\241sa...", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("kerdesHozzaadasa", "T\303\266rt\303\251nelem", nullptr));
-        comboBox->setItemText(1, QCoreApplication::translate("kerdesHozzaadasa", "Magyar nyelv \303\251s irodalom", nullptr));
-        comboBox->setItemText(2, QCoreApplication::translate("kerdesHozzaadasa", "Matematika", nullptr));
-
-        comboBox->setCurrentText(QCoreApplication::translate("kerdesHozzaadasa", "T\303\251mak\303\266r kiv\303\241laszt\303\241sa", nullptr));
+        listaTargyaknak->setCurrentText(QString());
         valasz1Mezo->setPlaceholderText(QCoreApplication::translate("kerdesHozzaadasa", "V\303\241lasz#1", nullptr));
         radioButton->setText(QString());
         valasz2Mezo->setPlaceholderText(QCoreApplication::translate("kerdesHozzaadasa", "V\303\241lasz#2", nullptr));

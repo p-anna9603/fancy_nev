@@ -61,10 +61,8 @@ private:
     termeszetiKepek *term;
     int osszPontszam = 0;
     int kerdesId = 0;
-    vector<QString> kisKepekLista;
 
     void getPoints();
-    vector<QString> getKisKepLista();
 
 
 

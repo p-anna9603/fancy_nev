@@ -1272,8 +1272,8 @@ color: rgb(255, 255, 255);</string>
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>587</width>
-                     <height>403</height>
+                     <width>87</width>
+                     <height>87</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1428,7 +1428,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                    <x>0</x>
                    <y>0</y>
                    <width>589</width>
-                   <height>378</height>
+                   <height>398</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_11">
@@ -1716,7 +1716,6 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
     </item>
    </layout>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionPontsz_m">
    <property name="text">
     <string>Pontszám</string>

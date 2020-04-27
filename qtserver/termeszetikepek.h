@@ -20,16 +20,17 @@ class termeszetiKepek : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit termeszetiKepek(QWidget *parent = nullptr, vector<QString> list = {nullptr});
+    explicit termeszetiKepek(QWidget *parent = nullptr);
     ~termeszetiKepek();
      void setKisKepLista(QString str);
-
 
 private:
     Ui::termeszetiKepek *ui;
     QLabel *lab;
-    vector<QString> kiskepLista = {""};
+    vector<QString> kiskepLista;
     int j = 0;
+
+    void setKisKepek();
 };
 
 #endif // TERMESZETIKEPEK_H

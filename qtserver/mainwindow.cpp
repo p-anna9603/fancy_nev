@@ -25,15 +25,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_2_clicked()  //Login Button
 {
-    //ui->usernameLogin->setText("player");
-    //ui->passwordLogin->setText("player");
+    ui->usernameLogin->setText("player");
+    ui->passwordLogin->setText("player");
     QString username = ui->usernameLogin->text();
     QString password = ui->passwordLogin->text();
 
     // Messagebox ha vagy a felhasználónév vagy a jelszó mezőt üresen hagyta.
     if((username == "" || password == ""))
     {
-         QMessageBox::information(this, "Please enter username and password", "Please enter username and password");
+         QMessageBox::information(this, "Hiányzó adat", "Add meg a felhasználó neved és jelszavad!");
     }
     else
     {
@@ -81,6 +81,7 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
                         {
                             jatekFelulet *jatek = new jatekFelulet(this,username, database);
                             jatek->show();
+                            ui->passwordLogin->setText("");
                             this->close();
 //                            Dialog dialog;
 //                            dialog.setModal(true);
@@ -108,7 +109,7 @@ void MainWindow::on_regisztralasButton_clicked()
 
     if(email == "" || userName == "" || pass1 == "" || pass2 == "")
     {
-        QMessageBox::information(this, "Missing data", "Please fill every field!");
+        QMessageBox::information(this, "Hiányzó adat", "Tölts ki minden mezőt!");
     }
     else
     {
@@ -155,6 +156,12 @@ void MainWindow::on_regisztralasButton_clicked()
                         else
                         {
                             QMessageBox::information(this, "Regisztráció", "Sikeres regisztráció!");
+                            ui->vnevReg->setText("");
+                            ui->knevReg->setText("");
+                            ui->emailReg->setText("");
+                            ui->userNameReg->setText("");
+                            ui->passwordReg->setText("");
+                            ui->passwordReg2->setText("");
                         }
                     }
                 }

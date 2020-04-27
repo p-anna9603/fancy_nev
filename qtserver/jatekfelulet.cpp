@@ -10,6 +10,7 @@ jatekFelulet::jatekFelulet(QMainWindow *qMain, const QString &playerName, Databa
 {
     ui->setupUi(this);
     ui->playerUsername->setText(playerName);
+   term = new termeszetiKepek();
 //    ui->stackedWidget->hide();
     ui->stackedWidget->setCurrentIndex(5); // üres stacked Widget hogy ne csússzon el a layout
 //    ui->widget->hide();
@@ -145,69 +146,62 @@ void jatekFelulet::on_pushButton_clicked()
 void jatekFelulet::Mouse_Pressed()
 {
     qDebug() << "Klikk!";
-    term = new termeszetiKepek();
+//    term = new Ui::termeszetiKepek();
     term->show();
 }
 
 void jatekFelulet::Mouse_PressedOnLittlePic()
-{ // ez az egész szar fos nem működik mert nem adja át paraméterben a termeszetikepek osztálynak hiába van feltöltve a vektor
+{
     qDebug()<<"Klikkelés kisképre!";
     if(ui->t3_8->hasFocus())
     {
       qDebug()<< "Beugrik 8-ba";
-//      term->setKisKepLista("t8_3");
-      kisKepekLista.push_back("t3_8");
+      term->setKisKepLista("image_part_008.jpg");
+//      kisKepekLista.push_back("t3_8");
       qDebug()<<"Klikkelés 8.  kisképre!";
     }
     else if(ui->t3_5->hasFocus())
     {
       qDebug()<< "Beugrik 5-ba";
-      kisKepekLista.push_back("t3_5");
+      term->setKisKepLista("image_part_005.jpg");
       qDebug()<<"Klikkelés 5. kisképre!";
     }
     else if(ui->t3_2->hasFocus())
     {
       qDebug()<< "Beugrik 2-ba";
-      kisKepekLista.push_back("t3_2");
+      term->setKisKepLista("image_part_002.jpg");;
       qDebug()<<"Klikkelés 2. kisképre!";
     }
     else if(ui->t3_7->hasFocus())
     {
       qDebug()<< "Beugrik 7-ba";
-      kisKepekLista.push_back("t3_7");
+      term->setKisKepLista("image_part_007.jpg");
       qDebug()<<"Klikkelés 7. kisképre!";
     }
     else if(ui->t3_1->hasFocus())
     {
-      qDebug()<< "Beugrik 1-ba";
-      kisKepekLista.push_back("t3_1");
+      qDebug()<< "Beugrik 3-ba";
+      term->setKisKepLista("image_part_003.jpg");
       qDebug()<<"Klikkelés 1. kisképre!";
     }
     else if(ui->t3_9->hasFocus())
     {
       qDebug()<< "Beugrik 9-ba";
-      kisKepekLista.push_back("t3_9");
+      term->setKisKepLista("image_part_009.jpg");
       qDebug()<<"Klikkelés 9. kisképre!";
     }
     else if(ui->t3_4->hasFocus())
     {
       qDebug()<< "Beugrik 4-ba";
-      kisKepekLista.push_back("t3_4");
+      term->setKisKepLista("image_part_004.jpg");
       qDebug()<<"Klikkelés 4. kisképre!";
     }
     else if(ui->t3_3->hasFocus())
     {
       qDebug()<< "Beugrik 3-ba";
-      kisKepekLista.push_back("t3_3");
+      term->setKisKepLista("image_part_003");
       qDebug()<<"Klikkelés 3. kisképre!";
     }
-//    term->setKisKepLista("t3_3"); /6 ez nem jó mert a vector valamiért nem inicializálódik jól és nem adja hozzá...
-//    term->setKisKepLista("t3_9");
-//    term->setKisKepLista("t3_4");
-//    term->setKisKepLista("t3_2");
-//    term->setKisKepLista("t3_6");
-//    term->setKisKepLista("t3_1");
-//    term->setKisKepLista("t3_7");
 }
 
 void jatekFelulet::on_pushButton_4_clicked()    //START
@@ -327,9 +321,4 @@ void jatekFelulet::getPoints()
     {
         QMessageBox::information(this, "Not Connected", "Database not connected");
     }
-}
-
-vector<QString> jatekFelulet::getKisKepLista()
-{
-    return kisKepekLista;
 }

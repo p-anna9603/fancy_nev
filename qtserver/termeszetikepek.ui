@@ -42,8 +42,8 @@
          <rect>
           <x>610</x>
           <y>30</y>
-          <width>201</width>
-          <height>391</height>
+          <width>291</width>
+          <height>411</height>
          </rect>
         </property>
         <property name="widgetResizable">
@@ -54,8 +54,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>199</width>
-           <height>389</height>
+           <width>289</width>
+           <height>409</height>
           </rect>
          </property>
          <widget class="QLabel" name="label_2">
@@ -69,22 +69,6 @@
           </property>
           <property name="text">
            <string>Kártyáim</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="t3_1">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>70</y>
-            <width>101</width>
-            <height>111</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
           </property>
          </widget>
         </widget>
