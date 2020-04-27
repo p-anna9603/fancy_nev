@@ -33,8 +33,8 @@ void QuizFelulet::kerdesLekeres()
     {
         try
         {
-            if(eddigiKerdesCounter == 0)
-            {
+//            if(eddigiKerdesCounter == 0)
+//            {
                 QSqlQuery query(QSqlDatabase::database());
                 //Lekérdezem az összes category_id-hoz tartozó kérdés id-t és listába rakom
                 query.prepare(QString("SELECT id FROM Question WHERE category_id = :categoryID ORDER BY category_id ASC, id ASC"));
@@ -61,7 +61,7 @@ void QuizFelulet::kerdesLekeres()
                         }
                     }
                 }
-            }
+//            }
            if(eddigiKerdesCounter != 0)
             {
                 for(auto it = begin(kerdesIdkLista); it != end(kerdesIdkLista); ++it)
