@@ -23,16 +23,31 @@ QuizFelulet::~QuizFelulet()
 
 void QuizFelulet::kerdesLekeres()
 {
-    int kerdesIdDbbol;
-    int randomTemaId;
     QString question;
     vector <int> kerdesIdkLista;
-    vector<int>::iterator it;
     ui->nextQuestion->setEnabled(false);
     if(db->getDb().isOpen())
     {
         try
         {
+
+            {
+                QSqlQuery query(QSqlDatabase::database());
+                query.prepare(QString("SELECT voltKerdesek FROM Users WHERE username=:name"));
+                query.bindValue(":name",playerName);
+                if(!query.exec())
+                {
+                    throw QString("SELECT voltKerdesek FROM Users WHERE username=:name failed to execute");
+                }
+                else
+                {
+                    query.next();
+                    QString voltakMar=query.value(0).toString();
+                    voltakKerdesek=voltakMar.split(",");
+                    for (auto i:voltakKerdesek)
+                        qDebug()<<i;
+                }
+            }
 
                 QSqlQuery query(QSqlDatabase::database());
                 //Lekérdezem az összes category_id-hoz tartozó kérdés id-t és listába rakom
@@ -53,23 +68,92 @@ void QuizFelulet::kerdesLekeres()
                     {
                         while(query.next())
                         {
-                            kerdesIdDbbol = query.value(0).toInt();
-                            kerdesIdkLista.push_back(kerdesIdDbbol);
-                            qDebug()<< "Kerdes ID db-bol";
-                            qDebug()<<kerdesIdDbbol;
+                            questionId = query.value(0).toInt();
+                            kerdesIdkLista.push_back(questionId);
+//                            qDebug()<< "Kerdes ID db-bol";
+//                            qDebug()<<questionId;
                         }
                     }
                 }
-                srand((unsigned int)time(NULL));
-                int RandomValue = rand() % ((kerdesIdkLista.size()-1) - 0);
-                qDebug()<< "Random szám";
-                qDebug()<< RandomValue;
-                randomTemaId = kerdesIdkLista[RandomValue];
+
+                bool notOK=true;
+                int hanyszor=0;
+                if (kerdesIdkLista.size()==voltakKerdesek.size())
+                    throw QString("Out of Questions for this subject");
+                do
+                {
+                    srand((unsigned int)time(NULL));
+                    int RandomValue = rand() % ((kerdesIdkLista.size()-1) - 0);
+//                    qDebug()<< "Random szám";
+//                    qDebug()<< RandomValue;
+                    questionId = kerdesIdkLista[RandomValue];
+                    qDebug()<< "Random ID:";
+                    qDebug()<< questionId;
+//                    qDebug()<< "Voltak Size:";
+//                    qDebug()<< voltakKerdesek.size();
+                    int i=0;
+                    hanyszor++;
+                    qDebug()<<QString(QString("Hanyszor:")+QString(QString::number(hanyszor)));
+                    while(i<voltakKerdesek.size() && voltakKerdesek[i].toInt()!=questionId)
+                    {
+                        i++;
+                    }
+                    if (i==voltakKerdesek.size())
+                        notOK=false;
+                }while(notOK);
+                {
+                    QSqlQuery queryVolt(QSqlDatabase::database());
+                    queryVolt.prepare(QString("SELECT voltKerdesek FROM Users WHERE username=:name"));
+                    queryVolt.bindValue(":name",playerName);
+                    if (!queryVolt.exec())
+                    {
+                        throw QString("Error SELECT voltKerdesek FROM Users WHERE username=:name");
+                    }
+                    else
+                    {
+                        queryVolt.next();
+                        if (queryVolt.value(0).toString()==NULL)
+                        {
+                            query.prepare("UPDATE Users SET voltKerdesek=:kerdesekID WHERE username=:usnm");
+                            query.bindValue(":kerdesekID",questionId);
+                            qDebug()<<"KerdesID:";
+                            qDebug()<<questionId;
+                            qDebug()<<"Username:";
+                            qDebug()<<playerName;
+                            query.bindValue(":usnm",playerName);
+                            if (!query.exec())
+                            {
+                                throw QString("ERROR UPDATE Users SET voltKerdesek=:kerdesekID WHERE username=:usnm");
+                            }
+                        }
+                        else
+                        {
+                                qDebug()<<"HELLOOO";
+                                QString elozoPluszUj=queryVolt.value(0).toString();
+                                elozoPluszUj+=QString(",");
+                                elozoPluszUj+=QString(QString::number(questionId));
+                                query.prepare("UPDATE Users SET voltKerdesek=:kerdesekID WHERE username=:usnm");
+                                query.bindValue(":kerdesekID",elozoPluszUj);
+                                qDebug()<<"ElozoUjPlusz:";
+                                qDebug()<<elozoPluszUj;
+                                qDebug()<<"Username:";
+                                qDebug()<<playerName;
+                                query.bindValue(":usnm",playerName);
+                                if (!query.exec())
+                                {
+                                    throw QString("ERROR UPDATE Users SET voltKerdesek=:kerdesekID WHERE username=:usnm");
+                                }
+                        }
+
+                    }
+
+                }
+
                 qDebug()<< "Random ID";
-                qDebug()<< randomTemaId;
+                qDebug()<< questionId;
 
 
-            marKerdezettId.push_back(randomTemaId); // fontos, hogy az előbbi ciklus után adjuk hozzá a már kérdezettek vektorához
+           // marKerdezettId.push_back(questionId); // fontos, hogy az előbbi ciklus után adjuk hozzá a már kérdezettek vektorához
             eddigiKerdesCounter++;
             ui->osszCounter->setText(QString::number(eddigiKerdesCounter));
 
@@ -90,17 +174,17 @@ void QuizFelulet::kerdesLekeres()
                /* std::random_device rd;
                 std::mt19937 mt(rd());
                 std::uniform_real_distribution<> dist(elso, utolso);  //zárt intervalum*/
-                do
-                {
-                    qDebug()<<"Eleje";
+//                do
+//                {
+//                    qDebug()<<"Eleje";
 //                    int randomSzam=(elso + ( std::rand() % ( utolso - elso + 1 ) ));
                     //randomSzam=1; így nyilván jó
                     qDebug()<<"randomSzam:";
-                    qDebug()<<randomTemaId;
+                    qDebug()<<questionId;
                     queryQuestion.prepare(QString("SELECT question,id FROM Question WHERE id=:szam"));
-                    qDebug()<<"1";
-                    queryQuestion.bindValue(":szam",randomTemaId);
-                    qDebug()<<"2";
+//                    qDebug()<<"1";
+                    queryQuestion.bindValue(":szam",questionId);
+//                    qDebug()<<"2";
                     if(!queryQuestion.exec())
                     {
                         throw QString("Failed to execute SELECT question FROM Question WHERE id=:szam");
@@ -108,7 +192,7 @@ void QuizFelulet::kerdesLekeres()
                     }
                     qDebug()<<"3\nQuery size:";
                     qDebug()<<queryQuestion.size();
-                }while(queryQuestion.size()==0);     //itt megfagy a program fuckknowswhy
+/*                }while(queryQuestion.size()==0);  */   //itt megfagy a program fuckknowswhy
                 qDebug()<<"while out";
                 if (queryQuestion.size() == 1)
                 {
@@ -117,12 +201,16 @@ void QuizFelulet::kerdesLekeres()
 //                    question.insert(0,'\n'); - nem lesz középen ettől
                     ui->kerdesTextEdit->setText(question);
                     ui->kerdesTextEdit->setAlignment(Qt::AlignCenter);
-                    ui->kerdesTextEdit->setAlignment(Qt::AlignHCenter);
+                    ui->kerdesTextEdit->setAlignment(Qt::AlignVCenter);
 //                    ui->kerdesTextEdit->setAlignment(Qt::AlignVCenter);
 //                    ui->kerdesTextEdit->setStyleSheet("padding-top:50px;");
-                    questionId = queryQuestion.value(1).toInt();
-                    qDebug()<<"questionId:";
-                    qDebug()<< questionId;
+//                    questionId = queryQuestion.value(1).toInt();          questionId==randomTemaId!!
+//                    qDebug()<<"questionId:";
+//                    qDebug()<< questionId;
+                }
+                else
+                {
+                    throw QString("queryQuestion.size() != 1");
                 }
             }
             catch(QString e)

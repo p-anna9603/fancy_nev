@@ -36,7 +36,7 @@ jatekFelulet::jatekFelulet(QMainWindow *qMain, const QString &playerName, Databa
     connect(ui->buttonKep2_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
     connect(ui->buttonKep3_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
     connect(ui->buttonKep4_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
-    connect(ui->buttonKep5_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
+    //connect(ui->buttonKep5_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
     connect(ui->buttonKep6_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
 }
 
@@ -253,13 +253,13 @@ void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen
                     ui->term1->setPixmap(pix1);
                     updatePoints();
                 }
-                else if(ui->buttonKep5_2->hasFocus())
+                //else if(ui->buttonKep5_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h5.jpg");
                     ui->term1->setPixmap(pix1);
                     updatePoints();
                 }
-                else if(ui->buttonKep6_2->hasFocus())
+                //else if(ui->buttonKep6_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h3.jpg");
                     ui->term1->setPixmap(pix1);

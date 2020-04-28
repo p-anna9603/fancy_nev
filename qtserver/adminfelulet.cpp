@@ -19,7 +19,7 @@ adminFelulet::adminFelulet(QMainWindow *qMain, const QString &adminName, Databas
 {
          qDebug()<<"admin konstruktor \n";
     ui->setupUi(this);
-    ui->adminUsername->setText(adminName);
+    ui->adminUsername->setText(username.replace("admin",""));
 }
 
 adminFelulet::~adminFelulet()

@@ -69,7 +69,7 @@ void MainWindow::on_pushButton_2_clicked()  //Login Button
 
                         if ((username=="adminKlaudia" || username=="adminVera" || username=="adminAnna") && password=="admin")   //admin---->AdminFelület
                         {
-                            adminFelulet *testAdmin=new adminFelulet(this,username.replace("admin",""), database);
+                            adminFelulet *testAdmin=new adminFelulet(this,username, database);
 
                             testAdmin->show();
                             //this->hide();

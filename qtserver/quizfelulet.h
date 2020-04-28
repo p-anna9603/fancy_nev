@@ -54,6 +54,7 @@ private:
     vector <int> szurtKerdesIdkLista; //a még nem kérdezett kérdés id-k
     int totalPoints;
     int kerdesekSzama = 10; // mennyi kérdés legyen adott témában
+    QStringList voltakKerdesek;
 
     void kerdesLekeres();
     void valaszLekeres();
