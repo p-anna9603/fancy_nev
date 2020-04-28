@@ -69,7 +69,7 @@ void QuizFelulet::kerdesLekeres()
                 qDebug()<< randomTemaId;
 
 
-            marKerdezettId.push_back(kerdesIdDbbol); // fontos, hogy az előbbi ciklus után adjuk hozzá a már kérdezettek vektorához
+            marKerdezettId.push_back(randomTemaId); // fontos, hogy az előbbi ciklus után adjuk hozzá a már kérdezettek vektorához
             eddigiKerdesCounter++;
             ui->osszCounter->setText(QString::number(eddigiKerdesCounter));
 
@@ -277,6 +277,23 @@ void QuizFelulet::on_valasz1Button_clicked()
     else
     {
         ui->valasz1Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff6666, stop: 0.1 #ff1a1a,  stop: 0.49 #cc0000 );");
+        QEventLoop loop;
+        QTimer::singleShot(1000, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
+        loop.exec();
+        if(helyesValasz == 4)
+        {
+            ui->valasz4Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+
+        }
+        if(helyesValasz == 2)
+        {
+            ui->valasz2Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+
+        }
+        if(helyesValasz == 3)
+        {
+            ui->valasz3Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+        }
     }
     ui->valasz2Button->setEnabled(false);
     ui->valasz3Button->setEnabled(false);
@@ -308,6 +325,23 @@ void QuizFelulet::on_valasz2Button_clicked()
     else
     {
         ui->valasz2Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff6666, stop: 0.1 #ff1a1a,  stop: 0.49 #cc0000 );");
+        QEventLoop loop;
+        QTimer::singleShot(1000, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
+        loop.exec();
+        if(helyesValasz == 1)
+        {
+            ui->valasz1Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+
+        }
+        if(helyesValasz == 4)
+        {
+            ui->valasz4Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+
+        }
+        if(helyesValasz == 3)
+        {
+            ui->valasz3Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+        }
     }
     ui->valasz1Button->setEnabled(false);
     ui->valasz3Button->setEnabled(false);
@@ -339,6 +373,23 @@ void QuizFelulet::on_valasz3Button_clicked()
     else
     {
         ui->valasz3Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff6666, stop: 0.1 #ff1a1a,  stop: 0.49 #cc0000 );");
+        QEventLoop loop;
+        QTimer::singleShot(1000, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
+        loop.exec();
+        if(helyesValasz == 1)
+        {
+            ui->valasz1Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+
+        }
+        if(helyesValasz == 2)
+        {
+            ui->valasz2Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+
+        }
+        if(helyesValasz == 4)
+        {
+            ui->valasz4Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+        }
     }
     ui->valasz2Button->setEnabled(false);
     ui->valasz1Button->setEnabled(false);
@@ -370,6 +421,22 @@ void QuizFelulet::on_valasz4Button_clicked()
     else
     {
         ui->valasz4Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff6666, stop: 0.1 #ff1a1a,  stop: 0.49 #cc0000 );");
+        QEventLoop loop;
+        QTimer::singleShot(1000, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
+        loop.exec();
+        if(helyesValasz == 1)
+        {
+            ui->valasz1Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+        }
+        if(helyesValasz == 2)
+        {
+            ui->valasz2Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+
+        }
+        if(helyesValasz == 3)
+        {
+            ui->valasz3Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b3ff99, stop: 0.1 #66ff33,  stop: 0.49 #33cc00 );");
+        }
     }
     ui->valasz2Button->setEnabled(false);
     ui->valasz3Button->setEnabled(false);
@@ -492,4 +559,9 @@ void QuizFelulet::assignPointsToPlayer()
     }
 }
 
-
+void QuizFelulet::on_nextQuestion_2_clicked()
+{
+    assignPointsToPlayer();
+    this->close();
+    vissza->show();
+}

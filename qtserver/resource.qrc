@@ -62,6 +62,34 @@
         <file>img/tortenelmiHatter/tortenelmi_1.jpg</file>
         <file>img/tortenelmiHatter/tortenelmi_2.jpg</file>
         <file>img/tortenelmiHatter/tortenelmi_3.jpg</file>
+        <file>img/Termeszeti/Kicsiben/szurkeben/háttér2.jpg</file>
+        <file>img/Termeszeti/Kicsiben/szurkeben/háttér3.jpg</file>
+        <file>img/Termeszeti/Kicsiben/szurkeben/háttér4.jpg</file>
+        <file>img/Termeszeti/Kicsiben/szurkeben/t1.jpg</file>
+        <file>img/Termeszeti/Kicsiben/szurkeben/t2.jpg</file>
+        <file>img/Termeszeti/Kicsiben/szurkeben/t3.jpg</file>
+        <file>img/Termeszeti/Kicsiben/szurkeben/t5.jpg</file>
+        <file>img/TortenelmiKartya/nagyban/h1.jpg</file>
+        <file>img/TortenelmiKartya/nagyban/h2.jpg</file>
+        <file>img/TortenelmiKartya/nagyban/h3.jpg</file>
+        <file>img/TortenelmiKartya/nagyban/h4.jpg</file>
+        <file>img/TortenelmiKartya/nagyban/h5.jpg</file>
+        <file>img/TortenelmiKartya/nagyban/h6.jpg</file>
+        <file>img/TortenelmiKartya/nagyban/h7.jpg</file>
+        <file>img/TortenelmiKartya/szurkeben/h1.jpg</file>
+        <file>img/TortenelmiKartya/szurkeben/h2.jpg</file>
+        <file>img/TortenelmiKartya/szurkeben/h3.jpg</file>
+        <file>img/TortenelmiKartya/szurkeben/h4.jpg</file>
+        <file>img/TortenelmiKartya/szurkeben/h5.jpg</file>
+        <file>img/TortenelmiKartya/szurkeben/h6.jpg</file>
+        <file>img/TortenelmiKartya/szurkeben/h7.jpg</file>
+        <file>img/TortenelmiKartya/h1.jpg</file>
+        <file>img/TortenelmiKartya/h2.jpg</file>
+        <file>img/TortenelmiKartya/h3.jpg</file>
+        <file>img/TortenelmiKartya/h4.jpg</file>
+        <file>img/TortenelmiKartya/h5.jpg</file>
+        <file>img/TortenelmiKartya/h6.jpg</file>
+        <file>img/TortenelmiKartya/h7.jpg</file>
     </qresource>
     <qresource prefix="/Myfile"/>
     <qresource prefix="/bacground"/>

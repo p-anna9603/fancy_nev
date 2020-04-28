@@ -31,6 +31,13 @@ jatekFelulet::jatekFelulet(QMainWindow *qMain, const QString &playerName, Databa
     connect(ui->t3_6, SIGNAL(Mouse_PressedOnLittlePic()), this, SLOT(Mouse_PressedOnLittlePic()));
     connect(ui->t3_7, SIGNAL(Mouse_PressedOnLittlePic()), this, SLOT(Mouse_PressedOnLittlePic()));
     connect(ui->t3_9, SIGNAL(Mouse_PressedOnLittlePic()), this, SLOT(Mouse_PressedOnLittlePic()));
+
+    connect(ui->buttonKep1_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
+    connect(ui->buttonKep2_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
+    connect(ui->buttonKep3_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
+    connect(ui->buttonKep4_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
+    connect(ui->buttonKep5_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
+    connect(ui->buttonKep6_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
 }
 
 jatekFelulet::~jatekFelulet()
@@ -108,10 +115,16 @@ void jatekFelulet::on_visszaButton_clicked()
 
 void jatekFelulet::on_EredmenyButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(5); // üres stacked Widget hogy ne csússzon el a layout
-    ui->pontPush->show();
-    ui->KartyaPush->show();
-    ui->kartya_vasarlas->show();
+//    ui->stackedWidget->setCurrentIndex(5); // üres stacked Widget hogy ne csússzon el a layout
+//    ui->pontPush->show();
+//    ui->KartyaPush->show();
+//    ui->kartya_vasarlas->show();
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->pontPush->hide();
+    ui->KartyaPush->hide();
+    ui->kartya_vasarlas->hide();
+    getPoints();
+    ui->stackedWidget->show();
 }
 
 void jatekFelulet::on_pontPush_clicked() // Pontszámaim
@@ -124,7 +137,6 @@ void jatekFelulet::on_pontPush_clicked() // Pontszámaim
     ui->stackedWidget->show();
 }
 
-
 void jatekFelulet::on_KartyaPush_clicked() // Eredményeim --> Kártyák
 {
     ui->stackedWidget->setCurrentIndex(1);
@@ -134,13 +146,15 @@ void jatekFelulet::on_KartyaPush_clicked() // Eredményeim --> Kártyák
     ui->stackedWidget->show();
 }
 
-void jatekFelulet::on_pushButton_clicked()
+void jatekFelulet::on_pushButton_clicked() //természeti kártya pusbutton
 {
     ui->stackedWidget->setCurrentIndex(3);
     ui->pontPush->hide();
     ui->KartyaPush->hide();
     ui->kartya_vasarlas->hide();
     ui->stackedWidget->show();
+    getPoints();
+    ui->pontszam->setText(QString::number(osszPontszam));
 }
 
 void jatekFelulet::Mouse_Pressed()
@@ -201,6 +215,65 @@ void jatekFelulet::Mouse_PressedOnLittlePic()
       qDebug()<< "Beugrik 3-ba";
       term->setKisKepLista("image_part_003");
       qDebug()<<"Klikkelés 3. kisképre!";
+    }
+}
+
+void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen külön függvény
+{
+    int answer;
+    getPoints(); // hogy a pontokat beállítsuk
+    if(kartyaTema == 1) // épp a történelmi kártyáknál van
+    {
+        if(tortenelemPont > 400)
+        {
+            answer = getAnswerForBuying();
+            if(answer == 1)
+            {
+                if(ui->buttonKep1_2->hasFocus())
+                {
+                    QPixmap pix1(":resource/img/TortenelmiKartya/h1.jpg");
+                    ui->term1->setPixmap(pix1);
+                    updatePoints();
+                }
+                else if(ui->buttonKep2_2->hasFocus())
+                {
+                    QPixmap pix1(":resource/img/TortenelmiKartya/h2.jpg");
+                    ui->term1->setPixmap(pix1);
+                    updatePoints();
+                }
+                else if(ui->buttonKep3_2->hasFocus()) // nem látja ???
+                {
+                    QPixmap pix1(":resource/img/TortenelmiKartya/h4.jpg");
+                    ui->term1->setPixmap(pix1);
+                    updatePoints();
+                }
+                else if(ui->buttonKep4_2->hasFocus())
+                {
+                    QPixmap pix1(":resource/img/TortenelmiKartya/h7.jpg");
+                    ui->term1->setPixmap(pix1);
+                    updatePoints();
+                }
+                else if(ui->buttonKep5_2->hasFocus())
+                {
+                    QPixmap pix1(":resource/img/TortenelmiKartya/h5.jpg");
+                    ui->term1->setPixmap(pix1);
+                    updatePoints();
+                }
+                else if(ui->buttonKep6_2->hasFocus())
+                {
+                    QPixmap pix1(":resource/img/TortenelmiKartya/h3.jpg");
+                    ui->term1->setPixmap(pix1);
+                    updatePoints();
+                }
+                tortenelemPont -= 400;
+                ui->jelenlegi_pont_2->setText(QString::number(tortenelemPont));
+            }
+        }
+        else
+        {
+            QMessageBox::information(this,"Nincs egyenleg","Nincs elegendő pontod a vásárlás teljesítéséhez.");
+
+        }
     }
 }
 
@@ -311,6 +384,10 @@ void jatekFelulet::getPoints()
             ui->Idodalom->setText(irodalom);
             ui->sport->setText(sport);
             ui->egyetem->setText(egyetem);
+            tortenelemPont = tortenelem.toInt();
+            irodalomPont = irodalom.toInt();
+            sportPont = sport.toInt();
+            egyetemPont = egyetem.toInt();
         }
         else
         {
@@ -321,4 +398,172 @@ void jatekFelulet::getPoints()
     {
         QMessageBox::information(this, "Not Connected", "Database not connected");
     }
+}
+
+int jatekFelulet::getAnswerForBuying()
+{
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,"Vásárlás","Biztos meg akarod venni?",QMessageBox::Yes|QMessageBox::No);
+    if(reply == QMessageBox::Yes)
+    {
+        QMessageBox::information(this,"Vásárlás megtörtént","Vásárlás megtörtént, tiéd a kép.");
+        return 1;
+    }
+    else{
+       return 0;
+    }
+}
+
+void jatekFelulet::updatePoints()
+{
+    if(kartyaTema == 1) // történelmi kártyát vett --> pontok frissítése db-ben
+    {
+        QSqlQuery query;
+        query.prepare("UPDATE Points SET points = :points WHERE category_id = 1");
+        query.bindValue(":ponints", tortenelemPont);
+        if(!query.exec())
+        {
+            QMessageBox::information(this,"Sikertelen", "Sikertelen beszúrás adatbázisba");
+        }
+    }
+}
+
+void jatekFelulet::on_buttonKep1_clicked()
+{
+    if(osszPontszam - 400 >= 0)
+    {
+        int answer = getAnswerForBuying();
+        if(answer == 1)
+        {
+            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/t3.jpg");
+            ui->term1->setPixmap(pix1);
+            updatePoints();
+        }
+    }
+    else
+    {
+        QMessageBox::information(this,"Nincs egyenleg","Nincs elegendő pontod a vásárlás teljesítéséhez.");
+    }
+}
+
+void jatekFelulet::on_buttonKep2_clicked()
+{
+    if(osszPontszam - 400 >= 0)
+    {
+        int answer = getAnswerForBuying();
+        if(answer == 1)
+        {
+            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/háttér4.jpg");
+            ui->term1->setPixmap(pix1);
+        }
+    }
+    else
+    {
+        QMessageBox::information(this,"Nincs egyenleg","Nincs elegendő pontod a vásárlás teljesítéséhez.");
+    }
+}
+
+void jatekFelulet::on_buttonKep3_clicked()
+{
+    if(osszPontszam - 400 >= 0)
+    {
+        int answer = getAnswerForBuying();
+        if(answer == 1)
+        {
+            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/háttér3.jpg");
+            ui->term1->setPixmap(pix1);
+        }
+    }
+    else
+    {
+        QMessageBox::information(this,"Nincs egyenleg","Nincs elegendő pontod a vásárlás teljesítéséhez.");
+    }
+}
+
+void jatekFelulet::on_buttonKep4_clicked()
+{
+    if(osszPontszam - 400 >= 0)
+    {
+        int answer = getAnswerForBuying();
+        if(answer == 1)
+        {
+            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/t1.jpg");
+            ui->term1->setPixmap(pix1);
+        }
+    }
+    else
+    {
+        QMessageBox::information(this,"Nincs egyenleg","Nincs elegendő pontod a vásárlás teljesítéséhez.");
+    }
+}
+
+void jatekFelulet::on_buttonKep5_clicked()
+{
+    if(osszPontszam - 400 >= 0)
+    {
+        int answer = getAnswerForBuying();
+        if(answer == 1)
+        {
+            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/t2.jpg");
+            ui->term1->setPixmap(pix1);
+        }
+    }
+    else
+    {
+        QMessageBox::information(this,"Nincs egyenleg","Nincs elegendő pontod a vásárlás teljesítéséhez.");
+    }
+}
+
+void jatekFelulet::on_buttonKep6_clicked()
+{
+    if(osszPontszam - 400 >= 0)
+    {
+        int answer = getAnswerForBuying();
+        if(answer == 1)
+        {
+            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/háttér2.jpg");
+            ui->term1->setPixmap(pix1);
+        }
+    }
+    else{
+        QMessageBox::information(this,"Nincs egyenleg","Nincs elegendő pontod a vásárlás teljesítéséhez.");
+    }
+}
+
+void jatekFelulet::on_buttonKep7_clicked()
+{
+    if(osszPontszam - 400 >= 0)
+    {
+        int answer = getAnswerForBuying();
+        if(answer == 1)
+        {
+            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/t5.jpg");
+            ui->term1->setPixmap(pix1);
+        }
+    }
+    else
+    {
+        QMessageBox::information(this,"Nincs egyenleg","Nincs elegendő pontod a vásárlás teljesítéséhez.");
+    }
+}
+
+void jatekFelulet::on_kartyavasarlas_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+    ui->pontPush->hide();
+    ui->KartyaPush->hide();
+    ui->kartya_vasarlas->hide();
+    ui->stackedWidget->show();
+}
+
+void jatekFelulet::on_tortnelmiKartyaTema_clicked()
+{
+    kartyaTema = 1; // tortenelmi
+    ui->stackedWidget->setCurrentIndex(8);
+    ui->pontPush->hide();
+    ui->KartyaPush->hide();
+    ui->kartya_vasarlas->hide();
+    ui->stackedWidget->show();
+    getPoints();
+    ui->jelenlegi_pont_2->setText(QString::number(tortenelemPont));
 }

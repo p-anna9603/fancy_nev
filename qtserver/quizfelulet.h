@@ -35,6 +35,8 @@ private slots:
     void on_nextQuestion_clicked();
 
 
+    void on_nextQuestion_2_clicked();
+
 private:
     Ui::QuizFelulet *ui;
     DatabaseConnection *db;

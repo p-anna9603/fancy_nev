@@ -37,6 +37,7 @@ private slots:
     void Mouse_Pressed();
 
     void Mouse_PressedOnLittlePic();
+    void Mouse_PressedOnBuyingPic();
 
     void on_pushButton_4_clicked();
 
@@ -52,6 +53,24 @@ private slots:
 
     void on_kartya_vasarlas_clicked();
 
+    void on_buttonKep1_clicked();
+
+    void on_buttonKep2_clicked();
+
+    void on_buttonKep3_clicked();
+
+    void on_buttonKep4_clicked();
+
+    void on_buttonKep5_clicked();
+
+    void on_buttonKep6_clicked();
+
+    void on_buttonKep7_clicked();
+
+    void on_kartyavasarlas_pushButton_clicked();
+
+    void on_tortnelmiKartyaTema_clicked();
+
 private:
     Ui::jatekFelulet *ui;
     DatabaseConnection *db;
@@ -61,8 +80,12 @@ private:
     termeszetiKepek *term;
     int osszPontszam = 0;
     int kerdesId = 0;
+    int kartyaTema = 0; // vásárláshoz elmenteni egy intet h melyik témát választotta. 2- tortenelmi
+    int tortenelemPont, irodalomPont, sportPont, egyetemPont;
 
     void getPoints();
+    int getAnswerForBuying(); // 0 vagy 1
+    void updatePoints(); // kártya vásárlás után
 
 
 
