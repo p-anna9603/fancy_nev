@@ -460,7 +460,7 @@ margin-left: 25px;</string>
 </string>
             </property>
             <property name="currentIndex">
-             <number>8</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="Pontszamok">
              <property name="styleSheet">
@@ -981,6 +981,12 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                    <layout class="QVBoxLayout" name="verticalLayout_15">
                     <item>
                      <widget class="clickableLabel" name="term1">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="mouseTracking">
                        <bool>true</bool>
                       </property>
@@ -1046,9 +1052,12 @@ border-top-right-radius: 25px;
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::MinimumExpanding</enum>
+                        </property>
                         <property name="sizeHint" stdset="0">
                          <size>
-                          <width>40</width>
+                          <width>60</width>
                           <height>20</height>
                          </size>
                         </property>
@@ -1062,6 +1071,12 @@ border-top-right-radius: 25px;
                    <layout class="QVBoxLayout" name="verticalLayout_14">
                     <item>
                      <widget class="QLabel" name="term2">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="toolTip">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/háttér4.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -1122,11 +1137,11 @@ border-top-right-radius: 25px;
                          <enum>Qt::Horizontal</enum>
                         </property>
                         <property name="sizeType">
-                         <enum>QSizePolicy::Expanding</enum>
+                         <enum>QSizePolicy::MinimumExpanding</enum>
                         </property>
                         <property name="sizeHint" stdset="0">
                          <size>
-                          <width>40</width>
+                          <width>60</width>
                           <height>20</height>
                          </size>
                         </property>
@@ -1154,7 +1169,7 @@ border-top-right-radius: 25px;
                        <widget class="QLabel" name="term3">
                         <property name="maximumSize">
                          <size>
-                          <width>16777215</width>
+                          <width>400</width>
                           <height>259</height>
                          </size>
                         </property>
@@ -1229,9 +1244,12 @@ border-top-right-radius: 25px;
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::MinimumExpanding</enum>
+                        </property>
                         <property name="sizeHint" stdset="0">
                          <size>
-                          <width>40</width>
+                          <width>33</width>
                           <height>20</height>
                          </size>
                         </property>
@@ -1245,6 +1263,12 @@ border-top-right-radius: 25px;
                    <layout class="QVBoxLayout" name="verticalLayout_13">
                     <item>
                      <widget class="QLabel" name="term4">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="toolTip">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/t1.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -1304,9 +1328,12 @@ border-top-right-radius: 25px;
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::MinimumExpanding</enum>
+                        </property>
                         <property name="sizeHint" stdset="0">
                          <size>
-                          <width>40</width>
+                          <width>30</width>
                           <height>20</height>
                          </size>
                         </property>
@@ -1320,6 +1347,12 @@ border-top-right-radius: 25px;
                    <layout class="QVBoxLayout" name="verticalLayout_11">
                     <item>
                      <widget class="QLabel" name="term5">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="toolTip">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/t2.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -1404,6 +1437,12 @@ border-top-right-radius: 25px;
                       </item>
                       <item>
                        <widget class="QLabel" name="term6">
+                        <property name="maximumSize">
+                         <size>
+                          <width>400</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
                         <property name="toolTip">
                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/háttér2.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
@@ -2204,6 +2243,11 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
              </layout>
             </widget>
             <widget class="QWidget" name="tortenelmiKartyak">
+             <property name="styleSheet">
+              <string notr="true">QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3 );
+}</string>
+             </property>
              <layout class="QGridLayout" name="gridLayout_14">
               <item row="0" column="0">
                <layout class="QVBoxLayout" name="verticalLayout_23">
@@ -2277,6 +2321,11 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
               </item>
               <item row="1" column="0">
                <widget class="QScrollArea" name="scrollArea_4">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3 );
+}</string>
+                </property>
                 <property name="widgetResizable">
                  <bool>true</bool>
                 </property>
@@ -2284,7 +2333,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-32</y>
+                   <y>-153</y>
                    <width>603</width>
                    <height>701</height>
                   </rect>
@@ -2294,6 +2343,12 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                    <layout class="QVBoxLayout" name="verticalLayout_18">
                     <item>
                      <widget class="clickableLabel" name="tort1">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="mouseTracking">
                        <bool>true</bool>
                       </property>
@@ -2331,7 +2386,7 @@ p, li { white-space: pre-wrap; }
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep1_2">
+                       <widget class="clickableButton" name="buttonKep1_2">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -2351,6 +2406,9 @@ border-bottom-left-radius: 25px;
 border-top-right-radius: 25px;
 
 /*ccc*/
+}
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3 );
 }</string>
                         </property>
                         <property name="text">
@@ -2363,9 +2421,12 @@ border-top-right-radius: 25px;
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::Expanding</enum>
+                        </property>
                         <property name="sizeHint" stdset="0">
                          <size>
-                          <width>40</width>
+                          <width>80</width>
                           <height>20</height>
                          </size>
                         </property>
@@ -2379,6 +2440,12 @@ border-top-right-radius: 25px;
                    <layout class="QVBoxLayout" name="verticalLayout_19">
                     <item>
                      <widget class="QLabel" name="tort2">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="toolTip">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/TortenelmiKartya/nagyban/h2.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -2406,7 +2473,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep2_2">
+                       <widget class="clickableButton" name="buttonKep2_2">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -2426,6 +2493,9 @@ border-bottom-left-radius: 25px;
 border-top-right-radius: 25px;
 
 /*ccc*/
+}
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3 );
 }</string>
                         </property>
                         <property name="text">
@@ -2443,7 +2513,7 @@ border-top-right-radius: 25px;
                         </property>
                         <property name="sizeHint" stdset="0">
                          <size>
-                          <width>40</width>
+                          <width>80</width>
                           <height>20</height>
                          </size>
                         </property>
@@ -2467,6 +2537,12 @@ border-top-right-radius: 25px;
                    <layout class="QVBoxLayout" name="verticalLayout_21">
                     <item>
                      <widget class="QLabel" name="tort4">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="toolTip">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/TortenelmiKartya/nagyban/h7.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -2494,7 +2570,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep4_2">
+                       <widget class="clickableButton" name="buttonKep4_2">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -2514,6 +2590,9 @@ border-bottom-left-radius: 25px;
 border-top-right-radius: 25px;
 
 /*ccc*/
+}
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3 );
 }</string>
                         </property>
                         <property name="text">
@@ -2542,6 +2621,12 @@ border-top-right-radius: 25px;
                    <layout class="QVBoxLayout" name="verticalLayout_20">
                     <item>
                      <widget class="QLabel" name="tort3">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="toolTip">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/TortenelmiKartya/nagyban/h4.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -2571,7 +2656,7 @@ border-top-right-radius: 25px;
                          </widget>
                         </item>
                         <item>
-                         <widget class="QPushButton" name="buttonKep3_2">
+                         <widget class="clickableButton" name="buttonKep3_2">
                           <property name="minimumSize">
                            <size>
                             <width>150</width>
@@ -2597,6 +2682,9 @@ border-bottom-left-radius: 25px;
 border-top-right-radius: 25px;
 
 /*ccc*/
+}
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3 );
 }</string>
                           </property>
                           <property name="text">
@@ -2641,6 +2729,12 @@ border-top-right-radius: 25px;
                    <layout class="QVBoxLayout" name="verticalLayout_26">
                     <item>
                      <widget class="QLabel" name="tort5">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="toolTip">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/TortenelmiKartya/nagyban/h5.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -2668,7 +2762,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep5_3">
+                       <widget class="clickableButton" name="buttonKep5_2">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -2688,6 +2782,9 @@ border-bottom-left-radius: 25px;
 border-top-right-radius: 25px;
 
 /*ccc*/
+}
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3 );
 }</string>
                         </property>
                         <property name="text">
@@ -2716,6 +2813,12 @@ border-top-right-radius: 25px;
                    <layout class="QVBoxLayout" name="verticalLayout_22">
                     <item>
                      <widget class="QLabel" name="tort6">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="toolTip">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/TortenelmiKartya/nagyban/h3.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -2743,7 +2846,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep6_2">
+                       <widget class="clickableButton" name="buttonKep6_2">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -2763,6 +2866,9 @@ border-bottom-left-radius: 25px;
 border-top-right-radius: 25px;
 
 /*ccc*/
+}
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, stop: 0.1 #cc6699,  stop: 0.49 #d98cb3 );
 }</string>
                         </property>
                         <property name="text">
@@ -2821,6 +2927,11 @@ border-top-right-radius: 25px;
    <class>clickableLabel</class>
    <extends>QLabel</extends>
    <header location="global">clickablelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>clickableButton</class>
+   <extends>QPushButton</extends>
+   <header location="global">clickablebutton.h</header>
   </customwidget>
  </customwidgets>
  <resources>

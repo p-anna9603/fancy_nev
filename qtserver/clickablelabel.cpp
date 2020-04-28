@@ -10,5 +10,5 @@ clickableLabel::~clickableLabel()
 {
 }
 void clickableLabel::mousePressEvent(QMouseEvent* event) {
-    emit Mouse_Pressed(),Mouse_PressedOnLittlePic(),Mouse_PressedOnBuyingPic();
+    emit Mouse_Pressed(),Mouse_PressedOnLittlePic();
 }

@@ -5,6 +5,7 @@
 #include "databaseconnection.h"
 #include "jatekosadatok.h"
 #include "clickablelabel.h"
+#include "clickablebutton.h"
 #include "termeszetikepek.h"
 #include "quizfelulet.h"
 
@@ -80,7 +81,7 @@ private:
     termeszetiKepek *term;
     int osszPontszam = 0;
     int kerdesId = 0;
-    int kartyaTema = 0; // vásárláshoz elmenteni egy intet h melyik témát választotta. 2- tortenelmi
+    int kartyaTema = 0; // vásárláshoz elmenteni egy intet h melyik témát választotta. 1 - tortenelmi
     int tortenelemPont, irodalomPont, sportPont, egyetemPont;
 
     void getPoints();

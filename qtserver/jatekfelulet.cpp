@@ -36,7 +36,7 @@ jatekFelulet::jatekFelulet(QMainWindow *qMain, const QString &playerName, Databa
     connect(ui->buttonKep2_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
     connect(ui->buttonKep3_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
     connect(ui->buttonKep4_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
-    //connect(ui->buttonKep5_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
+    connect(ui->buttonKep5_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
     connect(ui->buttonKep6_2, SIGNAL(Mouse_PressedOnBuyingPic()), this, SLOT(Mouse_PressedOnBuyingPic()));
 }
 
@@ -221,6 +221,7 @@ void jatekFelulet::Mouse_PressedOnLittlePic()
 void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen külön függvény
 {
     int answer;
+    qDebug()<< "itt van mouse pressben";
     getPoints(); // hogy a pontokat beállítsuk
     if(kartyaTema == 1) // épp a történelmi kártyáknál van
     {
@@ -231,42 +232,38 @@ void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen
             {
                 if(ui->buttonKep1_2->hasFocus())
                 {
+                    qDebug()<< "itt van mouse pressben az első képnél";
                     QPixmap pix1(":resource/img/TortenelmiKartya/h1.jpg");
-                    ui->term1->setPixmap(pix1);
-                    updatePoints();
+                    ui->tort1->setPixmap(pix1);
                 }
                 else if(ui->buttonKep2_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h2.jpg");
-                    ui->term1->setPixmap(pix1);
-                    updatePoints();
+                    ui->tort2->setPixmap(pix1);
                 }
-                else if(ui->buttonKep3_2->hasFocus()) // nem látja ???
+                else if(ui->buttonKep3_2->hasFocus()) // nem látja a ui-on???
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h4.jpg");
-                    ui->term1->setPixmap(pix1);
-                    updatePoints();
+                    ui->tort3->setPixmap(pix1);
                 }
                 else if(ui->buttonKep4_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h7.jpg");
-                    ui->term1->setPixmap(pix1);
-                    updatePoints();
+                    ui->tort4->setPixmap(pix1);
                 }
-                //else if(ui->buttonKep5_2->hasFocus())
+                else if(ui->buttonKep5_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h5.jpg");
                     ui->term1->setPixmap(pix1);
-                    updatePoints();
                 }
-                //else if(ui->buttonKep6_2->hasFocus())
+                else if(ui->buttonKep6_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h3.jpg");
-                    ui->term1->setPixmap(pix1);
-                    updatePoints();
+                    ui->tort6->setPixmap(pix1);
                 }
                 tortenelemPont -= 400;
                 ui->jelenlegi_pont_2->setText(QString::number(tortenelemPont));
+                updatePoints();
             }
         }
         else
@@ -402,6 +399,7 @@ void jatekFelulet::getPoints()
 
 int jatekFelulet::getAnswerForBuying()
 {
+    qDebug()<< "itt van getAnswerForBuying";
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,"Vásárlás","Biztos meg akarod venni?",QMessageBox::Yes|QMessageBox::No);
     if(reply == QMessageBox::Yes)
@@ -416,11 +414,13 @@ int jatekFelulet::getAnswerForBuying()
 
 void jatekFelulet::updatePoints()
 {
+    qDebug()<< "itt van updatePointsban";
     if(kartyaTema == 1) // történelmi kártyát vett --> pontok frissítése db-ben
     {
         QSqlQuery query;
-        query.prepare("UPDATE Points SET points = :points WHERE category_id = 1");
-        query.bindValue(":ponints", tortenelemPont);
+        query.prepare("UPDATE Points SET points = :points WHERE category_id = 1 AND username = :playerName");
+        query.bindValue(":points", tortenelemPont);
+        query.bindValue(":playerName", playerName);
         if(!query.exec())
         {
             QMessageBox::information(this,"Sikertelen", "Sikertelen beszúrás adatbázisba");
