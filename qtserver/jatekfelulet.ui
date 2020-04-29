@@ -460,7 +460,7 @@ margin-left: 25px;</string>
 </string>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>8</number>
             </property>
             <widget class="QWidget" name="Pontszamok">
              <property name="styleSheet">
@@ -2333,7 +2333,7 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-153</y>
+                   <y>0</y>
                    <width>603</width>
                    <height>701</height>
                   </rect>

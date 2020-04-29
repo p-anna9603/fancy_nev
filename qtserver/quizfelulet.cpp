@@ -25,30 +25,29 @@ void QuizFelulet::kerdesLekeres()
 {
     QString question;
     vector <int> kerdesIdkLista;
+    vector <int> szurtkerdesek;
     ui->nextQuestion->setEnabled(false);
     if(db->getDb().isOpen())
     {
         try
         {
-
             {
-                QSqlQuery query(QSqlDatabase::database());
-                query.prepare(QString("SELECT voltKerdesek FROM Users WHERE username=:name"));
-                query.bindValue(":name",playerName);
-                if(!query.exec())
-                {
-                    throw QString("SELECT voltKerdesek FROM Users WHERE username=:name failed to execute");
-                }
-                else
-                {
-                    query.next();
-                    QString voltakMar=query.value(0).toString();
-                    voltakKerdesek=voltakMar.split(",");
-                    for (auto i:voltakKerdesek)
-                        qDebug()<<i;
-                }
+                    QSqlQuery query(QSqlDatabase::database());
+                    query.prepare(QString("SELECT voltKerdesek FROM Users WHERE username=:name"));
+                    query.bindValue(":name",playerName);
+                    if(!query.exec())
+                    {
+                        throw QString("SELECT voltKerdesek FROM Users WHERE username=:name failed to execute");
+                    }
+                    else
+                    {
+                        query.next();
+                        QString voltakMar=query.value(0).toString();
+                        voltakKerdesek=voltakMar.split(",");
+                        for (auto i:voltakKerdesek)
+                            qDebug()<<i;
+                    }
             }
-
                 QSqlQuery query(QSqlDatabase::database());
                 //Lekérdezem az összes category_id-hoz tartozó kérdés id-t és listába rakom
                 query.prepare(QString("SELECT id FROM Question WHERE category_id = :categoryID ORDER BY category_id ASC, id ASC"));
@@ -75,6 +74,33 @@ void QuizFelulet::kerdesLekeres()
                         }
                     }
                 }
+           /*
+                for(int i = 0; i < voltakKerdesek.size(); i++)
+                {
+
+                     marKerdezettId.push_back(voltakKerdesek[i].toInt());
+
+                }
+                for(auto x : kerdesIdkLista)
+                {
+                     qDebug() << "osszes: " << x;
+                }
+                for(auto i : marKerdezettId)
+                {
+                    qDebug() << "volt már: " << i;
+                }
+
+                std::set_difference(kerdesIdkLista.begin(),kerdesIdkLista.end(),marKerdezettId.begin(),marKerdezettId.end(),
+                                    std::inserter(szurtkerdesek,szurtkerdesek.begin()));
+
+                for(auto i : szurtkerdesek)
+                {
+                    qDebug() << "szürtek " << i;
+                }
+                srand((unsigned int)time(NULL));
+                int RandomValue = rand() % ((szurtkerdesek.size()-1) - 0);
+                questionId = szurtkerdesek[RandomValue];
+*/
 
                 bool notOK=true;
                 int hanyszor=0;
@@ -98,6 +124,7 @@ void QuizFelulet::kerdesLekeres()
                     {
                         i++;
                     }
+//                    questionId = voltakKerdesek[i].toInt();
                     if (i==voltakKerdesek.size())
                         notOK=false;
                 }while(notOK);
@@ -201,7 +228,7 @@ void QuizFelulet::kerdesLekeres()
 //                    question.insert(0,'\n'); - nem lesz középen ettől
                     ui->kerdesTextEdit->setText(question);
                     ui->kerdesTextEdit->setAlignment(Qt::AlignCenter);
-                    ui->kerdesTextEdit->setAlignment(Qt::AlignVCenter);
+                    ui->kerdesTextEdit->setAlignment(Qt::AlignHCenter);
 //                    ui->kerdesTextEdit->setAlignment(Qt::AlignVCenter);
 //                    ui->kerdesTextEdit->setStyleSheet("padding-top:50px;");
 //                    questionId = queryQuestion.value(1).toInt();          questionId==randomTemaId!!
@@ -366,7 +393,7 @@ void QuizFelulet::on_valasz1Button_clicked()
     {
         ui->valasz1Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff6666, stop: 0.1 #ff1a1a,  stop: 0.49 #cc0000 );");
         QEventLoop loop;
-        QTimer::singleShot(1000, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
+        QTimer::singleShot(500, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
         loop.exec();
         if(helyesValasz == 4)
         {
@@ -414,7 +441,7 @@ void QuizFelulet::on_valasz2Button_clicked()
     {
         ui->valasz2Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff6666, stop: 0.1 #ff1a1a,  stop: 0.49 #cc0000 );");
         QEventLoop loop;
-        QTimer::singleShot(1000, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
+        QTimer::singleShot(500, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
         loop.exec();
         if(helyesValasz == 1)
         {
@@ -462,7 +489,7 @@ void QuizFelulet::on_valasz3Button_clicked()
     {
         ui->valasz3Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff6666, stop: 0.1 #ff1a1a,  stop: 0.49 #cc0000 );");
         QEventLoop loop;
-        QTimer::singleShot(1000, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
+        QTimer::singleShot(500, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
         loop.exec();
         if(helyesValasz == 1)
         {
@@ -510,7 +537,7 @@ void QuizFelulet::on_valasz4Button_clicked()
     {
         ui->valasz4Button->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff6666, stop: 0.1 #ff1a1a,  stop: 0.49 #cc0000 );");
         QEventLoop loop;
-        QTimer::singleShot(1000, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
+        QTimer::singleShot(500, &loop, SLOT(quit())); // kicsit várjon amíg megjeleníti az eredményt
         loop.exec();
         if(helyesValasz == 1)
         {
