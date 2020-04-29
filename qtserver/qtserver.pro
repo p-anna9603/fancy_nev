@@ -28,6 +28,7 @@ CONFIG += c++11
 
 SOURCES += \
         adminfelulet.cpp \
+        clickablebutton.cpp \
         clickablelabel.cpp \
         databaseconnection.cpp \
         dialog.cpp \
@@ -45,6 +46,7 @@ SOURCES += \
 
 HEADERS += \
         adminfelulet.h \
+        clickablebutton.h \
         clickablelabel.h \
         databaseconnection.h \
         dialog.h \
