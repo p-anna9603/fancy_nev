@@ -74,39 +74,26 @@ void QuizFelulet::kerdesLekeres()
                         }
                     }
                 }
-           /*
-                for(int i = 0; i < voltakKerdesek.size(); i++)
+                marKerdezettId.clear(); // ez fontos hiszen minden körben sokszorozódnának a bele pakolt dolgok
+                szurtkerdesek.clear();
+                for(int i = 0; i < voltakKerdesek.size(); i++) // voltakKerdes-ből az intet bele rakni a marKerdettId - vektorba
                 {
-
                      marKerdezettId.push_back(voltakKerdesek[i].toInt());
-
                 }
-                for(auto x : kerdesIdkLista)
-                {
-                     qDebug() << "osszes: " << x;
-                }
-                for(auto i : marKerdezettId)
-                {
-                    qDebug() << "volt már: " << i;
-                }
-
+                sort(marKerdezettId.begin(),marKerdezettId.end()); // marKerdettId vektort rendezni kell a set_difference - hez
+                // két vektor különbsége a szurtkerdesek vektorába kerül bele
                 std::set_difference(kerdesIdkLista.begin(),kerdesIdkLista.end(),marKerdezettId.begin(),marKerdezettId.end(),
                                     std::inserter(szurtkerdesek,szurtkerdesek.begin()));
-
-                for(auto i : szurtkerdesek)
-                {
-                    qDebug() << "szürtek " << i;
-                }
                 srand((unsigned int)time(NULL));
                 int RandomValue = rand() % ((szurtkerdesek.size()-1) - 0);
                 questionId = szurtkerdesek[RandomValue];
-*/
+                qDebug()<< "random question ID " << questionId;
 
-                bool notOK=true;
+           /*     bool notOK=true;
                 int hanyszor=0;
                 if (kerdesIdkLista.size()==voltakKerdesek.size())
                     throw QString("Out of Questions for this subject");
-                do
+               do
                 {
                     srand((unsigned int)time(NULL));
                     int RandomValue = rand() % ((kerdesIdkLista.size()-1) - 0);
@@ -128,6 +115,8 @@ void QuizFelulet::kerdesLekeres()
                     if (i==voltakKerdesek.size())
                         notOK=false;
                 }while(notOK);
+                */
+
                 {
                     QSqlQuery queryVolt(QSqlDatabase::database());
                     queryVolt.prepare(QString("SELECT voltKerdesek FROM Users WHERE username=:name"));
@@ -630,36 +619,39 @@ void QuizFelulet::assignPointsToPlayer()
             }
             else
             {
-                if(query.size() == 0) // ha még nincsen pontja ebben a kategóriában -- bekell szúrni névvel együtt
+                if(totalPoints != 0)
                 {
-                    QSqlQuery queryInsert(QSqlDatabase::database());
-                    queryInsert.prepare("INSERT INTO Points(username,category_id,points) VALUES(:uname,:categoryId,:points)");
-                    queryInsert.bindValue(":uname", playerName);
-                    queryInsert.bindValue(":categoryId", kerdesTemaId);
-                    queryInsert.bindValue(":points", totalPoints);
-                    if(!queryInsert.exec())
+                    if(query.size() == 0) // ha még nincsen pontja ebben a kategóriában -- bekell szúrni névvel együtt
                     {
-                        qDebug() << "Sikertelen beszúrás";
-                        throw QString("INSERT INTO Points(username,category_id,points) VALUES(:uname,:categoryId,:points)");
+                        QSqlQuery queryInsert(QSqlDatabase::database());
+                        queryInsert.prepare("INSERT INTO Points(username,category_id,points) VALUES(:uname,:categoryId,:points)");
+                        queryInsert.bindValue(":uname", playerName);
+                        queryInsert.bindValue(":categoryId", kerdesTemaId);
+                        queryInsert.bindValue(":points", totalPoints);
+                        if(!queryInsert.exec())
+                        {
+                            qDebug() << "Sikertelen beszúrás";
+                            throw QString("INSERT INTO Points(username,category_id,points) VALUES(:uname,:categoryId,:points)");
+                        }
+                        qDebug()<<"Beszúrva az adatbázishoz a pont." << totalPoints;
                     }
-                    qDebug()<<"Beszúrva az adatbázishoz a pont." << totalPoints;
-                }
-                else // ha már van, lekell kérni és hozzá kell adni
-                {
-                    query.next();
-                    pointFromDb = query.value(1).toInt();
-                    totalPoints+=pointFromDb;
-                    QSqlQuery queryUpdate(QSqlDatabase::database());
-                    queryUpdate.prepare("UPDATE Points SET points = :points WHERE username = :uname AND category_id = :categoryID");
-                    queryUpdate.bindValue(":uname", playerName);
-                    queryUpdate.bindValue(":categoryID", kerdesTemaId);
-                    queryUpdate.bindValue(":points", totalPoints);
-                    if(!queryUpdate.exec())
+                    else // ha már van, lekell kérni és hozzá kell adni
                     {
-                        qDebug() << "Sikertelen update";
-                        throw QString("UPDATE Points SET points = :points WHERE username = :uname AND category_id = :categoryID");
+                        query.next();
+                        pointFromDb = query.value(1).toInt();
+                        totalPoints+=pointFromDb;
+                        QSqlQuery queryUpdate(QSqlDatabase::database());
+                        queryUpdate.prepare("UPDATE Points SET points = :points WHERE username = :uname AND category_id = :categoryID");
+                        queryUpdate.bindValue(":uname", playerName);
+                        queryUpdate.bindValue(":categoryID", kerdesTemaId);
+                        queryUpdate.bindValue(":points", totalPoints);
+                        if(!queryUpdate.exec())
+                        {
+                            qDebug() << "Sikertelen update";
+                            throw QString("UPDATE Points SET points = :points WHERE username = :uname AND category_id = :categoryID");
+                        }
+                        qDebug()<<"Hozzáadva az adatbázishoz a pont." << totalPoints;
                     }
-                    qDebug()<<"Hozzáadva az adatbázishoz a pont." << totalPoints;
                 }
             }
         }
