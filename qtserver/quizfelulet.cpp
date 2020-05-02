@@ -666,8 +666,9 @@ void QuizFelulet::assignPointsToPlayer()
     }
 }
 
-void QuizFelulet::on_nextQuestion_2_clicked()
+void QuizFelulet::on_nextQuestion_2_clicked() // vissza a főmenübe button
 {
+    totalPoints = joValaszCounter * 50;
     assignPointsToPlayer();
     this->close();
     vissza->show();

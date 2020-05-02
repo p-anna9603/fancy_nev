@@ -52,7 +52,7 @@ private:
     int eddigiKerdesCounter = 0;
     vector<int> marKerdezettId;
     vector <int> szurtKerdesIdkLista; //a még nem kérdezett kérdés id-k
-    int totalPoints;
+    int totalPoints = 0;
     int kerdesekSzama = 10; // mennyi kérdés legyen adott témában
     QStringList voltakKerdesek;
 

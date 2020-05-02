@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1086</width>
-    <height>762</height>
+    <width>1404</width>
+    <height>752</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -119,6 +119,22 @@ margin-left: 25px;</string>
        </layout>
       </item>
       <item>
+       <spacer name="verticalSpacer_9">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>5</width>
+          <height>5</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -134,8 +150,8 @@ margin-left: 25px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>181</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="maximumSize">
@@ -165,14 +181,14 @@ margin-left: 25px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>181</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>200</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -196,14 +212,14 @@ margin-left: 25px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>181</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>200</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -227,14 +243,14 @@ margin-left: 25px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>181</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>200</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -258,14 +274,14 @@ margin-left: 25px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>181</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>200</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -289,14 +305,14 @@ margin-left: 25px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>181</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>200</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -353,14 +369,14 @@ margin-left: 25px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>181</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>200</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -387,14 +403,14 @@ margin-left: 25px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>181</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>200</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -412,8 +428,14 @@ margin-left: 25px;</string>
              <widget class="QPushButton" name="kartya_vasarlas">
               <property name="minimumSize">
                <size>
-                <width>181</width>
-                <height>35</height>
+                <width>230</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>230</width>
+                <height>50</height>
                </size>
               </property>
               <property name="text">
@@ -444,23 +466,13 @@ margin-left: 25px;</string>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QLabel" name="label_21">
-            <property name="styleSheet">
-             <string notr="true">color: rgba(0,0,0,0);</string>
-            </property>
-            <property name="text">
-             <string>Textbel</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="styleSheet">
              <string notr="true">background:transparent;
 </string>
             </property>
             <property name="currentIndex">
-             <number>8</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="Pontszamok">
              <property name="styleSheet">
@@ -671,22 +683,6 @@ color:rgb(255, 255, 255)</string>
                  </widget>
                 </item>
                 <item>
-                 <spacer name="verticalSpacer_8">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
                  <layout class="QGridLayout" name="gridLayout_3">
                   <item row="0" column="2">
                    <widget class="QPushButton" name="tortnelmiKartyaTema">
@@ -787,7 +783,7 @@ color:rgb(255, 255, 255)</string>
                 <property name="sizeHint" stdset="0">
                  <size>
                   <width>20</width>
-                  <height>300</height>
+                  <height>350</height>
                  </size>
                 </property>
                </spacer>
@@ -802,7 +798,7 @@ color:rgb(255, 255, 255)</string>
 }</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_2">
-              <item row="1" column="0">
+              <item row="0" column="2">
                <spacer name="horizontalSpacer_2">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
@@ -812,24 +808,17 @@ color:rgb(255, 255, 255)</string>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>120</width>
+                  <width>300</width>
                   <height>20</height>
                  </size>
                 </property>
                </spacer>
               </item>
-              <item row="1" column="2">
-               <widget class="QLabel" name="username">
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1" colspan="2">
+              <item row="1" column="1">
                <widget class="QLabel" name="label">
                 <property name="styleSheet">
                  <string notr="true">font: bold 18pt &quot;MS Shell Dlg 2&quot;;
-padding-right: 150px;</string>
+</string>
                 </property>
                 <property name="text">
                  <string>Adataim</string>
@@ -839,14 +828,7 @@ padding-right: 150px;</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="1">
-               <widget class="QLabel" name="label_5">
-                <property name="text">
-                 <string>Email cím</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
+              <item row="2" column="1">
                <widget class="QLabel" name="label_3">
                 <property name="text">
                  <string>Teljes név</string>
@@ -854,27 +836,41 @@ padding-right: 150px;</string>
                </widget>
               </item>
               <item row="2" column="2">
-               <widget class="QLabel" name="fullName">
+               <widget class="QLabel" name="username">
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="2">
-               <widget class="QLabel" name="email">
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
+              <item row="3" column="1">
                <widget class="QLabel" name="label_4">
                 <property name="text">
                  <string>Felhasználó név</string>
                 </property>
                </widget>
               </item>
+              <item row="3" column="2">
+               <widget class="QLabel" name="fullName">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
               <item row="4" column="1">
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>Email cím</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QLabel" name="email">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
                <spacer name="verticalSpacer_6">
                 <property name="orientation">
                  <enum>Qt::Vertical</enum>
@@ -885,7 +881,7 @@ padding-right: 150px;</string>
                 <property name="sizeHint" stdset="0">
                  <size>
                   <width>20</width>
-                  <height>300</height>
+                  <height>280</height>
                  </size>
                 </property>
                </spacer>
@@ -972,13 +968,13 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>603</width>
-                   <height>876</height>
+                   <width>802</width>
+                   <height>671</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_5">
-                  <item row="0" column="0">
-                   <layout class="QVBoxLayout" name="verticalLayout_15">
+                  <item row="0" column="0" rowspan="2">
+                   <layout class="QVBoxLayout" name="verticalLayout_9">
                     <item>
                      <widget class="clickableLabel" name="term1">
                       <property name="maximumSize">
@@ -1008,7 +1004,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                      </widget>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_13">
+                     <layout class="QHBoxLayout" name="horizontalLayout_3">
                       <item>
                        <widget class="QLabel" name="label_38">
                         <property name="styleSheet">
@@ -1073,7 +1069,7 @@ border-top-right-radius: 25px;
                      <widget class="QLabel" name="term2">
                       <property name="maximumSize">
                        <size>
-                        <width>400</width>
+                        <width>16777215</width>
                         <height>16777215</height>
                        </size>
                       </property>
@@ -1151,121 +1147,13 @@ border-top-right-radius: 25px;
                     </item>
                    </layout>
                   </item>
-                  <item row="1" column="0" rowspan="2">
-                   <layout class="QVBoxLayout" name="verticalLayout_12">
-                    <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_3">
-                      <item>
-                       <widget class="QLabel" name="label_26">
-                        <property name="styleSheet">
-                         <string notr="true">color: rgb(0,0,0,0);</string>
-                        </property>
-                        <property name="text">
-                         <string>TextLabel</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="term3">
-                        <property name="maximumSize">
-                         <size>
-                          <width>400</width>
-                          <height>259</height>
-                         </size>
-                        </property>
-                        <property name="toolTip">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/háttér3.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                        </property>
-                        <property name="text">
-                         <string/>
-                        </property>
-                        <property name="pixmap">
-                         <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/háttér3.jpg</pixmap>
-                        </property>
-                        <property name="scaledContents">
-                         <bool>true</bool>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="label_27">
-                        <property name="styleSheet">
-                         <string notr="true">color: rgb(0,0,0,0);</string>
-                        </property>
-                        <property name="text">
-                         <string>TextLabel</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_10">
-                      <item>
-                       <widget class="QLabel" name="label_35">
-                        <property name="styleSheet">
-                         <string notr="true">color: rgb(0,0,0,0);</string>
-                        </property>
-                        <property name="text">
-                         <string>TextLabel</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QPushButton" name="buttonKep3">
-                        <property name="minimumSize">
-                         <size>
-                          <width>150</width>
-                          <height>40</height>
-                         </size>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QPushButton {
-color: white;
-font: bold 13pt &quot;MS Shell Dlg 2&quot;;
-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff66b3, stop: 0.1 #e60073,  stop: 0.49 #99004d );
-selection-background-color: blue;
-border-left: 1px solid white;
-border-right: 1px solid white;
-border-radius: 7;
-border-bottom-left-radius: 25px;
-border-top-right-radius: 25px;
-
-/*ccc*/
-}</string>
-                        </property>
-                        <property name="text">
-                         <string>Megveszem</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <spacer name="horizontalSpacer_15">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeType">
-                         <enum>QSizePolicy::MinimumExpanding</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>33</width>
-                          <height>20</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                     </layout>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="1" column="1">
+                  <item row="1" column="1" rowspan="2">
                    <layout class="QVBoxLayout" name="verticalLayout_13">
                     <item>
                      <widget class="QLabel" name="term4">
                       <property name="maximumSize">
                        <size>
-                        <width>400</width>
+                        <width>16777215</width>
                         <height>16777215</height>
                        </size>
                       </property>
@@ -1343,24 +1231,30 @@ border-top-right-radius: 25px;
                     </item>
                    </layout>
                   </item>
-                  <item row="2" column="1" rowspan="2">
-                   <layout class="QVBoxLayout" name="verticalLayout_11">
+                  <item row="2" column="0">
+                   <layout class="QVBoxLayout" name="verticalLayout_7">
                     <item>
-                     <widget class="QLabel" name="term5">
+                     <widget class="QLabel" name="term6">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
                       <property name="maximumSize">
                        <size>
-                        <width>400</width>
+                        <width>16777215</width>
                         <height>16777215</height>
                        </size>
                       </property>
                       <property name="toolTip">
-                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/t2.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/háttér2.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                       <property name="text">
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/t2.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/háttér2.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1368,9 +1262,9 @@ border-top-right-radius: 25px;
                      </widget>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_9">
+                     <layout class="QHBoxLayout" name="horizontalLayout_4">
                       <item>
-                       <widget class="QLabel" name="label_32">
+                       <widget class="QLabel" name="label_30">
                         <property name="styleSheet">
                          <string notr="true">color: rgb(0,0,0,0);</string>
                         </property>
@@ -1380,11 +1274,17 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep5">
+                       <widget class="QPushButton" name="buttonKep6">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
                           <height>40</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>200</width>
+                          <height>16777215</height>
                          </size>
                         </property>
                         <property name="styleSheet">
@@ -1408,7 +1308,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <spacer name="horizontalSpacer_14">
+                       <spacer name="horizontalSpacer_4">
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
@@ -1424,123 +1324,7 @@ border-top-right-radius: 25px;
                     </item>
                    </layout>
                   </item>
-                  <item row="3" column="0" rowspan="2">
-                   <layout class="QVBoxLayout" name="verticalLayout_16">
-                    <item>
-                     <layout class="QVBoxLayout" name="verticalLayout_7">
-                      <item>
-                       <widget class="QLabel" name="label_28">
-                        <property name="text">
-                         <string/>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="term6">
-                        <property name="maximumSize">
-                         <size>
-                          <width>400</width>
-                          <height>16777215</height>
-                         </size>
-                        </property>
-                        <property name="toolTip">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/háttér2.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                        </property>
-                        <property name="text">
-                         <string/>
-                        </property>
-                        <property name="pixmap">
-                         <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/háttér2.jpg</pixmap>
-                        </property>
-                        <property name="scaledContents">
-                         <bool>true</bool>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="label_29">
-                        <property name="text">
-                         <string/>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <layout class="QVBoxLayout" name="verticalLayout_9">
-                      <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_4">
-                        <item>
-                         <widget class="QLabel" name="label_30">
-                          <property name="styleSheet">
-                           <string notr="true">color: rgb(0,0,0,0);</string>
-                          </property>
-                          <property name="text">
-                           <string>TextLabel</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="buttonKep6">
-                          <property name="minimumSize">
-                           <size>
-                            <width>150</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>200</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">QPushButton {
-color: white;
-font: bold 13pt &quot;MS Shell Dlg 2&quot;;
-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff66b3, stop: 0.1 #e60073,  stop: 0.49 #99004d );
-selection-background-color: blue;
-border-left: 1px solid white;
-border-right: 1px solid white;
-border-radius: 7;
-border-bottom-left-radius: 25px;
-border-top-right-radius: 25px;
-
-/*ccc*/
-}</string>
-                          </property>
-                          <property name="text">
-                           <string>Megveszem</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <spacer name="horizontalSpacer_4">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>40</width>
-                            <height>20</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                       </layout>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="label_39">
-                        <property name="text">
-                         <string/>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="4" column="1">
+                  <item row="3" column="0">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
                     <item>
                      <widget class="QLabel" name="term7">
@@ -1600,6 +1384,87 @@ border-top-right-radius: 25px;
                       </item>
                       <item>
                        <spacer name="horizontalSpacer_13">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="3" column="1">
+                   <layout class="QVBoxLayout" name="verticalLayout_11">
+                    <item>
+                     <widget class="QLabel" name="term5">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="toolTip">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/t2.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="pixmap">
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/t2.jpg</pixmap>
+                      </property>
+                      <property name="scaledContents">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_9">
+                      <item>
+                       <widget class="QLabel" name="label_32">
+                        <property name="styleSheet">
+                         <string notr="true">color: rgb(0,0,0,0);</string>
+                        </property>
+                        <property name="text">
+                         <string>TextLabel</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="buttonKep5">
+                        <property name="minimumSize">
+                         <size>
+                          <width>150</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton {
+color: white;
+font: bold 13pt &quot;MS Shell Dlg 2&quot;;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff66b3, stop: 0.1 #e60073,  stop: 0.49 #99004d );
+selection-background-color: blue;
+border-left: 1px solid white;
+border-right: 1px solid white;
+border-radius: 7;
+border-bottom-left-radius: 25px;
+border-top-right-radius: 25px;
+
+/*ccc*/
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Megveszem</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_14">
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
@@ -1753,7 +1618,7 @@ color: rgb(255, 255, 255);</string>
                 <property name="sizeHint" stdset="0">
                  <size>
                   <width>20</width>
-                  <height>300</height>
+                  <height>350</height>
                  </size>
                 </property>
                </spacer>
@@ -1769,7 +1634,7 @@ color: rgb(255, 255, 255);</string>
                 <property name="sizeHint" stdset="0">
                  <size>
                   <width>20</width>
-                  <height>40</height>
+                  <height>20</height>
                  </size>
                 </property>
                </spacer>
@@ -1808,8 +1673,8 @@ color: rgb(255, 255, 255);</string>
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>618</width>
-                     <height>470</height>
+                     <width>821</width>
+                     <height>429</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1963,8 +1828,8 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>620</width>
-                   <height>442</height>
+                   <width>823</width>
+                   <height>396</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_11">
@@ -2334,8 +2199,8 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>603</width>
-                   <height>701</height>
+                   <width>802</width>
+                   <height>719</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_13">
@@ -2389,7 +2254,7 @@ p, li { white-space: pre-wrap; }
                        <widget class="clickableButton" name="buttonKep1_2">
                         <property name="minimumSize">
                          <size>
-                          <width>150</width>
+                          <width>180</width>
                           <height>40</height>
                          </size>
                         </property>
@@ -2476,7 +2341,7 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
                        <widget class="clickableButton" name="buttonKep2_2">
                         <property name="minimumSize">
                          <size>
-                          <width>150</width>
+                          <width>180</width>
                           <height>40</height>
                          </size>
                         </property>
@@ -2573,7 +2438,7 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
                        <widget class="clickableButton" name="buttonKep4_2">
                         <property name="minimumSize">
                          <size>
-                          <width>150</width>
+                          <width>180</width>
                           <height>40</height>
                          </size>
                         </property>
@@ -2659,7 +2524,7 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
                          <widget class="clickableButton" name="buttonKep3_2">
                           <property name="minimumSize">
                            <size>
-                            <width>150</width>
+                            <width>180</width>
                             <height>40</height>
                            </size>
                           </property>
@@ -2765,7 +2630,7 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
                        <widget class="clickableButton" name="buttonKep5_2">
                         <property name="minimumSize">
                          <size>
-                          <width>150</width>
+                          <width>180</width>
                           <height>40</height>
                          </size>
                         </property>
@@ -2849,7 +2714,7 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
                        <widget class="clickableButton" name="buttonKep6_2">
                         <property name="minimumSize">
                          <size>
-                          <width>150</width>
+                          <width>180</width>
                           <height>40</height>
                          </size>
                         </property>
@@ -2906,6 +2771,16 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
               </item>
              </layout>
             </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_21">
+            <property name="styleSheet">
+             <string notr="true">color: rgba(0,0,0,0);</string>
+            </property>
+            <property name="text">
+             <string>Textbel</string>
+            </property>
            </widget>
           </item>
          </layout>
