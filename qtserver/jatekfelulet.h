@@ -73,6 +73,8 @@ private slots:
     void on_tortnelmiKartyaTema_clicked();
 
 
+    void on_termKartyaTema_clicked();
+
 private:
     Ui::jatekFelulet *ui;
     DatabaseConnection *db;

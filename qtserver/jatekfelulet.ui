@@ -456,7 +456,7 @@ margin-left: 25px;</string>
 </string>
             </property>
             <property name="currentIndex">
-             <number>8</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="Pontszamok">
              <property name="styleSheet">
@@ -711,7 +711,7 @@ color:rgb(255, 255, 255)</string>
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QPushButton" name="pushButton">
+                   <widget class="QPushButton" name="termKartyaTema">
                     <property name="minimumSize">
                      <size>
                       <width>161</width>
@@ -983,7 +983,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
+                   <y>-156</y>
                    <width>802</width>
                    <height>671</height>
                   </rect>
@@ -1012,7 +1012,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/t3.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/t3.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1032,7 +1032,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep1">
+                       <widget class="clickableButton" name="buttonKep1">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -1096,7 +1096,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/háttér4.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/háttér4.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1116,7 +1116,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep2">
+                       <widget class="clickableButton" name="buttonKep2">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -1180,7 +1180,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/t1.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/t1.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1200,7 +1200,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep4">
+                       <widget class="clickableButton" name="buttonKep4">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -1270,7 +1270,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/háttér2.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/háttér2.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1290,7 +1290,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep6">
+                       <widget class="clickableButton" name="buttonKep6">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -1351,7 +1351,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/t5.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/t5.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1371,7 +1371,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep7">
+                       <widget class="clickableButton" name="buttonKep7">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -1432,7 +1432,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/t2.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/t2.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1452,7 +1452,7 @@ border-top-right-radius: 25px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="buttonKep5">
+                       <widget class="clickableButton" name="buttonKep5">
                         <property name="minimumSize">
                          <size>
                           <width>150</width>
@@ -1786,7 +1786,7 @@ color: rgb(255, 255, 255);</string>
 font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                     </property>
                     <property name="text">
-                     <string>Egy kép ára : 200 pont</string>
+                     <string>Egy kép ára : 400 pont</string>
                     </property>
                    </widget>
                   </item>
@@ -2155,7 +2155,7 @@ color: rgb(255, 255, 255);</string>
 font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                     </property>
                     <property name="text">
-                     <string>Egy kép ára : 200 pont</string>
+                     <string>Egy kép ára : 400 pont</string>
                     </property>
                    </widget>
                   </item>
@@ -2214,7 +2214,7 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-204</y>
+                   <y>-124</y>
                    <width>802</width>
                    <height>719</height>
                   </rect>
