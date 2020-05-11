@@ -90,7 +90,7 @@ private:
     int getAnswerForBuying(); // 0 vagy 1
     void updatePoints(); // kártya vásárlás után
     void setVoltakKepek();
-    void addImageToDb(QStringList voltakKepek);
+    void addImageToDb(QString voltakKepek);
 
 
 

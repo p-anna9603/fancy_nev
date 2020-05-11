@@ -223,44 +223,44 @@ void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen
                     qDebug()<< "itt van mouse pressben az első képnél";
                     QPixmap pix1(":resource/img/TortenelmiKartya/h1.jpg");
                     ui->tort1->setPixmap(pix1);
-                    voltakKepek+=QString(",");
-                    voltakKepek+=QString("h1");
-                    addImageToDb(voltakKepek);
+                    ui->buttonKep1_2->hide();
+                    addImageToDb("h1");
+                     ui->buttonKep1_2->hide();
                 }
                 else if(ui->buttonKep2_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h2.jpg");
                     ui->tort2->setPixmap(pix1);
-                    voltakKepek+="h2";
-                    addImageToDb(voltakKepek);
+                    addImageToDb("h2");
+                    ui->buttonKep2_2->hide();
                 }
                 else if(ui->buttonKep3_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h4.jpg");
                     ui->tort3->setPixmap(pix1);
-                    voltakKepek+="h4";
-                    addImageToDb(voltakKepek);
+                    addImageToDb("h4");
+                    ui->buttonKep3_2->hide();
                 }
                 else if(ui->buttonKep4_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h7.jpg");
                     ui->tort4->setPixmap(pix1);
-                    voltakKepek+="h7";
-                    addImageToDb(voltakKepek);
+                    addImageToDb("h7");
+                    ui->buttonKep4_2->hide();
                 }
                 else if(ui->buttonKep5_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h5.jpg");
                     ui->term1->setPixmap(pix1);
-                    voltakKepek+="h5";
-                    addImageToDb(voltakKepek);
+                    addImageToDb("h5");
+                    ui->buttonKep5_2->hide();
                 }
                 else if(ui->buttonKep6_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h3.jpg");
                     ui->tort6->setPixmap(pix1);
-                    voltakKepek+="h3";
-                    addImageToDb(voltakKepek);
+                    addImageToDb("h3");
+                    ui->buttonKep6_2->hide();
                 }
                 tortenelemPont -= 400;
                 ui->jelenlegi_pont_2->setText(QString::number(tortenelemPont));
@@ -451,7 +451,7 @@ void jatekFelulet::setVoltakKepek()
         if(i == "h1")
         {
             QPixmap pix1(":resource/img/TortenelmiKartya/h1.jpg");
-            ui->tort6->setPixmap(pix1);
+            ui->tort1->setPixmap(pix1);
             ui->buttonKep1_2->hide();
         }
         if(i == "h2")
@@ -487,30 +487,74 @@ void jatekFelulet::setVoltakKepek()
     }
 }
 
-void jatekFelulet::addImageToDb(QStringList voltakKepek)
+void jatekFelulet::addImageToDb(QString kep)
 {
-    try
-    {
-        qDebug() << "itt addImageToDb ben";
-        for (auto i:voltakKepek)
-            qDebug()<< "kepek amik voltak: " << i;
+//    try
+//    {
+//        qDebug() << "itt addImageToDb ben";
+//        for (auto i:voltakKepek)
+//            qDebug()<< "kepek amik voltak: " << i;
 
-        QSqlQuery query(QSqlDatabase::database());
-        query.prepare("UPDATE Users SET voltKepek=:kepSzoveg WHERE username=:usnm");
-        query.bindValue(":kepSzoveg",voltakKepek);
-        qDebug()<<"ElozoUjPlusz:";
-        qDebug()<<voltakKepek;
-        query.bindValue(":usnm",playerName);
-        if (!query.exec())
-        {
-            throw QString("ERROR UPDATE Users SET voltKepek=:kerdesekID WHERE username=:usnm");
-        }
-    }catch(QString e)
+//        QSqlQuery query(QSqlDatabase::database());
+//        query.prepare("UPDATE Users SET voltKepek=:kepSzoveg WHERE username=:usnm");
+//        query.bindValue(":kepSzoveg",voltakKepek);
+//        qDebug()<<"ElozoUjPlusz:";
+//        qDebug()<<voltakKepek;
+//        query.bindValue(":usnm",playerName);
+//        if (!query.exec())
+//        {
+//            throw QString("ERROR UPDATE Users SET voltKepek=:kerdesekID WHERE username=:usnm");
+//        }
+//    }catch(QString e)
+//    {
+//        QMessageBox::information(this, "Failed Quizfelület catch QString", e);
+//    }
+
+
+    QSqlQuery queryVolt(QSqlDatabase::database()); // voltKépek lekérés
+    QSqlQuery query(QSqlDatabase::database()); // Updatelés
+    queryVolt.prepare(QString("SELECT voltKepek FROM Users WHERE username=:name"));
+    queryVolt.bindValue(":name",playerName);
+    if (!queryVolt.exec())
     {
-        QMessageBox::information(this, "Failed Quizfelület catch QString", e);
+        throw QString("Error SELECT voltKerdesek FROM Users WHERE username=:name");
     }
+    else
+    {
+        queryVolt.next();
+        if (queryVolt.value(0).toString()==NULL)
+        {
+            qDebug()<<"null a kepek listaja";
+            query.prepare("UPDATE Users SET voltKepek=:voltKepek WHERE username=:usnm");
+            query.bindValue(":voltKepek",kep);
+            qDebug()<<"Username:";
+            qDebug()<<playerName;
+            query.bindValue(":usnm",playerName);
+            if (!query.exec())
+            {
+                throw QString("ERROR UPDATE Users SET voltKerdesek=:kerdesekID WHERE username=:usnm");
+            }
+        }
+        else
+        {
+                qDebug()<<"HELLOOO";
+                QString elozoPluszUj=queryVolt.value(0).toString();
+                elozoPluszUj+=QString(",");
+                elozoPluszUj+=QString(kep);
+                query.prepare("UPDATE Users SET voltKepek=:voltKepek WHERE username=:usnm");
+                query.bindValue(":voltKepek",elozoPluszUj);
+                qDebug()<<"ElozoUjPlusz:";
+                qDebug()<<elozoPluszUj;
+                qDebug()<<"Username:";
+                qDebug()<<playerName;
+                query.bindValue(":usnm",playerName);
+                if (!query.exec())
+                {
+                    throw QString("ERROR UPDATE Users SET voltKerdesek=:kerdesekID WHERE username=:usnm");
+                }
+        }
 
-
+    }
 }
 
 void jatekFelulet::on_buttonKep1_clicked()
