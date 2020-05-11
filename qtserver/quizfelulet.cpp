@@ -1,13 +1,13 @@
 #include "quizfelulet.h"
 #include "ui_quizfelulet.h"
 
-QuizFelulet::QuizFelulet(QWidget *parent, DatabaseConnection *db, int temaId, QString playerName) :
+QuizFelulet::QuizFelulet(QMainWindow *qMain, DatabaseConnection *db, int temaId, QString playerName, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::QuizFelulet),
-    vissza(parent),
     db(db),
-    kerdesTemaId(temaId),
-    playerName(playerName)
+    playerName(playerName),
+   kerdesTemaId(temaId),
+    vissza(qMain)
 {
     ui->setupUi(this);
     setBackground();
@@ -215,6 +215,14 @@ void QuizFelulet::kerdesLekeres()
                     queryQuestion.next();
                     question = queryQuestion.value(0).toString();
 //                    question.insert(0,'\n'); - nem lesz középen ettől
+                    if(kerdesTemaId == 3) // info temanal picit kisebb átlászótság kell
+                    {
+                        ui->kerdesTextEdit->setStyleSheet("font: bold 13pt ""MS Shell Dlg 2"";background-color : rgb(255, 255, 255, 0.7);opacity: 0.7;color:rgb(0,0,0)");
+                    }
+                    else
+                    {
+                         ui->kerdesTextEdit->setStyleSheet("font: bold 13pt ""MS Shell Dlg 2"";background-color : rgb(255, 255, 255, 0.5);opacity: 0.5;color:rgb(0,0,0)");
+                    }
                     ui->kerdesTextEdit->setText(question);
                     ui->kerdesTextEdit->setAlignment(Qt::AlignCenter);
                     ui->kerdesTextEdit->setAlignment(Qt::AlignHCenter);
@@ -364,6 +372,12 @@ QHBoxLayout *QuizFelulet::checkStringLength(QString str)
         {
             pTextLabel->setStyleSheet("color: white;font: bold 12pt ""MS Shell Dlg 2"";");
         }
+//        if(ui->valasz1Button->height() > 50)
+//        {
+//            pTextLabel->setStyleSheet("color: white;font: bold 14pt ""MS Shell Dlg 2"";");
+//        }
+        pTextLabel->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+
         pLayout->addWidget(pTextLabel);
         pLayout->setSpacing(0);
         pLayout->setMargin(0);
@@ -583,22 +597,27 @@ void QuizFelulet::setBackground()
 {
     if(kerdesTemaId == 1) // történelmi
     {
-        // legfelsővel nem megy
-        // ui->centralwidget->setStyleSheet("border-image: url(:/resource/img/tortenelmiHatter/tortenelmi_1.jpg);background-repeat: no-repeat;bacground-position: center;");
+        this->setStyleSheet("QWidget#centralwidget{border-image: url(:/resource/img/tortenelmiHatter/tortenelmi_1.jpg);background-repeat: no-repeat;bacground-position: center;}");
+//         ui->centralwidget->setStyleSheet("QWidget#centralwidget{border-image: url(:/resource/img/tortenelmiHatter/tortenelmi_1.jpg);background-repeat: no-repeat;bacground-position: center;}");
 
-        QPixmap bkgnd(":/resource/img/tortenelmiHatter/tortenelmi_1.jpg");
-          bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-          QPalette palette;
-          palette.setBrush(QPalette::Background, bkgnd);
-          this->setPalette(palette);
+//        QPixmap bkgnd(":/resource/img/tortenelmiHatter/tortenelmi_1.jpg");
+//          bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+//          ui->centralwidget->setStyleSheet("background-repeat: no-repeat, repeat;acground-position: center;");
+//          QPalette palette;
+//          palette.setBrush(QPalette::Background, bkgnd);
+//          this->setPalette(palette);
     }
     else if(kerdesTemaId == 2) // irodalmi
     {
-        QPixmap bkgnd(":/resource/img/irodalmiHatter/irodalmi_4.jpg");
-          bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-          QPalette palette;
-          palette.setBrush(QPalette::Background, bkgnd);
-          this->setPalette(palette);
+        this->setStyleSheet("QWidget#centralwidget{border-image: url(:/resource/img/irodalmiHatter/irodalmi_4.jpg);background-repeat: no-repeat;bacground-position: center;}");
+    }
+    else if(kerdesTemaId == 3) // informatika
+    {
+        this->setStyleSheet("QWidget#centralwidget{border-image: url(:/resource/img/informatikaHatter/info_4.jpg);background-repeat: no-repeat;bacground-position: center;}");
+    }
+    else if(kerdesTemaId == 4) // sport
+    {
+        this->setStyleSheet("QWidget#centralwidget{border-image: url(:/resource/img/sportHatter/sport_1.jpg);background-repeat: no-repeat;bacground-position: center;}");
     }
 }
 

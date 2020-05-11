@@ -20,6 +20,7 @@ jatekFelulet::jatekFelulet(QMainWindow *qMain, const QString &playerName, Databa
     ui->KartyaPush->hide();
     ui->kartya_vasarlas->hide();
 
+    setVoltakKepek();
     // Adott képre (QLabel) lehessen kattintani. (lsd: clickableLabel)
     connect(ui->term1, SIGNAL(Mouse_Pressed()), this, SLOT(Mouse_Pressed()));
     connect(ui->t3_8, SIGNAL(Mouse_PressedOnLittlePic()), this, SLOT(Mouse_PressedOnLittlePic()));
@@ -77,23 +78,10 @@ void jatekFelulet::on_fiokomButton_clicked()
                 ui->fullName->setText(userFullName);
                 ui->email->setText(userEmail);
                 ui->stackedWidget->show();
-
-       /* #szarakodás
-       //         adatok = new jatekosAdatok(this, playerName, userFullName, userEmail);
-       //         ui->widget->show();
-       //         this->layout()->addWidget(adatok);
-        //                ui->widget_2->show();
-        //                ui->widget->show();
-        //                ui->username->setText(playerName);
-        //                ui->fullname->setText(userFullName);
-        //                ui->email->setText(userEmail);
-        //                ui->widget->show();
-        //                layout()->setAlignment(adatok, Qt::AlignCenter);
-        */
                 }
             else
             {
-                QMessageBox::information(this, "Not foun player", "Player data not found.");
+                QMessageBox::information(this, "Not found player", "Player data not found.");
             }
          }
         else
@@ -218,7 +206,7 @@ void jatekFelulet::Mouse_PressedOnLittlePic()
     }
 }
 
-void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen külön függvény
+void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen külön függvény //
 {
     int answer;
     qDebug()<< "itt van mouse pressben";
@@ -235,31 +223,44 @@ void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen
                     qDebug()<< "itt van mouse pressben az első képnél";
                     QPixmap pix1(":resource/img/TortenelmiKartya/h1.jpg");
                     ui->tort1->setPixmap(pix1);
+                    voltakKepek+=QString(",");
+                    voltakKepek+=QString("h1");
+                    addImageToDb(voltakKepek);
                 }
                 else if(ui->buttonKep2_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h2.jpg");
                     ui->tort2->setPixmap(pix1);
+                    voltakKepek+="h2";
+                    addImageToDb(voltakKepek);
                 }
-                else if(ui->buttonKep3_2->hasFocus()) // nem látja a ui-on???
+                else if(ui->buttonKep3_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h4.jpg");
                     ui->tort3->setPixmap(pix1);
+                    voltakKepek+="h4";
+                    addImageToDb(voltakKepek);
                 }
                 else if(ui->buttonKep4_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h7.jpg");
                     ui->tort4->setPixmap(pix1);
+                    voltakKepek+="h7";
+                    addImageToDb(voltakKepek);
                 }
                 else if(ui->buttonKep5_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h5.jpg");
                     ui->term1->setPixmap(pix1);
+                    voltakKepek+="h5";
+                    addImageToDb(voltakKepek);
                 }
                 else if(ui->buttonKep6_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h3.jpg");
                     ui->tort6->setPixmap(pix1);
+                    voltakKepek+="h3";
+                    addImageToDb(voltakKepek);
                 }
                 tortenelemPont -= 400;
                 ui->jelenlegi_pont_2->setText(QString::number(tortenelemPont));
@@ -284,20 +285,20 @@ void jatekFelulet::on_pushButton_4_clicked()    //START
     kvizfelulet->show();*/
 }
 
-void jatekFelulet::on_tortenelemTema_clicked()
+void jatekFelulet::on_tortenelemTema_clicked() // START
 {
     kerdesId = 1;
     QuizFelulet *kvizfelulet=new QuizFelulet(this,db, kerdesId, playerName);
-    this->hide();
     kvizfelulet->show();
+    this->close();
 }
 
-void jatekFelulet::on_irodalomTema_clicked()
+void jatekFelulet::on_irodalomTema_clicked() // START
 {
     kerdesId = 2;
     QuizFelulet *kvizfelulet=new QuizFelulet(this,db, kerdesId, playerName);
-    this->hide();
     kvizfelulet->show();
+    this->close();
 }
 
 void jatekFelulet::on_egyetemTema_clicked()
@@ -426,6 +427,90 @@ void jatekFelulet::updatePoints()
             QMessageBox::information(this,"Sikertelen", "Sikertelen beszúrás adatbázisba");
         }
     }
+}
+
+void jatekFelulet::setVoltakKepek()
+{
+    QSqlQuery query(QSqlDatabase::database());
+    query.prepare(QString("SELECT voltKepek FROM Users WHERE username=:name"));
+    query.bindValue(":name",playerName);
+    if(!query.exec())
+    {
+        throw QString("SELECT voltKepek FROM Users WHERE username=:name failed to execute");
+    }
+    else
+    {
+        query.next();
+        QString voltakMar=query.value(0).toString();
+        voltakKepek=voltakMar.split(",");
+        for (auto i:voltakKepek)
+            qDebug()<< "kepek amik voltak: " << i;
+    }
+    for(auto i : voltakKepek)
+    {
+        if(i == "h1")
+        {
+            QPixmap pix1(":resource/img/TortenelmiKartya/h1.jpg");
+            ui->tort6->setPixmap(pix1);
+            ui->buttonKep1_2->hide();
+        }
+        if(i == "h2")
+        {
+            QPixmap pix1(":resource/img/TortenelmiKartya/h2.jpg");
+            ui->tort2->setPixmap(pix1);
+            ui->buttonKep2_2->hide();
+        }
+        if(i == "h3")
+        {
+            QPixmap pix1(":resource/img/TortenelmiKartya/h3.jpg");
+            ui->tort6->setPixmap(pix1);
+            ui->buttonKep6_2->hide();
+        }
+        if(i == "h4")
+        {
+            QPixmap pix1(":resource/img/TortenelmiKartya/h4.jpg");
+            ui->tort3->setPixmap(pix1);
+            ui->buttonKep3_2->hide();
+        }
+        if(i == "h5")
+        {
+            QPixmap pix1(":resource/img/TortenelmiKartya/h5.jpg");
+            ui->term1->setPixmap(pix1);
+            ui->buttonKep5_2->hide();
+        }
+        if(i == "h7")
+        {
+            QPixmap pix1(":resource/img/TortenelmiKartya/h7.jpg");
+            ui->tort4->setPixmap(pix1);
+            ui->buttonKep4_2->hide();
+        }
+    }
+}
+
+void jatekFelulet::addImageToDb(QStringList voltakKepek)
+{
+    try
+    {
+        qDebug() << "itt addImageToDb ben";
+        for (auto i:voltakKepek)
+            qDebug()<< "kepek amik voltak: " << i;
+
+        QSqlQuery query(QSqlDatabase::database());
+        query.prepare("UPDATE Users SET voltKepek=:kepSzoveg WHERE username=:usnm");
+        query.bindValue(":kepSzoveg",voltakKepek);
+        qDebug()<<"ElozoUjPlusz:";
+        qDebug()<<voltakKepek;
+        query.bindValue(":usnm",playerName);
+        if (!query.exec())
+        {
+            throw QString("ERROR UPDATE Users SET voltKepek=:kerdesekID WHERE username=:usnm");
+        }
+    }catch(QString e)
+    {
+        QMessageBox::information(this, "Failed Quizfelület catch QString", e);
+    }
+
+
 }
 
 void jatekFelulet::on_buttonKep1_clicked()

@@ -20,7 +20,8 @@ class QuizFelulet : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit QuizFelulet(QWidget *parent = nullptr,DatabaseConnection *db=nullptr, int temaId= 0, QString playerName = "");
+    //explicit jatekFelulet(QMainWindow *qMain, const QString &playerName, DatabaseConnection *db = nullptr, QWidget *parent = nullptr);
+    explicit QuizFelulet(QMainWindow *qMain,DatabaseConnection *db=nullptr, int temaId= 0, QString playerName = "",QWidget *parent = nullptr);
     ~QuizFelulet();
 
 private slots:
@@ -42,7 +43,7 @@ private:
     DatabaseConnection *db;
     QString playerName;
 //    jatekFelulet *vissza;
-    QWidget *vissza;
+    QMainWindow *vissza;
     int kerdesTemaId;
     int questionId; // válasz lekéréséhez
     int helyesValasz = 0; // helyes válasz ID (1,2,3,4)

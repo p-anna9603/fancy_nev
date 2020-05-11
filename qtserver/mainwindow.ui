@@ -26,7 +26,7 @@
    <string>Login</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resource.qrc">
+   <iconset>
     <normaloff>:/resource/img/quizzyLogoTransparent.png</normaloff>:/resource/img/quizzyLogoTransparent.png</iconset>
   </property>
   <property name="toolButtonStyle">
@@ -109,14 +109,13 @@ QPushButton:hover
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">
-</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="resource.qrc">:/resource/img/loginTrans3.png</pixmap>
+           <pixmap>:/resource/img/loginTrans3.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -1001,8 +1000,6 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #D7BDE2, 
   <tabstop>passwordReg2</tabstop>
   <tabstop>regisztralasButton</tabstop>
  </tabstops>
- <resources>
-  <include location="resource.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

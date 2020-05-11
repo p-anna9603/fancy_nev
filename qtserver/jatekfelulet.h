@@ -72,6 +72,7 @@ private slots:
 
     void on_tortnelmiKartyaTema_clicked();
 
+
 private:
     Ui::jatekFelulet *ui;
     DatabaseConnection *db;
@@ -83,10 +84,13 @@ private:
     int kerdesId = 0;
     int kartyaTema = 0; // vásárláshoz elmenteni egy intet h melyik témát választotta. 1 - tortenelmi
     int tortenelemPont, irodalomPont, sportPont, egyetemPont;
+    QStringList voltakKepek;
 
     void getPoints();
     int getAnswerForBuying(); // 0 vagy 1
     void updatePoints(); // kártya vásárlás után
+    void setVoltakKepek();
+    void addImageToDb(QStringList voltakKepek);
 
 
 
