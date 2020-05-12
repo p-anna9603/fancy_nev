@@ -1085,3 +1085,8 @@ void jatekFelulet::on_pushButton_7_clicked()    //info gomb
     getPoints();
     ui->pontszamInfo->setText(QString::number(egyetemPont));
 }
+
+void jatekFelulet::on_buttonKep2_2_clicked()
+{
+
+}

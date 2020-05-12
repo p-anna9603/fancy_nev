@@ -456,7 +456,7 @@ margin-left: 25px;</string>
 </string>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>8</number>
             </property>
             <widget class="QWidget" name="Pontszamok">
              <property name="styleSheet">
