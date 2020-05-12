@@ -983,9 +983,9 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-156</y>
+                   <y>0</y>
                    <width>802</width>
-                   <height>671</height>
+                   <height>667</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_5">
@@ -1012,7 +1012,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/t3.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti2/Kicsiben/szurkeben/t3.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1085,7 +1085,7 @@ border-top-right-radius: 25px;
                      <widget class="QLabel" name="term2">
                       <property name="maximumSize">
                        <size>
-                        <width>16777215</width>
+                        <width>400</width>
                         <height>16777215</height>
                        </size>
                       </property>
@@ -1096,7 +1096,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/háttér4.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti2/Kicsiben/szurkeben/háttér4.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1169,7 +1169,7 @@ border-top-right-radius: 25px;
                      <widget class="QLabel" name="term4">
                       <property name="maximumSize">
                        <size>
-                        <width>16777215</width>
+                        <width>400</width>
                         <height>16777215</height>
                        </size>
                       </property>
@@ -1180,7 +1180,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/t1.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti2/Kicsiben/szurkeben/t1.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1259,7 +1259,7 @@ border-top-right-radius: 25px;
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>16777215</width>
+                        <width>400</width>
                         <height>16777215</height>
                        </size>
                       </property>
@@ -1270,7 +1270,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/háttér2.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti2/Kicsiben/szurkeben/háttér2.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1344,6 +1344,12 @@ border-top-right-radius: 25px;
                    <layout class="QVBoxLayout" name="verticalLayout_10">
                     <item>
                      <widget class="QLabel" name="term7">
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="toolTip">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resource/img/Termeszeti/t5.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -1351,7 +1357,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/t5.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti2/Kicsiben/szurkeben/t5.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -1421,7 +1427,7 @@ border-top-right-radius: 25px;
                      <widget class="QLabel" name="term5">
                       <property name="maximumSize">
                        <size>
-                        <width>16777215</width>
+                        <width>400</width>
                         <height>16777215</height>
                        </size>
                       </property>
@@ -1432,7 +1438,7 @@ border-top-right-radius: 25px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti/Kicsiben/szurkeben/t2.jpg</pixmap>
+                       <pixmap resource="resource.qrc">:/resource/img/Termeszeti2/Kicsiben/szurkeben/t2.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -2214,7 +2220,7 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f2d9e6, 
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-124</y>
+                   <y>0</y>
                    <width>802</width>
                    <height>719</height>
                   </rect>

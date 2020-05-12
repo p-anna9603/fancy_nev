@@ -84,7 +84,7 @@ private:
     termeszetiKepek *term;
     int osszPontszam = 0;
     int kerdesId = 0;
-    int kartyaTema = 0; // vásárláshoz elmenteni egy intet h melyik témát választotta. 1 - tortenelmi
+    int kartyaTema = 0; // vásárláshoz elmenteni egy intet h melyik témát választotta. 1 - tortenelmi, 2- sport
     int tortenelemPont, irodalomPont, sportPont, egyetemPont;
     QStringList voltakKepek;
 

@@ -145,7 +145,7 @@ void jatekFelulet::on_pushButton_clicked() //természeti kártya pusbutton
 void jatekFelulet::Mouse_Pressed()
 {
     qDebug() << "Klikk!";
-//    term = new Ui::termeszetiKepek();
+//    term = new Ui::Termeszeti2Kepek();
     term->show();
 }
 
@@ -248,7 +248,7 @@ void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen
                 else if(ui->buttonKep5_2->hasFocus())
                 {
                     QPixmap pix1(":resource/img/TortenelmiKartya/h5.jpg");
-                    ui->term1->setPixmap(pix1);
+                    ui->tort5->setPixmap(pix1);
                     addImageToDb("h5");
                     ui->buttonKep5_2->hide();
                 }
@@ -281,46 +281,47 @@ void jatekFelulet::Mouse_PressedOnBuyingPic() // hogy ne minden buttonra kelljen
                 if(ui->buttonKep1->hasFocus())
                 {
                     qDebug()<< "itt van mouse pressben az első képnél";
-                    QPixmap pix1(":resource/img/Termeszeti/Kicsiben/t3.jpg");
+                    QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/t3.jpg");
                     ui->term1->setPixmap(pix1);
                     addImageToDb("t3");
                      ui->buttonKep1->hide();
                 }
                 else if(ui->buttonKep2->hasFocus())
                 {
-                    QPixmap pix1(":resource/img/Termeszeti/Kicsiben/háttér4.jpg");
+                    QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/háttér4.jpg");
                     ui->term2->setPixmap(pix1);
                     addImageToDb("háttér4");
                     ui->buttonKep2->hide();
                 }
                 else if(ui->buttonKep7->hasFocus())
                 {
-                    QPixmap pix1(":resource/img/Termeszeti/Kicsiben/t5.jpg");
+                    QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/t5.jpg");
                     ui->term7->setPixmap(pix1);
                     addImageToDb("t5");
                     ui->buttonKep7->hide();
                 }
                 else if(ui->buttonKep4->hasFocus())
                 {
-                    QPixmap pix1(":resource/img/Termeszeti/Kicsiben/t1.jpg");
+                    QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/t1.jpg");
                     ui->term4->setPixmap(pix1);
                     addImageToDb("t1");
                     ui->buttonKep4->hide();
                 }
                 else if(ui->buttonKep5->hasFocus())
                 {
-                    QPixmap pix1(":resource/img/Termeszeti/Kicsiben/t2.jpg");
+                    QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/t2.jpg");
                     ui->term5->setPixmap(pix1);
                     addImageToDb("t2");
                     ui->buttonKep5->hide();
                 }
                 else if(ui->buttonKep6->hasFocus())
                 {
-                    QPixmap pix1(":resource/img/Termeszeti/Kicsiben/háttér2.jpg");
+                    QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/háttér2.jpg");
                     ui->term6->setPixmap(pix1);
                     addImageToDb("háttér2");
                     ui->buttonKep6->hide();
                 }
+                qDebug() << "Csökkenti a pontszámot!!";
                 sportPont -= 400;
                 ui->pontszam->setText(QString::number(sportPont));
                 updatePoints();
@@ -486,6 +487,17 @@ void jatekFelulet::updatePoints()
             QMessageBox::information(this,"Sikertelen", "Sikertelen beszúrás adatbázisba");
         }
     }
+    if(kartyaTema == 2) // természeti kártyát vett --> pontok frissítése db-ben
+    {
+        QSqlQuery query;
+        query.prepare("UPDATE Points SET points = :points WHERE category_id = 4 AND username = :playerName");
+        query.bindValue(":points", sportPont);
+        query.bindValue(":playerName", playerName);
+        if(!query.exec())
+        {
+            QMessageBox::information(this,"Sikertelen", "Sikertelen beszúrás adatbázisba");
+        }
+    }
 }
 
 void jatekFelulet::setVoltakKepek()
@@ -534,7 +546,7 @@ void jatekFelulet::setVoltakKepek()
         if(i == "h5")
         {
             QPixmap pix1(":resource/img/TortenelmiKartya/h5.jpg");
-            ui->term1->setPixmap(pix1);
+            ui->tort5->setPixmap(pix1);
             ui->buttonKep5_2->hide();
         }
         if(i == "h7")
@@ -546,37 +558,37 @@ void jatekFelulet::setVoltakKepek()
         //Természeti képek:
         if(i == "t3")
         {
-            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/t3.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/t3.jpg");
             ui->term1->setPixmap(pix1);
             ui->buttonKep1->hide();
         }
         if(i == "háttér4")
         {
-            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/háttér4.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/háttér4.jpg");
             ui->term2->setPixmap(pix1);
             ui->buttonKep2->hide();
         }
         if(i == "háttér2")
         {
-            QPixmap pix1(":resource/img/TortenelmiKartya/háttér2.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/háttér2.jpg");
             ui->term6->setPixmap(pix1);
             ui->buttonKep6->hide();
         }
         if(i == "t1")
         {
-            QPixmap pix1(":resource/img/TortenelmiKartya/t1.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/t1.jpg");
             ui->term4->setPixmap(pix1);
             ui->buttonKep4->hide();
         }
         if(i == "t5")
         {
-            QPixmap pix1(":resource/img/TortenelmiKartya/t5.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/t5.jpg");
             ui->term7->setPixmap(pix1);
             ui->buttonKep7->hide();
         }
         if(i == "t2")
         {
-            QPixmap pix1(":resource/img/TortenelmiKartya/t2.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/t2.jpg");
             ui->term5->setPixmap(pix1);
             ui->buttonKep5->hide();
         }
@@ -661,7 +673,7 @@ void jatekFelulet::on_buttonKep1_clicked()
         int answer = getAnswerForBuying();
         if(answer == 1)
         {
-            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/t3.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/szurkeben/t3.jpg");
             ui->term1->setPixmap(pix1);
             updatePoints();
         }
@@ -679,7 +691,7 @@ void jatekFelulet::on_buttonKep2_clicked()
         int answer = getAnswerForBuying();
         if(answer == 1)
         {
-            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/háttér4.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/szurkeben/háttér4.jpg");
             ui->term1->setPixmap(pix1);
         }
     }
@@ -696,7 +708,7 @@ void jatekFelulet::on_buttonKep3_clicked()
         int answer = getAnswerForBuying();
         if(answer == 1)
         {
-            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/háttér3.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/szurkeben/háttér3.jpg");
             ui->term1->setPixmap(pix1);
         }
     }
@@ -713,7 +725,7 @@ void jatekFelulet::on_buttonKep4_clicked()
         int answer = getAnswerForBuying();
         if(answer == 1)
         {
-            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/t1.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/szurkeben/t1.jpg");
             ui->term1->setPixmap(pix1);
         }
     }
@@ -730,7 +742,7 @@ void jatekFelulet::on_buttonKep5_clicked()
         int answer = getAnswerForBuying();
         if(answer == 1)
         {
-            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/t2.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/szurkeben/t2.jpg");
             ui->term1->setPixmap(pix1);
         }
     }
@@ -747,7 +759,7 @@ void jatekFelulet::on_buttonKep6_clicked()
         int answer = getAnswerForBuying();
         if(answer == 1)
         {
-            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/háttér2.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/szurkeben/háttér2.jpg");
             ui->term1->setPixmap(pix1);
         }
     }
@@ -763,7 +775,7 @@ void jatekFelulet::on_buttonKep7_clicked()
         int answer = getAnswerForBuying();
         if(answer == 1)
         {
-            QPixmap pix1(":resource/img/Termeszeti/Kicsiben/szurkeben/t5.jpg");
+            QPixmap pix1(":resource/img/Termeszeti2/Kicsiben/szurkeben/t5.jpg");
             ui->term1->setPixmap(pix1);
         }
     }
@@ -796,7 +808,7 @@ void jatekFelulet::on_tortnelmiKartyaTema_clicked()
 
 void jatekFelulet::on_termKartyaTema_clicked()
 {
-    kartyaTema = 2; // termeszeti
+    kartyaTema = 2; // Termeszeti2
     ui->stackedWidget->setCurrentIndex(3);
     ui->pontPush->hide();
     ui->KartyaPush->hide();
