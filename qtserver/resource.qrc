@@ -139,4 +139,30 @@
     </qresource>
     <qresource prefix="/Myfile"/>
     <qresource prefix="/bacground"/>
+    <qresource prefix="/">
+        <file>img/infoKepek/it1.jpg</file>
+        <file>img/infoKepek/it2.jpg</file>
+        <file>img/infoKepek/it3.jpg</file>
+        <file>img/infoKepek/it4.jpg</file>
+        <file>img/infoKepek/it5.jpg</file>
+        <file>img/infoKepek/it6.jpeg</file>
+        <file>img/infoKepek/szurke/it1.png</file>
+        <file>img/infoKepek/szurke/it2.png</file>
+        <file>img/infoKepek/szurke/it3.png</file>
+        <file>img/infoKepek/szurke/it4.png</file>
+        <file>img/infoKepek/szurke/it5.png</file>
+        <file>img/infoKepek/szurke/it6.png</file>
+        <file>img/irodalomKepek/irodalom1.jpg</file>
+        <file>img/irodalomKepek/irodalom2.jpg</file>
+        <file>img/irodalomKepek/irodalom3.jpg</file>
+        <file>img/irodalomKepek/irodalom4.jpg</file>
+        <file>img/irodalomKepek/irodalom5.jpg</file>
+        <file>img/irodalomKepek/irodalom6.jpg</file>
+        <file>img/irodalomKepek/szurke/irodalom1.png</file>
+        <file>img/irodalomKepek/szurke/irodalom2.png</file>
+        <file>img/irodalomKepek/szurke/irodalom3.png</file>
+        <file>img/irodalomKepek/szurke/irodalom4.png</file>
+        <file>img/irodalomKepek/szurke/irodalom5.png</file>
+        <file>img/irodalomKepek/szurke/irodalom6.png</file>
+    </qresource>
 </RCC>

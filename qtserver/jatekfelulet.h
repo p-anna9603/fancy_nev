@@ -75,6 +75,12 @@ private slots:
 
     void on_termKartyaTema_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_buttonKep2_2_clicked();
+
 private:
     Ui::jatekFelulet *ui;
     DatabaseConnection *db;
